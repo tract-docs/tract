@@ -8,8 +8,13 @@ description = "A Hugo theme for ambitious documentation projects"
 [[params.buttons.main]]
 text = "Get started"
 url = "/docs/getting-started"
-color = "primary"
 icon = "fas fa-rocket"
+size = "medium"
+
+[[params.buttons.main]]
+text = "Docs"
+url = "/docs"
+icon = "fas fa-book-open"
 
 [params.social.github]
 name = "GitHub"

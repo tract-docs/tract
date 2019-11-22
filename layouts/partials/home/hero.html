@@ -17,16 +17,17 @@
       {{ with $buttons }}
       <div class="buttons">
         {{ range . }}
-        {{ $color          := .color | default "white" }}
+        {{ $color          := .color | default "primary" }}
         {{ $isExternalLink := hasPrefix .url "http" }}
-        <a class="button is-{{ $color }} is-borderless is-radiusless is-outlined is-inverted" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
+        {{ $text           := .text | markdownify }}
+        <a class="button{{ with .size }} is-{{ . }}{{ end }} is-{{ $color }} is-borderless is-radiusless is-outlined is-inverted" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
           {{ with .icon }}
           <span class="icon">
             <i class="{{ . }}"></i>
           </span>
           {{ end }}
           <span>
-            {{ .text }}
+            {{ $text }}
           </span>
         </a>
         {{ end }}
