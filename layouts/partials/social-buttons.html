@@ -1,5 +1,6 @@
 {{ range .social }}
-<a class="button{{ with .color }} is-{{ . }}{{ end }} is-radiusless">
+{{ $isExternalLink := hasPrefix .url "http" }}
+<a class="button{{ with .color }} is-{{ . }}{{ end }} is-radiusless" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
   {{ with .icon }}
   <span class="icon">
     <i class="{{ . }}"></i>
