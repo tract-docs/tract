@@ -17,3 +17,6 @@ preview-build:
 		--buildDrafts \
 		--buildFuture \
 		--minify
+
+open:
+	open https://tract-docs.netlify.com
