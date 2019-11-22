@@ -15,21 +15,24 @@
 @import url({{ $fontAwesomeUrl }})
 
 // Site-specific variables
-$nsm-red: #f12711
-$nsm-dark-orange: #f34b13
-$nsm-light-orange: #f37914
-$nsm-dark-blue: #0a50e6
-$nsm-light-blue: #0da9eb
+$tract-magenta: #c51162
+
+// General-use variables
 $twitter-blue: rgb(29, 161, 242)
 
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/functions"
 
 // Bulma variable overrides
+$primary: $tract-magenta
 $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $family-monospace: "{{ $monospaceFont }}", monospace
 
 @import "bulma/sass/utilities/derived-variables"
+
+$colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white)))
+
 @import "bulma/bulma"
 
 // Site-specific logic
+

@@ -1,0 +1,34 @@
+{{ $home   := site.BaseURL }}
+{{ $title  := site.Title }}
+{{ $social := site.Params.social }}
+<nav class="navbar is-primary is-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ $home }}">
+        {{ $title }}
+      </a>
+
+      {{ if or $social }}
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      {{ end }}
+    </div>
+
+    <div class="navbar-menu" id="navbar-menu">
+      <div class="navbar-end">
+        {{ with $social }}  
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              {{ partial "social-buttons.html" (dict "social" .) }}
+            </p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,14 @@
+{{ range .social }}
+<a class="button{{ with .color }} is-{{ . }}{{ end }} is-radiusless">
+  {{ with .icon }}
+  <span class="icon">
+    <i class="{{ . }}"></i>
+  </span>
+  {{ end }}
+  {{ with .name }}
+  <span>
+    {{ . }}
+  </span>
+  {{ end }}
+</a>
+{{ end }}
