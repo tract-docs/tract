@@ -1,0 +1,15 @@
+title = "Tract"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+font_awesome_version = "5.11.2"
+
+[[params.fonts]]
+name = "Nunito Sans"
+sizes = [300, 400, 600, 700]
+type = "sans_serif"
+
+[[params.fonts]]
+name = "Roboto Mono"
+sizes = [300, 400, 600, 700]
+type = "monospace"
