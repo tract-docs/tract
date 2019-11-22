@@ -1,7 +1,7 @@
 {{ $title   := site.Title }}
 {{ $desc    := site.Params.description | markdownify }}
 {{ $buttons := site.Params.buttons.main }}
-<section class="hero is-primary is-medium">
+<section class="hero is-primary is-fullheight">
   <div class="hero-body">
     <div class="container">
       <p class="title is-size-1 is-size-2-mobile has-text-weight-light{{ if $desc }} is-spaced{{ end }}">
@@ -9,7 +9,7 @@
       </p>
 
       {{ with $desc }}
-      <p class="subtitle">
+      <p class="subtitle is-size-3 is-size-4-mobile has-text-weight-light">
         {{ . }}
       </p>
       {{ end }}
