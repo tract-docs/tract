@@ -1,5 +1,6 @@
-{{ $title := site.Title }}
-{{ $desc  := site.Params.description | markdownify }}
+{{ $title   := site.Title }}
+{{ $desc    := site.Params.description | markdownify }}
+{{ $buttons := site.Params.buttons.main }}
 <section class="hero is-primary is-medium">
   <div class="hero-body">
     <div class="container">
@@ -11,6 +12,25 @@
       <p class="subtitle">
         {{ . }}
       </p>
+      {{ end }}
+
+      {{ with $buttons }}
+      <div class="buttons">
+        {{ range . }}
+        {{ $color          := .color | default "white" }}
+        {{ $isExternalLink := hasPrefix .url "http" }}
+        <a class="button is-{{ $color }} is-borderless is-radiusless is-outlined is-inverted" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
+          {{ with .icon }}
+          <span class="icon">
+            <i class="{{ . }}"></i>
+          </span>
+          {{ end }}
+          <span>
+            {{ .text }}
+          </span>
+        </a>
+        {{ end }}
+      </div>
       {{ end }}
     </div>
   </div>
