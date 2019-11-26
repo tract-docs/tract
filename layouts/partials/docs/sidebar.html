@@ -1,26 +1,18 @@
-{{ $repo     := site.Params.github_repo }}
-{{ $editUrl  := printf "%s/edit/master/content/%s" $repo .File }}
+{{ $title := site.Title }}
 <div class="dashboard-panel left has-background-primary is-hidden-touch">
   <div class="dashboard-panel-header block">
     <p class="title is-size-3 has-text-white">
-      {{ site.Title }}
+      {{ $title }}
     </p>
   </div>
 
   <div class="dashboard-panel-main">
-    
+    {{ partial "docs/nav.html" . }}
   </div>
 
   <div class="dashboard-panel-footer">
     <div class="buttons">
-      <a class="button is-black has-text-weight-bold" href="{{ $editUrl }}" target="_blank">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-        <span>
-          Edit
-        </span>
-      </a>
+      {{ partial "docs/edit-button.html" . }}
     </div>
   </div>
 </div>

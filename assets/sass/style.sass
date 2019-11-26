@@ -66,6 +66,31 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 
 // Docs dashboard
 $dashboard-panel-width-left: 20rem
-$dashboard-panel-padding: 1.5rem
+$dashboard-panel-padding: 2rem
 
 @import "bulma-dashboard/src/bulma-dashboard"
+
+.nav
+  &-section
+    & + &
+      margin-top: .75rem
+
+    a
+      display: block
+      color: $white
+
+      &:hover
+        color: $light
+
+    &-title
+      font-size: 1.25rem
+
+    &-pages
+      margin-left: 1rem
+
+      &-title
+        color: $light
+
+      &-sub
+        &-link
+          color: $white

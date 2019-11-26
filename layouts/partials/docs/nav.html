@@ -1,0 +1,59 @@
+{{ $docsSections := where site.Sections "Section" "docs" }}
+<div class="nav">
+  {{ range $docsSections }}
+  <div class="nav-section">
+    <a class="nav-section-title">
+      {{ with .Params.icon }}
+      <span class="icon">
+        <i class="{{ . }}"></i>
+      </span>
+      {{ end }}
+      <span>
+        {{ .Title }}
+      </span>
+    </a>
+
+    {{ with .RegularPages }}
+    <div class="nav-section-pages">
+      {{ range . }}
+      <a class="nav-section-pages-title" href="{{ .RelPermalink }}">
+        {{ with .Params.icon }}
+        <span class="icon">
+          <i class="{{ . }}"></i>
+        </span>
+        {{ end }}
+        <span>
+          {{ .Title }}
+        </span>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+  {{ range .Sections }}
+  <div class="nav-section">
+    <a class="nav-section-title" href="{{ .RelPermalink }}">
+      {{ with .Params.icon }}
+      <span class="icon">
+        <i class="{{ . }}"></i>
+      </span>
+      {{ end }}
+      <span>
+        {{ .Title }}
+      </span>
+    </a>
+
+    {{ with .RegularPages }}
+    <div class="nav-section-pages">
+      {{ range . }}
+      <a class="nav-section-pages-title" href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+</div>
