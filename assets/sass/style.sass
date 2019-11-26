@@ -9,6 +9,7 @@
 {{ $monospaceFont := (index (where site.Params.fonts ".type" "monospace") 0).name | default $defaults.monospace_font }}
 {{ $fontAwesomeVersion := site.Params.font_awesome_version }}
 {{ $fontAwesomeUrl     := printf "https://use.fontawesome.com/releases/v%s/css/all.css" $fontAwesomeVersion }}
+{{ $texture            := site.Params.hero.texture }}
 
 @charset "utf-8"
 @import url({{ $fontsUrl }})
@@ -36,6 +37,24 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 
 @import "bulma/bulma"
 
+{{ with $texture }}
+{{ $slug := . | urlize }}
+{{ $url := printf "https://www.transparenttextures.com/patterns/%s.png" $slug }}
+.home-hero
+  background-image: url({{ $url }})
+{{ end }}
+
+=flex
+  display: flex
+
+=column
+  +flex
+  flex-direction: column
+
+=row
+  +flex
+  flex-direction: row
+
 // Site-specific logic
 .page
   display: flex
@@ -45,5 +64,8 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
   .main
     flex: 1
 
-.hero
-  background-image: url(https://www.transparenttextures.com/patterns/bright-squares.png)
+// Docs dashboard
+$dashboard-panel-width-left: 20rem
+$dashboard-panel-padding: 1.5rem
+
+@import "bulma-dashboard/src/bulma-dashboard"

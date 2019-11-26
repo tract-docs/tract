@@ -3,13 +3,16 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
 font_awesome_version = "5.11.2"
-description = "A Hugo theme for ambitious documentation projects"
+description = "A Hugo theme for ambitious open source projects"
+github_repo = "https://github.com/tract-docs/tract-hugo-theme"
+
+[params.hero]
+texture = "Bright Squares"
 
 [[params.buttons.main]]
 text = "Get started"
 url = "/docs/getting-started"
 icon = "fas fa-rocket"
-size = "medium"
 
 [[params.buttons.main]]
 text = "Docs"
