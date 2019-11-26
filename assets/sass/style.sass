@@ -40,7 +40,7 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 {{ with $texture }}
 {{ $slug := . | urlize }}
 {{ $url := printf "https://www.transparenttextures.com/patterns/%s.png" $slug }}
-.home-hero
+.home-hero, .dashboard-panel.left
   background-image: url({{ $url }})
 {{ end }}
 
