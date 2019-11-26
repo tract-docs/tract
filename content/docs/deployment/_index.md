@@ -1,6 +1,6 @@
 ---
 title: Deployment
-icon: fas fa-wrench
+weight: 1
 ---
 
 Something

@@ -7,6 +7,15 @@ function navbarMenu() {
   });
 }
 
+function docsDrawer() {
+  const trigger = $('#docs-drawer-trigger');
+
+  trigger.click((e) => {
+    
+  });
+}
+
 $(function() {
   navbarMenu();
+  docsDrawer();
 });

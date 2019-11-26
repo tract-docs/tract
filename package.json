@@ -1,6 +1,6 @@
 {
   "devDependencies": {
     "bulma": "^0.8.0",
-    "bulma-dashboard": "0.2.2"
+    "bulma-dashboard": "0.2.22"
   }
 }

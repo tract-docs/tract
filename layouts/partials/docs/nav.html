@@ -3,28 +3,14 @@
   {{ range $docsSections }}
   <div class="nav-section">
     <a class="nav-section-title">
-      {{ with .Params.icon }}
-      <span class="icon">
-        <i class="{{ . }}"></i>
-      </span>
-      {{ end }}
-      <span>
-        {{ .Title }}
-      </span>
+      {{ .Title }}
     </a>
 
     {{ with .RegularPages }}
     <div class="nav-section-pages">
       {{ range . }}
-      <a class="nav-section-pages-title" href="{{ .RelPermalink }}">
-        {{ with .Params.icon }}
-        <span class="icon">
-          <i class="{{ . }}"></i>
-        </span>
-        {{ end }}
-        <span>
-          {{ .Title }}
-        </span>
+      <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
+        {{ .Title }}
       </a>
       {{ end }}
     </div>
@@ -34,20 +20,13 @@
   {{ range .Sections }}
   <div class="nav-section">
     <a class="nav-section-title" href="{{ .RelPermalink }}">
-      {{ with .Params.icon }}
-      <span class="icon">
-        <i class="{{ . }}"></i>
-      </span>
-      {{ end }}
-      <span>
-        {{ .Title }}
-      </span>
+      {{ .Title }}
     </a>
 
     {{ with .RegularPages }}
     <div class="nav-section-pages">
       {{ range . }}
-      <a class="nav-section-pages-title" href="{{ .RelPermalink }}">
+      <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
       {{ end }}

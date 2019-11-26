@@ -55,18 +55,9 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
   +flex
   flex-direction: row
 
-// Site-specific logic
-.page
-  display: flex
-  flex-direction: column
-  min-height: 100vh
-
-  .main
-    flex: 1
-
 // Docs dashboard
 $dashboard-panel-width-left: 20rem
-$dashboard-panel-padding: 2rem
+$dashboard-main-padding: none
 
 @import "bulma-dashboard/src/bulma-dashboard"
 
@@ -83,14 +74,14 @@ $dashboard-panel-padding: 2rem
         color: $light
 
     &-title
-      font-size: 1.25rem
+      font-size: 1.3rem
 
     &-pages
+      margin-top: .5rem
       margin-left: 1rem
 
-      &-title
-        color: $light
+      &-link
+        font-size: 1rem
 
-      &-sub
-        &-link
-          color: $white
+        & + &
+          margin-top: .25rem

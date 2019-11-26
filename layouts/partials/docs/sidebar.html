@@ -1,9 +1,10 @@
+{{ $home  := site.BaseURL }}
 {{ $title := site.Title }}
 <div class="dashboard-panel left has-background-primary is-hidden-touch">
   <div class="dashboard-panel-header block">
-    <p class="title is-size-3 has-text-white">
+    <a class="title is-size-3 has-text-white" href="{{ $home }}">
       {{ $title }}
-    </p>
+    </a>
   </div>
 
   <div class="dashboard-panel-main">
