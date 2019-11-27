@@ -1,5 +1,4 @@
-{{ $repo     := site.Params.github_repo }}
-{{ $editUrl  := printf "%s/edit/master/content/%s" $repo .File }}
+{{ $editUrl  := printf "https://github.com/%s/edit/master/content/%s" .repo .filepath }}
 <a class="button is-black is-small" href="{{ $editUrl }}" target="_blank">
   <span class="icon">
     <i class="fab fa-github"></i>
