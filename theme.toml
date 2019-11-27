@@ -1,1 +1,12 @@
 name = "Tract"
+license = "Apache 2.0"
+licenselink = "https://github.com/tract-docs/tract/blob/master/LICENSE"
+description = "A Hugo theme for ambitious open source projects"
+homepage = "https://tract-docs.dev"
+tags = ["docs"]
+features = []
+min_version = 0.60
+
+[author]
+name = "Luc Perkins"
+homepage = "https://lucperkins.dev"
