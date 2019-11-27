@@ -9,23 +9,25 @@
     </div>
   </nav>
 
-  {{ partial "docs/hero.html" . }}
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        {{ partial "docs/hero.html" . }}
 
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <div class="content">
-            {{ .Content }}
+        <section class="section">
+          <div class="container">
+            <div class="content">
+              {{ .Content }}
+            </div>
           </div>
-        </div>
+        </section>
+      </div>
 
-        <div class="column is-one-quarter is-hidden-mobile">
-          {{ with .TableOfContents }}
-          {{ . }}
-          {{ end }}
-        </div>
+      <div class="column is-one-quarter">
+        <section class="section">
+          {{ .TableOfContents }}
+        </section>
       </div>
     </div>
-  </section>
+  </div>
 </div>

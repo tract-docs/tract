@@ -1,8 +1,18 @@
 {{ $title := .Title }}
 {{ $desc  := .Params.description | markdownify }}
+{{ $tags  := .Params.tags }}
 <section class="hero">
   <div class="hero-body">
     <div class="container">
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="#">Bulma</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Components</a></li>
+          <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+        </ul>
+      </nav>
+
       <p class="title is-size-2 is-size-3-mobile has-text-weight-bold{{ if $desc }} is-spaced{{ end }}">
         {{ $title }}
       </p>
@@ -11,6 +21,19 @@
       <p class="subtitle is-size-5 is-size-6-mobile">
         {{ . }}
       </p>
+      {{ end }}
+
+      {{ with $tags }}
+      <div class="tags">
+        {{ range . }}
+        {{ $url := printf "tags/%s" . | relURL }}
+        <div class="tag">
+          <a href="{{ $url }}">
+            {{ . }}
+          </a>
+        </div>
+        {{ end }}
+      </div>
       {{ end }}
     </div>
   </div>
