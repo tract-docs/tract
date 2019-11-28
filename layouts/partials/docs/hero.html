@@ -1,19 +1,12 @@
 {{ $title := .Title }}
 {{ $desc  := .Params.description | markdownify }}
 {{ $tags  := .Params.tags }}
-<section class="hero">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><a href="#">Bulma</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Components</a></li>
-          <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
-        </ul>
-      </nav>
+      {{ partial "docs/breadcrumb.html" . }}
 
-      <p class="title is-size-2 is-size-3-mobile has-text-weight-bold{{ if $desc }} is-spaced{{ end }}">
+      <p class="title is-size-2 has-text-weight-bold{{ if $desc }} is-spaced{{ end }}">
         {{ $title }}
       </p>
 
@@ -24,14 +17,12 @@
       {{ end }}
 
       {{ with $tags }}
-      <div class="tags">
+      <div class="buttons">
         {{ range . }}
         {{ $url := printf "tags/%s" . | relURL }}
-        <div class="tag">
-          <a href="{{ $url }}">
-            {{ . }}
-          </a>
-        </div>
+        <a class="button is-small is-rounded is-primary is-light" href="{{ $url }}">
+          #{{ . }}
+        </a>
         {{ end }}
       </div>
       {{ end }}
