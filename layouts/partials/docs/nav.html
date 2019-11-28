@@ -2,7 +2,7 @@
 <div class="nav">
   {{ range $docsSections }}
   <div class="nav-section">
-    <a class="nav-section-title">
+    <a class="nav-section-title" href="{{ .RelPermalink }}">
       {{ .Title }}
     </a>
 

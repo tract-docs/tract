@@ -1,9 +1,11 @@
 {{ $here := .RelPermalink }}
+{{ if ne .CurrentSection .FirstSection }}
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
     {{ template "breadcrumb" (dict "p1" . "p2" .) }}
   </ul>
 </nav>
+{{ end }}
 
 {{ define "breadcrumb" }}
 {{ if .p1.Parent }}
