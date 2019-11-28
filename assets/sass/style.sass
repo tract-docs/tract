@@ -31,10 +31,12 @@ $secondary: $tract-orange
 $link: $primary
 $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $family-monospace: "{{ $monospaceFont }}", monospace
+$box-padding: 1rem
 
 @import "bulma/sass/utilities/derived-variables"
 
 $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "secondary": ($secondary, $white), "magenta": ($tract-magenta, $white)))
+//$box-shadow: none
 
 @import "bulma/bulma"
 
