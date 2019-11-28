@@ -2,19 +2,23 @@
 {{ $date   := dateFormat "January 2, 2006 at 15:04 MST" .AuthorDate }}
 {{ $author := .AuthorName }}
 {{ $url    := printf "https://github.com/%s" $author }}
+<hr class="extra-padding" />
+
 <nav class="level">
   <div class="level-left">
     {{ with $author }}
     {{ $img := printf "https://github.com/%s.png" . }}
     <div class="level-item">
-      <figure class="image is-64x64">
+      <figure class="image is-48x48">
         <img class="is-rounded" src="{{ $img }}" alt="GitHub avatar for {{ $author }}">
       </figure>
     </div>
     {{ end }}
     {{ if and $date $author }}
     <div class="level-item has-text-weight-light">
-      Document last updated&nbsp;<span class="has-text-weight-medium">{{ $date }}</span>&nbsp;by&nbsp;<a href="{{ $url }}" target="_blank">{{ $author }}</a>.
+      <span>
+        Document last updated <span class="has-text-weight-medium">{{ $date }}</span> by <a href="{{ $url }}" target="_blank">{{ $author }}</a>.
+      </span>
     </div>
     {{ end }}
   </div>

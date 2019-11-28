@@ -1,11 +1,9 @@
 {{ $here := .RelPermalink }}
-{{ if ne .CurrentSection .FirstSection }}
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
     {{ template "breadcrumb" (dict "p1" . "p2" .) }}
   </ul>
 </nav>
-{{ end }}
 
 {{ define "breadcrumb" }}
 {{ if .p1.Parent }}
@@ -17,7 +15,7 @@
 {{ end }}
 {{ $isCurrent := eq .p1 .p2 }}
 <li{{ if $isCurrent }} class="is-active"{{ end }}>
-  <a{{ if $isCurrent }} class="has-text-weight-bold"{{ end }} href="{{ .p1.RelPermalink }}">
+  <a{{ if $isCurrent }} class="has-text-weight-medium"{{ end }} href="{{ .p1.RelPermalink }}">
     {{ .p1.Title }}
   </a>
 </li>

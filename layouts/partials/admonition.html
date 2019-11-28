@@ -1,0 +1,24 @@
+<div class="admonition is-{{ .type }}">
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="icon">
+          <ion-icon name="{{ .icon }}"></ion-icon>
+        </span>
+      </div>
+
+      <div class="level-item">
+        <div class="content">
+          {{ with .title }}
+          <p class="title">
+            {{ . | markdownify }}
+          </p>
+          {{ end }}
+
+          {{ .content | markdownify }}
+        </div>
+      </div>
+    </div>
+  </nav>  
+</div>
+

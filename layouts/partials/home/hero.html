@@ -23,7 +23,7 @@
         <a class="button{{ with .size }} is-{{ . }}{{ end }} is-{{ $color }} is-borderless is-radiusless is-outlined is-inverted" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
           {{ with .icon }}
           <span class="icon">
-            <i class="{{ . }}"></i>
+            <ion-icon name="{{ . }}"></ion-icon>
           </span>
           {{ end }}
           <span>

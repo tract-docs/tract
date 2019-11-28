@@ -10,6 +10,3 @@ min_version = 0.60
 [author]
 name = "Luc Perkins"
 homepage = "https://lucperkins.dev"
-
-[params]
-texture = "Bright squares"

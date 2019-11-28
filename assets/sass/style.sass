@@ -7,13 +7,10 @@
 {{ $fontsUrl := printf "https://fonts.googleapis.com/css?family=%s" (delimit $fontSlice "|") }}
 {{ $sansSerifFont := (index (where site.Params.fonts ".type" "sans_serif") 0).name | default $defaults.sans_serif_font }}
 {{ $monospaceFont := (index (where site.Params.fonts ".type" "monospace") 0).name | default $defaults.monospace_font }}
-{{ $fontAwesomeVersion := site.Params.font_awesome_version | default $defaults.font_awesome_version }}
-{{ $fontAwesomeUrl     := printf "https://use.fontawesome.com/releases/v%s/css/all.css" $fontAwesomeVersion }}
 {{ $texture            := site.Params.texture }}
 
 @charset "utf-8"
 @import url({{ $fontsUrl }})
-@import url({{ $fontAwesomeUrl }})
 
 // Site-specific variables
 $tract-magenta: #c51162
@@ -28,6 +25,10 @@ $twitter-blue: rgb(29, 161, 242)
 // Bulma variable overrides
 $primary: $tract-magenta
 $secondary: $tract-orange
+$red: #ff1744
+$orange: #ff9100
+$yellow: #ffd740
+$green: #00e676
 $link: $primary
 $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $family-monospace: "{{ $monospaceFont }}", monospace
@@ -36,7 +37,6 @@ $box-padding: 1rem
 @import "bulma/sass/utilities/derived-variables"
 
 $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "secondary": ($secondary, $white), "magenta": ($tract-magenta, $white)))
-//$box-shadow: none
 
 @import "bulma/bulma"
 
@@ -88,3 +88,37 @@ $dashboard-main-padding: none
 
         & + &
           margin-top: .25rem
+
+hr.extra-padding
+  margin: 4rem 0
+
+=admonition($color)
+  margin: 1.5rem 0
+  border: 1.5px solid $color
+  border-radius: 5px
+  padding: 1rem
+
+  .title
+    font-size: 1.25rem
+    margin-bottom: 1rem
+
+  .icon
+    font-size: 1.5rem
+
+    +desktop
+      margin-right: .75rem
+
+  .icon
+    color: $color
+
+.admonition
+  &.is-danger
+    +admonition($danger)
+  &.is-info
+    +admonition($info)
+  &.is-requirement
+    +admonition($grey)
+  &.is-success
+    +admonition($success)
+  &.is-warning
+    +admonition($warning)
