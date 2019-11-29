@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="{{ $lang }}">
   <head>
+    {{ partial "meta.html" . }}
+    <title>
+      {{ block "main" . }}
+      {{ site.Title }}
+      {{ end }}
+    </title>
     {{ partial "css.html" . }}
   </head>
   <body class="page">
