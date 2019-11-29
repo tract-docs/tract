@@ -1,0 +1,36 @@
+$drawer-width: 100% !default
+$drawer-transition-duration: .2s !default
+$drawer-panel-padding: 1rem !default
+$drawer-z-index: 1000 !default
+$drawer-opacity: .5 !default
+$drawer-toggle-size: 1.5rem
+
+#drawer-toggle
+  cursor: pointer
+  font-size: $drawer-toggle-size
+
+=transition
+  transition: all $drawer-transition-duration
+
+.canvas
+  +transition
+
+  &.is-pushed
+    margin-left: $drawer-width
+    left: $drawer-width
+
+  &.is-opaque
+    opacity: $drawer-opacity
+
+.drawer
+  +transition
+  top: $navbar-height
+  z-index: $drawer-z-index
+  background-color: $white
+  position: fixed
+  width: $drawer-width
+  left: -#{$drawer-width}
+  height: 100vh
+
+  &.is-visible
+    left: 0

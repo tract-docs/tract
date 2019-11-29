@@ -1,0 +1,15 @@
+{{ $title := site.Title }}
+{{ $home  := site.BaseURL }}
+<nav class="navbar is-primary is-fixed-top">
+  <div class="navbar-brand">
+    <div class="navbar-item is-hidden-tablet">
+      <span class="icon is-large drawer-toggle" id="drawer-toggle">
+        <ion-icon class="ion-ionic" name="menu"></ion-icon>
+      </span>
+    </div>
+
+    <a class="navbar-item has-text-weight-bold" href="{{ $home }}">
+        {{ $title }}
+      </a>
+  </div>
+</nav>

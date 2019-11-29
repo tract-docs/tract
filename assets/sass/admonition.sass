@@ -1,0 +1,31 @@
+=admonition($color)
+  margin: 1.5rem 0
+  border: 1.5px solid $color
+  border-radius: 5px
+  padding: 1.5rem 2rem
+  font-size: 1.1rem
+
+  .title
+    font-size: 1.35rem
+    margin-bottom: 1rem
+
+  .icon
+    font-size: 1.75rem
+
+    +desktop
+      margin-right: .75rem
+
+  .icon
+    color: $color
+
+.admonition
+  &.is-danger
+    +admonition($danger)
+  &.is-info
+    +admonition($info)
+  &.is-requirement
+    +admonition($grey)
+  &.is-success
+    +admonition($success)
+  &.is-warning
+    +admonition($warning)

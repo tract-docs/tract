@@ -36,6 +36,7 @@ $link: $primary
 $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $family-monospace: "{{ $monospaceFont }}", monospace
 $box-padding: 1rem
+$navbar-height: 4rem
 
 @import "bulma/sass/utilities/derived-variables"
 
@@ -46,7 +47,7 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 {{ with $texture }}
 {{ $slug := . | urlize }}
 {{ $url := printf "https://www.transparenttextures.com/patterns/%s.png" $slug }}
-.home-hero, .dashboard-panel.left
+.home-hero, .navbar
   background-image: url({{ $url }})
 {{ end }}
 
@@ -61,26 +62,30 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
   +flex
   flex-direction: row
 
+=fill
+  flex: 1
+
+@import "admonition"
 @import "dashboard"
+@import "drawer"
 
-$git-info-icon-right-margin: 1.25rem
+$docs-content-desktop-width: 75%
 
-.level.git-info
-  .level-item
-    &:nth-of-type(1)
-      margin-right: $git-info-icon-right-margin
+.docs-content
+  +desktop
+    width: $docs-content-desktop-width
 
 .nav
+  height: 100%
+  padding: 1rem
+  background-color: $white-bis
+
   &-section
     & + &
       margin-top: .75rem
 
-    a
-      display: block
-      color: $white
-
       &:hover
-        color: $light
+        color: $black
 
     &-title
       font-size: 1.3rem
@@ -95,41 +100,5 @@ $git-info-icon-right-margin: 1.25rem
         & + &
           margin-top: .25rem
 
-.column.is-tiny
-  width: 2.5rem
-
 hr.extra-padding
   margin: 4rem 0
-
-=admonition($color)
-  margin: 1.5rem 0
-  border: 1.5px solid $color
-  border-radius: 5px
-  padding: 1rem
-
-  .title
-    font-size: 1.25rem
-    margin-bottom: 1rem
-
-  .icon
-    font-size: 1.5rem
-
-    +desktop
-      margin-right: .75rem
-
-  .icon
-    color: $color
-
-.admonition
-  position: relative
-
-  &.is-danger
-    +admonition($danger)
-  &.is-info
-    +admonition($info)
-  &.is-requirement
-    +admonition($grey)
-  &.is-success
-    +admonition($success)
-  &.is-warning
-    +admonition($warning)

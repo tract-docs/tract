@@ -15,13 +15,6 @@ function docsDrawer() {
   });
 }
 
-function addAnchors() {
-  anchors.options = {
-    icon: '#'
-  }
-  anchors.add('.content h1, .content h2, .content h3, .content h4');
-}
-
 function tableOfContents() {
   tocbot.init({
     tocSelector: '.toc',
@@ -30,9 +23,14 @@ function tableOfContents() {
   });
 }
 
+function docsDrawer() {
+  $('#drawer-toggle').click(() => {
+    $('#drawer').toggleClass('is-visible');
+  });
+}
+
 $(function() {
   navbarMenu();
-  docsDrawer();
-  addAnchors();
   tableOfContents();
+  docsDrawer();
 });

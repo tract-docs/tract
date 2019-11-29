@@ -8,11 +8,15 @@
 
     {{ with .RegularPages }}
     <div class="nav-section-pages">
-      {{ range . }}
-      <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
-      {{ end }}
+      <ul>
+        {{ range . }}
+        <li>
+          <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
     </div>
     {{ end }}
   </div>
