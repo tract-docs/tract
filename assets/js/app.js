@@ -22,8 +22,17 @@ function addAnchors() {
   anchors.add('.content h1, .content h2, .content h3, .content h4');
 }
 
+function tableOfContents() {
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.content',
+    scrollSmooth: true
+  });
+}
+
 $(function() {
   navbarMenu();
   docsDrawer();
   addAnchors();
+  tableOfContents();
 });
