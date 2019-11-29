@@ -64,6 +64,13 @@ $dashboard-main-padding: none
 
 @import "bulma-dashboard/src/bulma-dashboard"
 
+$git-info-icon-right-margin: 1.25rem
+
+.level.git-info
+  .level-item
+    &:nth-of-type(1)
+      margin-right: $git-info-icon-right-margin
+
 .nav
   &-section
     & + &
@@ -112,6 +119,8 @@ hr.extra-padding
     color: $color
 
 .admonition
+  position: relative
+
   &.is-danger
     +admonition($danger)
   &.is-info
