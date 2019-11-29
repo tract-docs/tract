@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-bulma-dashboard@0.2.22:
-  version "0.2.22"
-  resolved "https://registry.yarnpkg.com/bulma-dashboard/-/bulma-dashboard-0.2.22.tgz#50f67f2aa089ee9219b3375bd00cd13dbc8e5d76"
-  integrity sha512-J9tmVRkiXJxDPuFo+2MxbHwlPmVK+rjJh2Xbg89pK2d/LciZBo1SifnofRn0RdQel5W1O3JQSxYOySVwCWb3Bw==
-
 bulma@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.0.tgz#ac1606431703a4761b18a4a2d5cc1fa864a2aece"

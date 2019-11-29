@@ -1,0 +1,18 @@
+.dashboard
+  +column
+  height: 100vh
+
+  &-main
+    +row
+    padding-top: $navbar-height
+    height: 100%
+
+    &-panel
+      flex: 1
+      height: 100%
+
+      &.is-scrollable
+        overflow-y: auto
+
+      &.left
+        background-color: $primary
