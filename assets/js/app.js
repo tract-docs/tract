@@ -7,14 +7,6 @@ function navbarMenu() {
   });
 }
 
-function docsDrawer() {
-  const trigger = $('#docs-drawer-trigger');
-
-  trigger.click((e) => {
-    
-  });
-}
-
 function tableOfContents() {
   tocbot.init({
     tocSelector: '.toc',
@@ -25,7 +17,11 @@ function tableOfContents() {
 
 function docsDrawer() {
   $('#drawer-toggle').click(() => {
-    $('#drawer').toggleClass('is-visible');
+    $('#nav-modal').addClass('is-active');
+  });
+
+  $('#nav-modal-close').click(() => {
+    $('#nav-modal').removeClass('is-active');
   });
 }
 
