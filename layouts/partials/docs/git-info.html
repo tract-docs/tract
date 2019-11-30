@@ -2,8 +2,6 @@
 {{ $date   := dateFormat "January 2, 2006 at 15:04 MST" .AuthorDate }}
 {{ $author := .AuthorName }}
 {{ $url    := printf "https://github.com/%s" $author }}
-<hr class="extra-padding" />
-
 <nav class="level git-info">
   <div class="level-left">
     {{ with $author }}
