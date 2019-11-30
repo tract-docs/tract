@@ -16,9 +16,6 @@
 $tract-magenta: #c51162
 $tract-orange: #ffab00
 
-.toc
-  position: fixed
-
 // General-use variables
 $twitter-blue: rgb(29, 161, 242)
 $slack-aubergine: rgb(74, 21, 75)
@@ -40,13 +37,21 @@ $box-padding: 1rem
 $navbar-height: 4rem
 $modal-card-head-radius: 0
 $modal-card-foot-radius: 0
-$modal-background-background-color: $primary
+$modal-background-background-color: $white
+$section-padding: 0 1.5rem
 
 $nav-background-color: $primary
 
 @import "bulma/sass/utilities/derived-variables"
 
 $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "secondary": ($secondary, $white), "magenta": ($tract-magenta, $white), "slack-aubergine": ($slack-aubergine, $white)))
+$sidebar-border: 1.5px solid $grey-lighter
+
+.modal
+  padding-top: 2rem
+
+.docs-content
+  padding-bottom: 5rem
 
 @import "bulma/bulma"
 
@@ -73,48 +78,4 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 
 @import "admonition"
 @import "dashboard"
-
-$docs-content-desktop-width: 75%
-
-.docs-content
-  +desktop
-    width: $docs-content-desktop-width
-
-
-.pagination + .git-info
-  margin-top: 5rem
-
-
-.nav
-  background-color: $nav-background-color
-  height: 100%
-  padding: 1rem
-
-  a
-    color: $white
-
-    &:hover
-      color: invert($white)
-
-  &-section
-    & + &
-      margin-top: .75rem
-
-      &:hover
-        color: $black
-
-    &-title
-      font-size: 1.3rem
-
-    &-pages
-      margin-top: .5rem
-      margin-left: 1rem
-
-      &-link
-        font-size: 1rem
-
-        & + &
-          margin-top: .25rem
-
-hr.extra-padding
-  margin: 4rem 0
+@import "nav"

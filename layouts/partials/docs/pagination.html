@@ -1,7 +1,7 @@
 {{ if or .PrevInSection .NextInSection }}
-<div class="pagination is-right">
+<div class="pagination">
   {{ with .NextInSection }}
-  <a class="button is-primary is-outlined is-radiusless" href="{{ .RelPermalink }}">
+  <a class="pagination-previous button is-primary is-outlined is-radiusless" href="{{ .RelPermalink }}">
     <span class="icon">
       <ion-icon name="arrow-back"></ion-icon>
     </span>
@@ -14,7 +14,7 @@
   <ul class="pagination-list"></ul>
 
   {{ with .PrevInSection }}
-  <a class="button is-primary is-outlined is-radiusless" href="{{ .RelPermalink }}">
+  <a class="pagination-next button is-primary is-outlined is-radiusless" href="{{ .RelPermalink }}">
     <span>
       Next:&nbsp;<strong>{{ .Title }}</strong>
     </span>

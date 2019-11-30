@@ -9,22 +9,20 @@
     height: 100%
 
   &-panel
-    flex: 1
-
     &.is-scrollable
       overflow-y: scroll
 
     &.sidebar
-      +desktop
-        flex: 0 0 20rem
+      border-right: $sidebar-border
+
       +tablet
-        flex: 0 0 15rem
+        flex: 0 0 20rem
 
     &.main
-      flex: 1
+      +fill
       +column
+      overflow-x: hidden
 
       .article
-        +fill
-        padding: 1rem
+        flex: 1
 

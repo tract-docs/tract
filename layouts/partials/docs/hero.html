@@ -1,7 +1,7 @@
 {{ $title := .Title }}
 {{ $desc  := .Params.description | markdownify }}
 {{ $tags  := .Params.tags }}
-<section class="hero is-small">
+<section class="hero">
   <div class="hero-body">
     <div class="container">
       {{ partial "docs/breadcrumb.html" . }}

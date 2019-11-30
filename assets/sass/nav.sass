@@ -1,0 +1,32 @@
+$nav-bg-color: $white
+$nav-title-color: $dark
+$nav-title-font-size: 1.1rem
+$nav-link-color: $black
+$nav-link-font-size: 1rem
+$nav-section-padding: 1rem
+$nav-border: $sidebar-border
+$nav-pages-margin-top: .75rem
+
+.nav
+  background-color: $nav-bg-color
+
+  a:hover
+    color: $primary
+
+  &-section
+    padding: $nav-section-padding
+
+    & + &
+      border-top: $nav-border
+
+    &-title
+      font-weight: 700
+      font-size: $nav-title-font-size
+      color: $nav-title-color
+
+    &-pages
+      margin-top: $nav-pages-margin-top
+
+      &-link
+        font-weight: 300
+        color: $nav-link-color

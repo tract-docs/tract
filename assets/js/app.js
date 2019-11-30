@@ -7,14 +7,6 @@ function navbarMenu() {
   });
 }
 
-function tableOfContents() {
-  tocbot.init({
-    tocSelector: '.toc',
-    contentSelector: '.content',
-    scrollSmooth: true
-  });
-}
-
 function docsDrawer() {
   $('#drawer-toggle').click(() => {
     $('#nav-modal').addClass('is-active');
@@ -27,6 +19,5 @@ function docsDrawer() {
 
 $(function() {
   navbarMenu();
-  tableOfContents();
   docsDrawer();
 });
