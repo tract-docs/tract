@@ -37,8 +37,11 @@ $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "
 $family-monospace: "{{ $monospaceFont }}", monospace
 $box-padding: 1rem
 $navbar-height: 4rem
-$modal-background-background-color: $white
-$modal-content-width: 90%
+$modal-card-head-radius: 0
+$modal-card-foot-radius: 0
+$modal-background-background-color: $primary
+
+$nav-background-color: $primary
 
 @import "bulma/sass/utilities/derived-variables"
 
@@ -52,16 +55,6 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 .home-hero, .navbar
   background-image: url({{ $url }})
 {{ end }}
-
-.modal
-  &-nav
-    padding-top: 1rem
-
-  &-close
-    background-color: $grey-lighter
-
-    &:hover
-      background-color: $grey-light
 
 =flex
   display: flex
@@ -87,9 +80,15 @@ $docs-content-desktop-width: 75%
     width: $docs-content-desktop-width
 
 .nav
-  background-color: $white
+  background-color: $nav-background-color
   height: 100%
   padding: 1rem
+
+  a
+    color: $white
+
+    &:hover
+      color: invert($white)
 
   &-section
     & + &

@@ -1,6 +1,6 @@
 {{ $title := site.Title }}
 {{ $home  := site.BaseURL }}
-<nav class="navbar is-primary is-fixed-top">
+<nav class="navbar is-black is-fixed-top">
   <div class="navbar-brand">
     <div class="navbar-item is-hidden-tablet">
       <span class="icon is-large drawer-toggle" id="drawer-toggle">
@@ -16,7 +16,7 @@
   <div class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="field">
+        <div class="field" id="search-field">
           <p class="control has-icons-left">
             <input class="input" type="text" placeholder="Search...">
             <span class="icon is-small is-left">
