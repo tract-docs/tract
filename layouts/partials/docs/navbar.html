@@ -1,5 +1,6 @@
-{{ $title := site.Title }}
-{{ $home  := site.BaseURL }}
+{{ $title  := site.Title }}
+{{ $home   := site.BaseURL }}
+{{ $social := site.Params.social }}
 <nav class="navbar is-black is-fixed-top">
   <div class="navbar-brand">
     <div class="navbar-item is-hidden-tablet">
@@ -15,16 +16,13 @@
 
   <div class="navbar-menu">
     <div class="navbar-end">
+      {{ with $social }}
       <div class="navbar-item">
-        <div class="field" id="search-field">
-          <p class="control has-icons-left">
-            <input class="input" type="text" placeholder="Search...">
-            <span class="icon is-small is-left">
-              <ion-icon name="search"></ion-icon>
-            </span>
-          </p>
+        <div class="buttons">
+          {{ partial "social-buttons.html" (dict "social" . "full" false "inverted" true) }}
         </div>
       </div>
+      {{ end }}
     </div>
   </div>
 </nav>

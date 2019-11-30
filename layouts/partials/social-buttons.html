@@ -1,14 +1,42 @@
-{{ range .social }}
-{{ $isExternalLink := hasPrefix .url "http" }}
-<a class="button{{ with .color }} is-{{ . }}{{ end }} is-radiusless" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
-  {{ with .icon }}
+{{ $full := .full }}
+{{ $size := .size | default "normal" }}
+{{ $inv  := .inverted | default false }}
+{{ with .social.twitter }}
+{{ $url := printf "https://twitter.com/%s" .handle }}
+<a class="button is-{{ $size }} is-twitter-blue is-radiusless" href="{{ $url }}" target="_blank">
   <span class="icon">
-    <i class="{{ . }}"></i>
+    <ion-icon name="logo-twitter"></ion-icon>
+  </span>
+  {{ if $full }}
+  <span>
+    @{{ .handle }}
   </span>
   {{ end }}
-  {{ with .name }}
+</a>
+{{ end }}
+
+{{ with .social.github }}
+{{ $url := printf "https://github.com/%s" .repo }}
+<a class="button is-{{ $size }} is-black is-radiusless{{ if $inv }} is-inverted{{ end }}" href="{{ $url }}" target="_blank">
+  <span class="icon">
+    <ion-icon name="logo-github"></ion-icon>
+  </span>
+  {{ if $full }}
   <span>
-    {{ . }}
+    {{ .repo }}
+  </span>
+  {{ end }}
+</a>
+{{ end }}
+
+{{ with .social.slack }}
+<a class="button is-{{ $size }} is-slack-aubergine is-radiusless">
+  <span class="icon">
+    <ion-icon name="logo-slack"></ion-icon>
+  </span>
+  {{ if $full }}
+  <span>
+    #{{ .channel }}
   </span>
   {{ end }}
 </a>

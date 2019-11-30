@@ -1,12 +1,15 @@
 {{ $title   := site.Title }}
 {{ $desc    := site.Params.description | markdownify }}
 {{ $buttons := site.Params.buttons.main }}
-<section class="hero is-primary is-fullheight home-hero">
+{{ $social  := site.Params.social }}
+<section class="hero is-light is-fullheight home-hero">
   <div class="hero-body">
     <div class="container">
-      <p class="title is-size-1 is-size-2-mobile has-text-weight-light{{ if $desc }} is-spaced{{ end }}">
+      <p class="title has-text-primary is-size-1 has-text-weight-light{{ if $desc }} is-spaced{{ end }}">
         {{ $title }}
       </p>
+
+      <hr class="has-background-black" />
 
       {{ with $desc }}
       <p class="subtitle is-size-3 is-size-4-mobile has-text-weight-light">
@@ -20,7 +23,7 @@
         {{ $color          := .color | default "primary" }}
         {{ $isExternalLink := hasPrefix .url "http" }}
         {{ $text           := .text | markdownify }}
-        <a class="button{{ with .size }} is-{{ . }}{{ end }} is-{{ $color }} is-borderless is-radiusless is-outlined is-inverted" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
+        <a class="button{{ with .size }} is-{{ . }}{{ end }} is-{{ $color }} is-borderless is-radiusless" href="{{ .url }}"{{ if $isExternalLink }} target="_blank"{{ end }}>
           {{ with .icon }}
           <span class="icon">
             <ion-icon name="{{ . }}"></ion-icon>
@@ -31,6 +34,12 @@
           </span>
         </a>
         {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with $social }}
+      <div class="buttons">
+        {{ partial "social-buttons" (dict "social" . "full" true "size" "small") }}
       </div>
       {{ end }}
     </div>
