@@ -17,20 +17,20 @@ const docsDrawer = () => {
   });
 }
 
-const fixOnScroll = (el, threshold) => {
-  const elem = $(el);
+const homeNavbar = () => {
+  const elem = $('#home-navbar'),
+    threshold = $('#home-hero').height(),
+    brand = $('#home-navbar-brand');
 
   $(window).scroll(() => {
     if ($(window).scrollTop() > threshold) {
       elem.addClass('is-fixed-top');
+      brand.removeClass('is-hidden');
     } else {
       elem.removeClass('is-fixed-top');
+      brand.addClass('is-hidden');
     }
   });
-}
-
-const homeNavbar = () => {
-  fixOnScroll('#home-navbar', $('#home-hero').height());
 }
 
 $(function() {

@@ -2,6 +2,12 @@
 {{ with $docsMenu }}
 <nav class="navbar has-shadow" id="home-navbar">
   <div class="container">
+    <div class="navbar-brand is-hidden" id="home-navbar-brand">
+      <div class="navbar-item">
+        {{ site.Title }}
+      </div>
+    </div>
+
     <div class="navbar-menu">
       <div class="navbar-end">
         {{ partial "navbar-menu.html" . }}
