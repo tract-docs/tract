@@ -4,41 +4,15 @@
 {{ $inv  := .inverted | default false }}
 {{ with $social.twitter }}
 {{ $url := printf "https://twitter.com/%s" .handle }}
-<a class="button is-{{ $size }} is-twitter-blue is-radiusless" href="{{ $url }}" target="_blank">
-  <span class="icon">
-    <ion-icon name="logo-twitter"></ion-icon>
-  </span>
-  {{ if $full }}
-  <span>
-    @{{ .handle }}
-  </span>
-  {{ end }}
-</a>
+{{ partial "button.html" (dict "url" $url "icon" "logo-twitter" "color" "twitter-blue") }}
 {{ end }}
 
 {{ with $social.github }}
 {{ $url := printf "https://github.com/%s" .repo }}
-<a class="button is-{{ $size }} is-black is-radiusless{{ if $inv }} is-inverted{{ end }}" href="{{ $url }}" target="_blank">
-  <span class="icon">
-    <ion-icon name="logo-github"></ion-icon>
-  </span>
-  {{ if $full }}
-  <span>
-    {{ .repo }}
-  </span>
-  {{ end }}
-</a>
+{{ partial "button.html" (dict "url" $url "icon" "logo-github" "color" "black" "inverted" true) }}
 {{ end }}
 
 {{ with $social.slack }}
-<a class="button is-{{ $size }} is-slack-aubergine is-radiusless">
-  <span class="icon">
-    <ion-icon name="logo-slack"></ion-icon>
-  </span>
-  {{ if $full }}
-  <span>
-    #{{ .channel }}
-  </span>
-  {{ end }}
-</a>
+{{ $url := printf "https://%s.slack.com" .channel }}
+{{ partial "button.html" (dict "url" $url "icon" "logo-slack" "color" "slack-aubergine") }}
 {{ end }}
