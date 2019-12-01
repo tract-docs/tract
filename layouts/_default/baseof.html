@@ -11,15 +11,10 @@
     </title>
     {{ partial "css.html" . }}
   </head>
-  <body class="page">
-    <main class="main">
-      {{ block "main" . }}
-      {{ end }}
-    </main>
-
-    {{ if $isHome }}
-    {{ partial "footer.html" . }}
+  <body>
+    {{ block "main" . }}
     {{ end }}
+
     {{ partial "javascript.html" . }}
   </body>
 </html>

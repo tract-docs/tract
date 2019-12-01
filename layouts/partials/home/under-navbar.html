@@ -4,11 +4,7 @@
   <div class="container">
     <div class="navbar-menu">
       <div class="navbar-end">
-        {{ range . }}
-        <a class="navbar-item is-tab" href="{{ .URL }}">
-          {{ .Name }}
-        </a>
-        {{ end }}
+        {{ partial "navbar-menu.html" . }}
       </div>
     </div>
   </div>

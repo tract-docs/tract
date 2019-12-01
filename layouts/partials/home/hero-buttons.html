@@ -1,0 +1,19 @@
+<div class="buttons">
+  {{ range . }}
+  {{ $color := .color | default "white" }}
+  {{ $size  := .size | default "normal" }}
+  {{ $isExternal := hasPrefix .url "http" }}
+  <a class="button is-{{ $color }} is-{{ $size }} is-radiusless{{ if .inverted }} is-inverted{{ end }}{{ if .outlined }} is-outlined{{ end }}" href="{{ .url }}"{{ if $isExternal }} target="_blank"{{ end }}>
+    {{ with .icon }}
+    <span class="icon">
+      <ion-icon name="{{ . }}"></ion-icon>
+    </span>
+    {{ end }}
+    {{ with .text }}
+    <span>
+      {{ . }}
+    </span>
+    {{ end }}
+  </a>
+  {{ end }}
+</div>

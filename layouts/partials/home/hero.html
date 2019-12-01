@@ -1,7 +1,8 @@
-{{ $home    := site.BaseURL }}
-{{ $title   := site.Title }}
-{{ $desc    := site.Params.description | markdownify }}
-{{ $buttons := site.Params.buttons.main }}
+{{ $home     := site.BaseURL }}
+{{ $title    := site.Title }}
+{{ $desc     := site.Params.description | markdownify }}
+{{ $buttons  := site.Params.buttons.main }}
+{{ $mainMenu := site.Menus.main }}
 <section class="hero is-primary is-medium" id="home-hero">
   <div class="hero-head">
     <nav class="navbar">
@@ -11,6 +12,14 @@
             {{ $title }}
           </a>
         </div>
+
+        {{ with $mainMenu }}
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            {{ partial "navbar-menu.html" . }}
+          </div>
+        </div>
+        {{ end }}
       </div>
     </nav>
   </div>
@@ -27,9 +36,15 @@
       </p>
       {{ end }}
 
+      {{ with $buttons }}
+      {{ partial "home/hero-buttons.html" . }}
+      {{ end }}
+
+      <!--
       <div class="buttons">
         {{ partial "social-buttons.html" (dict "full" true "size" "small") }}
       </div>
+      -->
     </div>
   </div>
 </section>

@@ -1,0 +1,21 @@
+{{ range . }}
+{{ if .HasChildren }}
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">
+    {{ .Name }}
+  </a>
+
+  <div class="navbar-dropdown">
+    {{ range .Children }}
+    <a class="navbar-item" href="{{ .URL }}">
+      {{ .Name }}
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ else }}
+<a class="navbar-item" href="{{ .URL }}">
+  {{ .Name }}
+</a>
+{{ end }}
+{{ end }}

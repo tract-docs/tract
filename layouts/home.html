@@ -1,6 +1,12 @@
 {{ define "main" }}
-{{ partial "home/hero.html" . }}
-{{ partial "home/under-navbar.html" . }}
-{{ partial "home/under-hero.html" . }}
-{{ partial "home/content.html" . }}
+<div class="page">
+  <main class="main">
+    {{ partial "home/hero.html" . }}
+    {{ partial "home/under-navbar.html" . }}
+    {{ partial "home/under-hero.html" . }}
+    {{ partial "home/content.html" . }}      
+  </main>
+
+  {{ partial "footer.html" . }}
+</div>
 {{ end }}

@@ -3,5 +3,12 @@
 {{ end }}
 
 {{ define "main" }}
-{{ partial "navbar.html" . }}
+<div class="page">
+  <main class="main">
+    {{ partial "navbar.html" . }}
+    {{ partial "hero.html" . }}
+  </main>
+</div>
+
+{{ partial "footer.html" . }}
 {{ end }}
