@@ -1,6 +1,8 @@
-{{ $title := .Title }}
-{{ $desc  := .Params.description | markdownify }}
-{{ $tags  := .Params.tags }}
+{{ $title      := .Title }}
+{{ $desc       := .Params.description | markdownify }}
+{{ $tags       := .Params.tags }}
+{{ $isDocsMain := eq .RelPermalink "/docs/" }}
+{{ $new        := .Params.new }}
 <section class="hero">
   <div class="hero-body">
     <div class="container">
@@ -10,17 +12,45 @@
         {{ $title }}
       </p>
 
-      {{ with $desc }}
+      {{ if $desc }}
       <p class="subtitle is-size-5 is-size-6-mobile">
-        {{ . }}
+        {{ $desc }}
       </p>
       {{ end }}
 
+      {{ if or .Draft $new }}
+      <div class="buttons has-text-weight-bold">
+        {{ if $new }}
+        <span class="button is-success is-light is-radiusless">
+          <span class="icon">
+            <ion-icon name="star-outline"></ion-icon>
+          </span>
+          <span>
+            New
+          </span>
+        </span>
+        {{ end }}
+
+        {{ if .Draft }}
+        <span class="button is-info is-light is-radiusless">
+          <span class="icon">
+            <ion-icon name="code-working"></ion-icon>
+          </span>
+          <span>
+            Draft
+          </span>
+        </span>
+        {{ end }}
+      </div>
+
+      <br />
+      {{ end }}
+
       {{ with $tags }}
-      <div class="buttons">
+      <div class="tags are-normal">
         {{ range . }}
         {{ $url := printf "tags/%s" . | relURL }}
-        <a class="button is-small is-rounded is-primary is-light" href="{{ $url }}">
+        <a class="tag is-rounded is-primary is-light" href="{{ $url }}">
           #{{ . }}
         </a>
         {{ end }}

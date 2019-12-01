@@ -1,12 +1,17 @@
 {{ $title := site.Title }}
-<footer class="footer">
+<section class="section has-background-black is-medium">
   <div class="container">
-    <p class="title">
+    <p class="title has-text-white">
       {{ $title }}
     </p>
 
-    <a class="button is-magenta has-text-weight-bold" href="https://tract-docs.dev" target="_blank">
-      Powered by Tract
+    <a class="button is-magenta" href="https://tract-docs.dev" target="_blank">
+      <span class="icon">
+        <ion-icon name="power"></ion-icon>
+      </span>
+      <span>
+        Powered by <strong>Tract</strong>
+      </span>
     </a>
   </div>
-</footer>
+</section>
