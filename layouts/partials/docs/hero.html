@@ -6,7 +6,9 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
+      {{ if not $isDocsMain }}
       {{ partial "docs/breadcrumb.html" . }}
+      {{ end }}
 
       <p class="title is-size-2 has-text-weight-medium{{ if $desc }} is-spaced{{ end }}">
         {{ $title }}
