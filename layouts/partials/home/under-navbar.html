@@ -1,0 +1,16 @@
+{{ $docsMenu := site.Menus.docs }}
+{{ with $docsMenu }}
+<nav class="navbar has-shadow" id="home-navbar">
+  <div class="container">
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        {{ range . }}
+        <a class="navbar-item is-tab" href="{{ .URL }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</nav>
+{{ end }}

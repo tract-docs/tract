@@ -1,7 +1,8 @@
+{{ $social := site.Params.social }}
 {{ $full := .full }}
 {{ $size := .size | default "normal" }}
 {{ $inv  := .inverted | default false }}
-{{ with .social.twitter }}
+{{ with $social.twitter }}
 {{ $url := printf "https://twitter.com/%s" .handle }}
 <a class="button is-{{ $size }} is-twitter-blue is-radiusless" href="{{ $url }}" target="_blank">
   <span class="icon">
@@ -15,7 +16,7 @@
 </a>
 {{ end }}
 
-{{ with .social.github }}
+{{ with $social.github }}
 {{ $url := printf "https://github.com/%s" .repo }}
 <a class="button is-{{ $size }} is-black is-radiusless{{ if $inv }} is-inverted{{ end }}" href="{{ $url }}" target="_blank">
   <span class="icon">
@@ -29,7 +30,7 @@
 </a>
 {{ end }}
 
-{{ with .social.slack }}
+{{ with $social.slack }}
 <a class="button is-{{ $size }} is-slack-aubergine is-radiusless">
   <span class="icon">
     <ion-icon name="logo-slack"></ion-icon>
