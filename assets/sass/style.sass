@@ -7,7 +7,6 @@
 {{ $fontsUrl := printf "https://fonts.googleapis.com/css?family=%s" (delimit $fontSlice "|") }}
 {{ $sansSerifFont := (index (where site.Params.fonts ".type" "sans_serif") 0).name | default $defaults.sans_serif_font }}
 {{ $monospaceFont := (index (where site.Params.fonts ".type" "monospace") 0).name | default $defaults.monospace_font }}
-{{ $texture            := site.Params.texture }}
 
 @charset "utf-8"
 @import url({{ $fontsUrl }})
@@ -54,13 +53,6 @@ $sidebar-border: 1.5px solid $grey-lighter
   padding-bottom: 5rem
 
 @import "bulma/bulma"
-
-{{ with $texture }}
-{{ $slug := . | urlize }}
-{{ $url := printf "https://www.transparenttextures.com/patterns/%s.png" $slug }}
-.home-hero, .navbar
-  background-image: url({{ $url }})
-{{ end }}
 
 =flex
   display: flex
