@@ -8,22 +8,31 @@
 
     <div class="dashboard-panel main is-scrollable">
       <article class="article">
+        {{ partial "docs/hero.html" . }}
+
+        <section class="section has-no-y-padding">
+          <div class="container">
+            <div class="columns">
+              <div class="column is-three-quarters">
+                <div class="content">
+                  {{ .Content }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <section class="section is-medium">
         <div class="container">
           <div class="columns">
             <div class="column is-three-quarters">
-              {{ partial "docs/hero.html" . }}
-
-              <section class="section">
-                <div class="container">
-                  <div class="content docs-content">
-                    {{ .Content }}
-                  </div>
-                </div>
-              </section>
+              {{ partial "docs/pagination.html" . }}
+              {{ partial "docs/git-info.html" . }}
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
       {{ partial "footer.html" . }}
     </div>

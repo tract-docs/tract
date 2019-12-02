@@ -1,5 +1,7 @@
 {{ $lang   := site.LanguageCode }}
 {{ $isHome := .IsHome }}
+{{ $isDoc  := eq .Section "docs" }}
+{{ $fixed  := not (or $isHome $isDoc) }}
 <!DOCTYPE html>
 <html lang="{{ $lang }}">
   <head>
@@ -11,7 +13,7 @@
     </title>
     {{ partial "css.html" . }}
   </head>
-  <body>
+  <body{{ if $fixed }} class="has-navbar-fixed-top"{{ end }}>
     {{ block "main" . }}
     {{ end }}
 

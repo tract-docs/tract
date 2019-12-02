@@ -1,17 +1,46 @@
-{{ $title := site.Title }}
-<section class="section has-background-black is-medium">
-  <div class="container">
-    <p class="title has-text-white">
-      {{ $title }}
-    </p>
+{{ $title  := site.Title }}
+{{ $desc   := site.Params.description }}
+{{ $social := site.Params.social }}
+<section class="hero is-black is-bold is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <p class="title is-size-3 is-size-4-mobile has-text-weight-light{{ if $desc }} is-spaced{{ end }}">
+            {{ $title }}
+          </p>
+      
+          {{ with $desc }}
+          <p class="subtitle is-size-5 is-size-6-mobile has-text-weight-light">
+            {{ $desc }}
+          </p>
+          {{ end }}
+        </div>
 
-    <a class="button is-magenta" href="https://tract-docs.dev" target="_blank">
-      <span class="icon">
-        <ion-icon name="power"></ion-icon>
-      </span>
-      <span>
-        Powered by <strong>Tract</strong>
-      </span>
-    </a>
+        <div class="column">
+          
+        </div>
+      </div>
+  
+      <hr class="has-background-dark" />
+
+      <nav class="level">
+        <div class="level-left">
+          <a class="button is-magenta" href="https://tract-docs.dev" target="_blank">
+            <span class="icon">
+              <ion-icon name="power"></ion-icon>
+            </span>
+            <span>
+              Powered by <strong>Tract</strong>
+            </span>
+          </a>
+        </div>
+        <div class="level-right">
+          <div class="buttons">
+            {{ partial "social-buttons.html" (dict "social" $social "inverted" true) }}
+          </div>
+        </div>
+      </nav>
+    </div>
   </div>
 </section>

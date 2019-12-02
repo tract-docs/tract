@@ -1,7 +1,9 @@
 {{ $home   := site.BaseURL }}
 {{ $title  := site.Title }}
 {{ $social := site.Params.social }}
-<nav class="navbar is-black">
+{{ $menu   := site.Menus.main }}
+{{ $here   := .RelPermalink }}
+<nav class="navbar is-fixed-top">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item has-text-weight-bold" href="{{ $home }}">
@@ -19,11 +21,15 @@
 
     <div class="navbar-menu" id="navbar-menu">
       <div class="navbar-end">
-        {{ with $social }}  
+        {{ with $menu }}
+        {{ partial "navbar-menu.html" (dict "menu" . "here" $here) }}
+        {{ end }}
+
+        {{ if $social }}
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              {{ partial "social-buttons.html" . }}
+              {{ partial "social-buttons.html" (dict "social" $social) }}
             </p>
           </div>
         </div>

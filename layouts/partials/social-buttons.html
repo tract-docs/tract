@@ -1,18 +1,24 @@
 {{ $social := site.Params.social }}
-{{ $full := .full }}
-{{ $size := .size | default "normal" }}
-{{ $inv  := .inverted | default false }}
+{{ $full  := .full }}
+{{ $size  := .size | default "normal" }}
+{{ $inv   := .inverted | default false }}
+
 {{ with $social.twitter }}
 {{ $url := printf "https://twitter.com/%s" .handle }}
 {{ partial "button.html" (dict "url" $url "icon" "logo-twitter" "color" "twitter-blue") }}
 {{ end }}
 
 {{ with $social.github }}
-{{ $url := printf "https://github.com/%s" .repo }}
-{{ partial "button.html" (dict "url" $url "icon" "logo-github" "color" "black" "inverted" true) }}
+{{ $url   := printf "https://github.com/%s" .repo }}
+{{ partial "button.html" (dict "url" $url "icon" "logo-github" "color" "black" "inverted" $inv) }}
 {{ end }}
 
 {{ with $social.slack }}
 {{ $url := printf "https://%s.slack.com" .channel }}
 {{ partial "button.html" (dict "url" $url "icon" "logo-slack" "color" "slack-aubergine") }}
+{{ end }}
+
+{{ with $social.youtube }}
+{{ $url := printf "https://youtube.com/%s" .channel }}
+{{ partial "button.html" (dict "url" $url "icon" "logo-youtube" "color" "youtube-red" "inverted" $inv) }}
 {{ end }}

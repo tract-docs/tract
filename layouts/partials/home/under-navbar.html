@@ -1,3 +1,4 @@
+{{ $here     := .RelPermalink }}
 {{ $docsMenu := site.Menus.docs }}
 {{ with $docsMenu }}
 <nav class="navbar is-primary has-shadow" id="home-navbar">
@@ -10,7 +11,7 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-        {{ partial "navbar-menu.html" . }}
+        {{ partial "navbar-menu.html" (dict "menu" . "here" $here) }}
       </div>
     </div>
   </div>

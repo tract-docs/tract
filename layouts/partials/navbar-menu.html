@@ -1,11 +1,13 @@
-{{ range . }}
+{{ $here := .here }}
+{{ range .menu }}
+{{ $isHere := eq $here (.URL | relURL) }}
 {{ if .HasChildren }}
 <div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link">
     {{ .Name }}
   </a>
 
-  <div class="navbar-dropdown">
+  <div class="navbar-dropdown is-right">
     {{ range .Children }}
     <a class="navbar-item" href="{{ .URL }}">
       {{ .Name }}

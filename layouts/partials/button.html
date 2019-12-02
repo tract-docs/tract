@@ -1,5 +1,5 @@
-{{ $size  := .size  | default "normal" }}
-{{ $color := .color | default "white" }}
+{{ $size     := .size  | default "normal" }}
+{{ $color    := .color | default "white" }}
 {{ if .url }}
 {{ $isExternal := hasPrefix .url "http" }}
 <a class="button is-{{ $size }} is-{{ $color }}{{ if not .radius }} is-radiusless{{ end }}{{ if .inverted }} is-inverted{{ end }}{{ if .outlined }} is-outlined{{ end }}" href="{{ .url }}"{{ if $isExternal }} target="_blank"{{ end }}>

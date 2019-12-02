@@ -21,9 +21,9 @@
       {{ end }}
 
       {{ if or .Draft $new }}
-      <div class="buttons has-text-weight-bold">
+      <div class="tags has-text-weight-bold">
         {{ if $new }}
-        <span class="button is-success is-light is-radiusless">
+        <span class="tag is-medium is-success is-radiusless is-outlined">
           <span class="icon">
             <ion-icon name="star-outline"></ion-icon>
           </span>
@@ -34,7 +34,7 @@
         {{ end }}
 
         {{ if .Draft }}
-        <span class="button is-info is-light is-radiusless">
+        <span class="tag is-medium is-info is-radiusless is-outlined">
           <span class="icon">
             <ion-icon name="code-working"></ion-icon>
           </span>
@@ -44,12 +44,10 @@
         </span>
         {{ end }}
       </div>
-
-      <br />
       {{ end }}
 
       {{ with $tags }}
-      <div class="tags are-normal">
+      <div class="tags are-medium">
         {{ range . }}
         {{ $url := printf "tags/%s" . | relURL }}
         <a class="tag is-rounded is-primary is-light" href="{{ $url }}">
