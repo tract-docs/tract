@@ -1,9 +1,10 @@
+{{ $title      := .Title }}
 {{ $isDocsMain := eq .RelPermalink "/docs/" }}
 <div class="dashboard canvas">
   {{ partial "docs/navbar.html" . }}
 
   <div class="dashboard-main">
-    <div class="dashboard-panel sidebar is-scrollable is-hidden-mobile">
+    <div class="dashboard-panel sidebar is-scrollable is-hidden-touch">
       {{ partial "docs/nav.html" . }}
     </div>
 
@@ -13,63 +14,100 @@
 
         <section class="section{{ if not $isDocsMain }} has-no-y-padding{{ end }}">
           <div class="container">
-            <div class="columns">
-              <div class="column is-three-quarters">
-                <div class="content">
-                  {{ .Content }}
-                </div>
+            <div class="content">
+              {{ .Content }}
+            </div>
 
-                {{ if $isDocsMain }}
-                <hr class="extra-margin" />
+            {{ if $isDocsMain }}
+            <hr class="extra-margin" />
 
-                <p class="title">
-                  Sections
-                </p>
+            <p class="title is-size-3 is-size-4-mobile has-text-weight-light">
+              Sections
+            </p>
 
-                <div class="columns is-multiline">
-                  {{ range .Sections }}
-                  <div class="column is-one-third">
-                    <div class="box">
-                      <a class="title is-size-4 is-size-5-mobile has-text-weight-light" href="{{ .RelPermalink }}">
+            <div class="columns is-multiline">
+              <div class="column is-one-third">
+                <div class="box">
+                  <p class="title has-text-dark is-size-4 is-size-5-mobile has-text-weight-light">
+                    {{ .Title }}
+                  </p>
+
+                  {{ with .Pages }}
+                  <ul>
+                    {{ range . }}
+                    <li>
+                      <a href="{{ .RelPermalink }}">
                         {{ .Title }}
                       </a>
-
-                      {{ with .Pages }}
-                      <br /><br />
-
-                      <ul>
-                        {{ range . }}
-                        <li>
-                          <a href="{{ .RelPermalink }}">
-                            {{ .Title }}
-                          </a>
-                        </li>
-                        {{ end }}
-                      </ul>
-                      {{ end }}
-                    </div>
-                  </div>
+                    </li>
+                    {{ end }}
+                  </ul>
                   {{ end }}
                 </div>
-                {{ end }}
               </div>
+
+              {{ range .Sections }}
+              <div class="column is-one-third">
+                <div class="box">
+                  <a class="title has-text-primary is-size-4 is-size-5-mobile has-text-weight-light" href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                  </a>
+
+                  {{ with .Pages }}
+                  <br /><br />
+
+                  <ul>
+                    {{ range . }}
+                    <li>
+                      <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                      </a>
+                    </li>
+                    {{ end }}
+                  </ul>
+                  {{ end }}
+                </div>
+              </div>
+              {{ end }}
             </div>
+            {{ end }}
           </div>
+        </section>
+
+        <section class="section is-medium">
+          {{ partial "docs/pagination.html" . }}
+          {{ partial "docs/git-info.html" . }}
         </section>
       </article>
 
-      <section class="section is-medium">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-three-quarters">
-              {{ partial "docs/pagination.html" . }}
-              {{ partial "docs/git-info.html" . }}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {{ partial "footer.html" . }}
     </div>
+
+    {{ with .TableOfContents }}
+    <div class="dashboard-panel right is-scrollable is-hidden-touch toc">
+      <section class="section">
+        <nav class="level is-size-4">
+          <div class="level-left">
+            <div class="level-item">
+              <span class="icon">
+                <ion-icon name="list-box"></ion-icon>
+              </span>
+            </div>
+
+            <div class="level-item">
+              <p>
+                {{ $title }}
+              </p>
+            </div>
+          </div>
+        </nav>
+
+        <div class="toc-container">          
+          {{ . }}
+        </div>
+      </section>
+    </div>
+    {{ end }}
   </div>
 </div>

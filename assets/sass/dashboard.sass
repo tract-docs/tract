@@ -22,7 +22,13 @@
       +fill
       +column
       overflow-x: hidden
+      display: block
 
       .article
+        +desktop
+          width: 90%
+          padding: 0 2rem
         flex: 1
 
+    &.right
+      flex: 0 0 20%
