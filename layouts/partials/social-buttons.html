@@ -22,3 +22,13 @@
 {{ $url := printf "https://youtube.com/%s" .channel }}
 {{ partial "button.html" (dict "url" $url "icon" "logo-youtube" "color" "youtube-red" "inverted" $inv) }}
 {{ end }}
+
+{{ with $social.linkedin }}
+{{ $url := printf "https://linkedin.in/in/%s" .id }}
+{{ partial "button.html" (dict "url" $url "icon" "logo-linkedin" "color" "linkedin-blue") }}
+{{ end }}
+
+{{ with $social.facebook }}
+{{ $url := printf "https://facebook.com/%s" .username }}
+{{ partial "button.html" (dict "url" $url "icon" "logo-facebook" "color" "facebook-blue") }}
+{{ end }}
