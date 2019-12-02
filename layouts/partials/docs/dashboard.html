@@ -1,3 +1,4 @@
+{{ $isDocsMain := eq .RelPermalink "/docs/" }}
 <div class="dashboard canvas">
   {{ partial "docs/navbar.html" . }}
 
@@ -10,13 +11,47 @@
       <article class="article">
         {{ partial "docs/hero.html" . }}
 
-        <section class="section has-no-y-padding">
+        <section class="section{{ if not $isDocsMain }} has-no-y-padding{{ end }}">
           <div class="container">
             <div class="columns">
               <div class="column is-three-quarters">
                 <div class="content">
                   {{ .Content }}
                 </div>
+
+                {{ if $isDocsMain }}
+                <hr class="extra-margin" />
+
+                <p class="title">
+                  Sections
+                </p>
+
+                <div class="columns is-multiline">
+                  {{ range .Sections }}
+                  <div class="column is-one-third">
+                    <div class="box">
+                      <a class="title is-size-4 is-size-5-mobile has-text-weight-light" href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                      </a>
+
+                      {{ with .Pages }}
+                      <br /><br />
+
+                      <ul>
+                        {{ range . }}
+                        <li>
+                          <a href="{{ .RelPermalink }}">
+                            {{ .Title }}
+                          </a>
+                        </li>
+                        {{ end }}
+                      </ul>
+                      {{ end }}
+                    </div>
+                  </div>
+                  {{ end }}
+                </div>
+                {{ end }}
               </div>
             </div>
           </div>
