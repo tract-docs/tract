@@ -3,7 +3,7 @@
 {{ $tags       := .Params.tags }}
 {{ $isDocsMain := eq .RelPermalink "/docs/" }}
 {{ $new        := .Params.new }}
-<section class="hero">
+<section class="hero{{ if $isDocsMain }} is-medium{{ end }}">
   <div class="hero-body">
     <div class="container">
       {{ if not $isDocsMain }}
@@ -51,7 +51,12 @@
         {{ range . }}
         {{ $url := printf "tags/%s" . | relURL }}
         <a class="tag is-rounded is-primary is-light" href="{{ $url }}">
-          #{{ . }}
+          <span class="icon">
+            <ion-icon name="pricetag"></ion-icon>
+          </span>
+          <span>
+            {{ . }}
+          </span>
         </a>
         {{ end }}
       </div>

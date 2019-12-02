@@ -1,0 +1,55 @@
+{{ define "title" }}
+{{ site.Title }} | Tags
+{{ end }}
+
+{{ define "main" }}
+{{ $tags := site.Taxonomies.tags }}
+<div class="page">
+  <main class="main">
+    {{ partial "navbar.html" . }}
+    {{ $term := .Data.Term }}
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <p class="title has-text-weight-light">
+            Currently available <span class="has-text-primary">tags</span>
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline is-variable is-2">
+          {{ range $tag, $taxonomy := $tags }}
+          <div class="column is-one-quarter">
+            <div class="box">
+              <p class="title has-text-dark is-size-4 is-size-5-mobile has-text-weight-light">
+                <span class="icon">
+                  <ion-icon name="pricetag"></ion-icon>
+                </span>
+                <span>
+                  {{ $tag }}
+                </span>
+              </p>
+
+              <ul>
+                {{ range $taxonomy.Pages }}
+                <li>
+                  <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+{{ partial "footer.html" . }}
+{{ end }}

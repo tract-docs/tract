@@ -1,0 +1,34 @@
+{{ with . }}
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-variable is-8">
+      {{ range .ByTitle }}
+      {{ $desc := .Params.description }}
+      <div class="column is-one-quarter">
+        <div class="box">
+          <p class="title is-size-4 is-size-5-mobile{{ if $desc }} is-spaced{{ end }}">
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+          </p>
+
+          {{ with $desc }}
+          <p class="subtitle">
+            {{ . | markdownify }}
+          </p>
+          {{ end }}
+
+          {{ with .Summary }}
+          <br /><br />
+
+          <div class="content">
+            {{ . | markdownify | truncate 100 }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
