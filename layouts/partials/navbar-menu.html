@@ -25,9 +25,12 @@
             {{ .Name }}
           </span>
           {{ if $isExternal }}
-          <span class="icon is-small has-text-primary">
-            <ion-icon name="open"></ion-icon>
-          </span>
+          &nbsp;
+          <small>
+            <span class="icon is-small has-text-primary">
+              <ion-icon name="open"></ion-icon>
+            </span>
+          </small>
           {{ end }}
         </a>
         {{ end }}
@@ -36,8 +39,19 @@
   </div>
 </div>
 {{ else }}
-<a class="navbar-item" href="{{ .URL }}">
-  {{ .Name }}
+{{ $isExternal := hasPrefix .URL "http" }}
+<a class="navbar-item" href="{{ .URL }}"{{ if $isExternal }} target="_blank"{{ end }}>
+  <span>
+    {{ .Name }}
+  </span>
+  {{ if $isExternal }}
+  &nbsp;
+  <small>
+    <span class="icon is-small">
+      <ion-icon name="open"></ion-icon>
+    </span>
+  </small>
+  {{ end }}
 </a>
 {{ end }}
 {{ end }}
