@@ -33,12 +33,45 @@ const homeNavbar = () => {
   });
 }
 
+const search = () => {
+  const options = {
+    shouldSort: true,
+    threshold: 0.6,
+    maxPatternLength: 32,
+    minMatchCharLength: 1,
+    keys: [
+      'title',
+      'summary',
+      'body'
+    ]
+  }
+
+  fetch('/index.json')
+    .then((res) => {
+      return res.json();
+    })
+    .then((docs) => {
+      console.log(docs.length);
+
+      const fuse = new Fuse(docs, options);
+
+      const res = fuse.search('Hugo');
+
+      res.forEach((item) => {
+        console.log(item.url);
+      });
+    });
+}
+
+const docFocus = () => {
+  if ($('.dashboard-panel.main')) {
+    $('.dashboard-panel.main').focus();
+  }
+}
+
 $(function() {
   navbarMenu();
   docsDrawer();
   homeNavbar();
-
-  if ($('.dashboard-panel.main')) {
-    $('.dashboard-panel.main').focus();
-  }
+  search();
 });
