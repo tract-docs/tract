@@ -14,13 +14,12 @@
           </a>
         </div>
 
-        {{ with $mainMenu }}
         <div class="navbar-menu">
           <div class="navbar-end">
-            {{ partial "navbar-menu.html" (dict "menu" . "here" $here) }}
+            {{ partial "navbar-menu.html" (dict "menu" $mainMenu "here" $here) }}
+            {{ partial "languages-dropdown.html" . }}
           </div>
         </div>
-        {{ end }}
       </div>
     </nav>
   </div>
