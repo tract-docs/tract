@@ -1,0 +1,7 @@
+{{ $index := newScratch }}
+{{ $docs  := where site.Pages "Section" "docs" }}
+{{ $index.Add "index" slice }}
+{{ range $docs }}
+{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary) }}
+{{ end }}
+{{ $index.Get "index" | jsonify }}

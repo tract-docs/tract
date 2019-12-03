@@ -8,3 +8,4 @@
 {{ $prodApp := $app | fingerprint }}
 <script src="{{ $prodApp.RelPermalink }}" integrity="{{ $prodApp.Data.Integrity }}"></script>
 {{ end }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js" integrity="sha256-Yrh3VGzE4d9b4KANknPJAhfcKt9SgHTL0v/FrJFoPzw=" crossorigin="anonymous"></script>
