@@ -2,6 +2,6 @@
 {{ $docs  := where site.Pages "Section" "docs" }}
 {{ $index.Add "index" slice }}
 {{ range $docs }}
-{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary) }}
+{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary "tags" .Params.tags) }}
 {{ end }}
 {{ $index.Get "index" | jsonify }}

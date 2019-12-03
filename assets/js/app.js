@@ -40,9 +40,18 @@ const search = () => {
     maxPatternLength: 32,
     minMatchCharLength: 1,
     keys: [
-      'title',
-      'summary',
-      'body'
+      {
+        name: 'title',
+        weight: 0.7
+      },
+      {
+        name: 'summary',
+        weight: 0.5,
+      },
+      {
+        name: 'body',
+        weight: 0.3
+      }
     ]
   }
 
@@ -55,10 +64,10 @@ const search = () => {
 
       const fuse = new Fuse(docs, options);
 
-      const res = fuse.search('Hugo');
+      const res = fuse.search('Tract');
 
       res.forEach((item) => {
-        console.log(item.url);
+        console.log(item);
       });
     });
 }
