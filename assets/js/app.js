@@ -37,4 +37,8 @@ $(function() {
   navbarMenu();
   docsDrawer();
   homeNavbar();
+
+  if ($('.dashboard-panel.main')) {
+    $('.dashboard-panel.main').focus();
+  }
 });
