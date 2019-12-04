@@ -1,42 +1,32 @@
 {{ $docsSections := where site.Sections "Section" "docs" }}
 <div class="nav">
-  {{ range $docsSections }}
-  <div class="nav-section">
-    <a class="nav-section-title" href="{{ .RelPermalink }}">
-      {{ .Title }}
-    </a>
+  {{ template "section" $docsSections }}
+</div>
 
-    {{ with .RegularPages }}
-    <div class="nav-section-pages">
-      <ul>
-        {{ range . }}
-        <li>
-          <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
-  </div>
+{{ define "section" }}
+{{ range . }}
+<div class="nav-section">
+  <a class="nav-section-title" href="{{ .RelPermalink }}">
+    {{ .Title }}
+  </a>
 
-  {{ range .Sections }}
-  <div class="nav-section">
-    <a class="nav-section-title" href="{{ .RelPermalink }}">
-      {{ .Title }}
-    </a>
-
-    {{ with .RegularPages }}
-    <div class="nav-section-pages">
+  {{ with .RegularPages }}
+  <div class="nav-section-pages">
+    <ul>
       {{ range . }}
-      <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
+      <li>
+        <a class="nav-section-pages-link" href="{{ .RelPermalink }}">
+          {{ .Title }}
+        </a>
+      </li>
       {{ end }}
-    </div>
-    {{ end }}
+    </ul>
   </div>
-  {{ end }}
   {{ end }}
 </div>
+
+{{ with .Sections }}
+{{ template "section" . }}
+{{ end }}
+{{ end }}
+{{ end }}
