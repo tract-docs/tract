@@ -4,7 +4,9 @@
 {{ $buttons  := site.Params.buttons.main }}
 {{ $mainMenu := site.Menus.main }}
 {{ $here     := .RelPermalink }}
-<section class="hero is-primary is-bold is-medium" id="home-hero">
+{{ $fade     := site.Params.home.hero.fade | default true }}
+{{ $center   := site.Params.home.hero.centered | default false }}
+<section class="hero is-primary is-medium{{ if $fade }} is-bold{{ end }}" id="home-hero">
   <div class="hero-head">
     <nav class="navbar is-secondary">
       <div class="container">
@@ -24,7 +26,7 @@
     </nav>
   </div>
 
-  <div class="hero-body">
+  <div class="hero-body{{ if $center }} has-text-centered{{ end }}">
     <div class="container">
       <p class="title is-size-1 is-size-2-mobile has-text-weight-light{{ if $desc }} is-spaced{{ end }}">
         {{ $title }}
@@ -37,7 +39,7 @@
       {{ end }}
 
       {{ with $buttons }}
-      {{ partial "home/hero-buttons.html" . }}
+      {{ partial "home/hero-buttons.html" (dict "buttons" . "center" $center) }}
       {{ end }}
     </div>
   </div>

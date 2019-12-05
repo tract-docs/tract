@@ -1,5 +1,5 @@
-<div class="buttons">
-  {{ range . }}
+<div class="buttons{{ if .center }} is-centered{{ end }}">
+  {{ range .buttons }}
   {{ $color := .color | default "white" }}
   {{ $size  := .size | default "normal" }}
   {{ $isExternal := hasPrefix .url "http" }}
