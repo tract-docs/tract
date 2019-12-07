@@ -1,113 +1,20 @@
-{{ $title      := .Title }}
-{{ $isDocsMain := eq .RelPermalink "/docs/" }}
-<div class="dashboard canvas">
+<div class="dashboard">
   {{ partial "docs/navbar.html" . }}
 
-  <div class="dashboard-main">
-    <div class="dashboard-panel sidebar is-scrollable is-hidden-touch">
-      {{ partial "docs/nav.html" . }}
-    </div>
+  <aside class="dashboard-sidebar is-hidden-touch">
+    {{ partial "docs/nav.html" . }}
+  </aside>
 
-    <div class="dashboard-panel main is-scrollable" tabindex="1">
-      <article class="article">
-        {{ partial "docs/hero.html" . }}
-
-        <section class="section{{ if not $isDocsMain }} has-no-y-padding{{ end }}">
-          <div class="container">
-            <div class="content">
-              {{ .Content }}
-            </div>
-
-            {{ if $isDocsMain }}
-            <hr class="extra-margin" />
-
-            <p class="title is-size-3 is-size-4-mobile has-text-weight-light">
-              Sections
-            </p>
-
-            <div class="columns is-multiline">
-              <div class="column is-one-third">
-                <div class="box">
-                  <p class="title has-text-dark is-size-4 is-size-5-mobile has-text-weight-light">
-                    {{ .Title }}
-                  </p>
-
-                  {{ with .Pages }}
-                  <ul>
-                    {{ range . }}
-                    <li>
-                      <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
-                      </a>
-                    </li>
-                    {{ end }}
-                  </ul>
-                  {{ end }}
-                </div>
-              </div>
-
-              {{ range .Sections }}
-              <div class="column is-one-third">
-                <div class="box">
-                  <a class="title has-text-primary is-size-4 is-size-5-mobile has-text-weight-light" href="{{ .RelPermalink }}">
-                    {{ .Title }}
-                  </a>
-
-                  {{ with .Pages }}
-                  <br /><br />
-
-                  <ul>
-                    {{ range . }}
-                    <li>
-                      <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
-                      </a>
-                    </li>
-                    {{ end }}
-                  </ul>
-                  {{ end }}
-                </div>
-              </div>
-              {{ end }}
-            </div>
-            {{ end }}
-          </div>
-        </section>
-
-        <section class="section is-medium">
+  <main class="dashboard-main">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-three-quarters">
+          {{ partial "docs/hero.html" . }}
+          {{ partial "content.html" . }}
           {{ partial "docs/pagination.html" . }}
           {{ partial "docs/git-info.html" . }}
-        </section>
-      </article>
-
-
-      {{ partial "footer.html" . }}
-    </div>
-
-    {{ with .TableOfContents }}
-    <div class="dashboard-panel right is-scrollable is-hidden-touch toc">
-      <section class="section">
-        <nav class="level is-size-4">
-          <div class="level-left">
-            <div class="level-item">
-              <span class="icon">
-                <ion-icon name="list-box"></ion-icon>
-              </span>
-            </div>
-
-            <div class="level-item">
-              <p>
-                {{ $title }}
-              </p>
-            </div>
-          </div>
-        </nav>
-
-        <div class="toc-container">          
-          {{ . }}
         </div>
-      </section>
+      </div>
     </div>
-    {{ end }}
-  </div>
+  </main>
 </div>

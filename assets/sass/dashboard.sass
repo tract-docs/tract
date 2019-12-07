@@ -1,34 +1,25 @@
+$docs-sidebar-width: 20rem
+
 .dashboard
-  +column
-  height: 100vh
-  overflow: hidden
+  &-sidebar
+    bottom: 0
+    top: $navbar-height
+    position: fixed
+    width: $docs-sidebar-width
+    border-right: $sidebar-border
+    overflow-y: auto
 
   &-main
-    +row
+    display: block
+    position: relative
     padding-top: $navbar-height
-    height: 100%
 
-  &-panel
-    &.is-scrollable
-      overflow-y: scroll
-
-    &.sidebar
-      border-right: $sidebar-border
-
-      +tablet
-        flex: 0 0 20rem
-
-    &.main
-      +fill
+    &-panel
       +column
-      overflow-x: hidden
-      display: block
+      height: 100vh
 
       .article
-        +desktop
-          width: 90%
-          padding: 0 2rem
         flex: 1
 
-    &.right
-      flex: 0 0 20%
+    +desktop
+      margin-left: $docs-sidebar-width
