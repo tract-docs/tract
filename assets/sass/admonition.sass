@@ -1,5 +1,11 @@
 =admonition($color)
   border: 2px solid $color
+  border-radius: $admonition-border-radius
+  padding: $admonition-padding
+
+  .icon
+    font-size: 2rem
+    color: darken($color, 10%)
 
 .admonition
   &.is-danger

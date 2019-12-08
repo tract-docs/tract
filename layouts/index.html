@@ -3,6 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
+{{ partial "components/navbar.html" . }}
 {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "large" "scale" 1) }}
 {{ partial "components/content.html" .Content }}
 {{ end }}

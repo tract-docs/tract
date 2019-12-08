@@ -1,8 +1,3 @@
-{{ define "title" }}
-{{ site.Title }} | Docs | {{ .Title }}
-{{ end }}
-
-{{ define "main" }}
+{{ partial "components/navbar.html" . }}
 {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description) }}
 {{ partial "components/content.html" .Content }}
-{{ end }}

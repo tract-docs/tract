@@ -2,11 +2,11 @@
 {{ $title  := site.Title }}
 {{ $menu   := site.Menus.main }}
 {{ $social := site.Params.social }}
-{{ $here   := .RelPermalink }}
-<nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown-navigation">
+{{ $i18n   := site.IsMultiLingual }}
+<nav class="navbar is-primary is-fixed-top" role="navigation" aria-label="dropdown-navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item has-text-weight-bold" href="{{ $home }}">
+      <a class="navbar-item is-size-5 is-size-6-mobile has-text-weight-bold" href="{{ $home }}">
         {{ $title }}
       </a>
 
@@ -19,11 +19,15 @@
       {{ end }}
     </div>
 
-    {{ if or $menu $social }}
+    {{ if or $menu $i18n $social }}
     <div class="navbar-menu" id="navbar-menu">
       <div class="navbar-end">
         {{ with $menu }}
-        {{ partial "navbar-menu.html" (dict "menu" . "here" $here) }}
+        {{ partial "components/navbar-menu.html" . }}
+        {{ end }}
+
+        {{ if $i18n }}
+        {{ partial "components/lang-selector.html" . }}
         {{ end }}
 
         {{ with $social }}

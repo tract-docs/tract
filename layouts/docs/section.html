@@ -1,8 +1,0 @@
-{{ define "title" }}
-{{ site.Title }} | {{ .CurrentSection.Title }}
-{{ end }}
-
-{{ define "main" }}
-{{ partial "components/hero.html" (dict "title" .Title "description" .Params.description) }}
-{{ partial "components/content.html" .Content }}
-{{ end }}

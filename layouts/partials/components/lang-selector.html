@@ -1,0 +1,20 @@
+{{ $lang  := .Language.LanguageName }}
+{{ $langs := where site.Home.AllTranslations ".Language.LanguageName" "ne" $lang }}
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link is-arrowless">
+    <span class="icon">
+      <ion-icon name="globe"></ion-icon>
+    </span>
+    <span>
+      {{ $lang }}
+    </span>
+  </a>
+
+  <div class="navbar-dropdown">
+    {{ range $langs }}
+    <a class="navbar-item" href="{{ .RelPermalink }}">
+      {{ .Language.LanguageName }}
+    </a>
+    {{ end }}
+  </div>
+</div>
