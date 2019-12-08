@@ -1,15 +1,13 @@
 {{ define "link" }}
-{{ $url := .URL }}
-<a class="navbar-item"{{ with $url }} href="{{ . }}"{{ end }}>
+<a class="navbar-item"{{ with .URL }} href="{{ . | relLangURL }}"{{ end }}>
   {{ .Name }}
 </a>
 {{ end }}
 
 {{ range . }}
 {{ if .HasChildren }}
-{{ $url := .URL | relLangURL }}
 <div class="navbar-item has-dropdown is-hoverable">
-  <a class="navbar-link is-arrowless"{{ with $url }} href="{{ . }}"{{ end }}>
+  <a class="navbar-link is-arrowless"{{ with .URL }} href="{{ . | relLangURL }}"{{ end }}>
     <span>
       {{ .Name }}
     </span>
