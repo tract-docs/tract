@@ -1,0 +1,19 @@
+<div class="dashboard">
+  <div class="dashboard-sidebar is-hidden-mobile">
+
+  </div>
+
+  <div class="dashboard-main">
+    <nav class="navbar is-primary">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          {{ site.Title }}
+        </a>
+      </div>
+    </nav>
+
+    {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white") }}
+    {{ partial "components/content.html" .Content }}
+    {{ partial "footer.html" . }}
+  </div>
+</div>

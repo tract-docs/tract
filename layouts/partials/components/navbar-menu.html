@@ -1,13 +1,23 @@
 {{ define "link" }}
-<a class="navbar-item"{{ with .URL }} href="{{ . | relLangURL }}"{{ end }}>
-  {{ .Name }}
+{{ $url        := .URL | relLangURL }}
+{{ $isExternal := hasPrefix .URL "http" }}
+<a class="navbar-item"{{ with $url }} href="{{ . }}"{{ end }}{{ if $isExternal }} target="_blank"{{ end }}>
+  <span>
+    {{ .Name }}
+  </span>
+  {{ if $isExternal }}
+  <span class="icon">
+    <ion-icon name="open"></ion-icon>
+  </span>
+  {{ end }}
 </a>
 {{ end }}
 
 {{ range . }}
 {{ if .HasChildren }}
+{{ $url := .URL | relLangURL }}
 <div class="navbar-item has-dropdown is-hoverable">
-  <a class="navbar-link is-arrowless"{{ with .URL }} href="{{ . | relLangURL }}"{{ end }}>
+  <a class="navbar-link is-arrowless"{{ with $url }} href="{{ . }}"{{ end }}>
     <span>
       {{ .Name }}
     </span>

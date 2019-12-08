@@ -1,8 +1,9 @@
 {{ $title := .title }}
 {{ $size  := .size | default "normal" }}
 {{ $desc  := .description }}
-{{ $scale := .scale | default 1}}
-<section class="hero is-{{ $size }}">
+{{ $scale := .scale | default 1 }}
+{{ $color := .color | default "primary" }}
+<section class="hero is-{{ $color }} is-{{ $size }}">
   <div class="hero-body">
     <div class="container">
       {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale) }}

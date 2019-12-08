@@ -1,6 +1,6 @@
 {{ $buttons := .buttons }}
 {{ $size    := .size | default "normal" }}
-
+{{ $inv     := .inverted | default false }}
 <div class="buttons">
   {{ with $buttons.twitter }}
   {{ $url := printf "https://twitter.com/%s" .handle }}
@@ -9,7 +9,7 @@
   
   {{ with $buttons.github }}
   {{ $url   := printf "https://github.com/%s" .repo }}
-  {{ partial "components/button.html" (dict "url" $url "icon" "logo-github" "color" "black") }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-github" "color" "black" "inverted" $inv) }}
   {{ end }}
   
   {{ with $buttons.slack }}

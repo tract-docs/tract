@@ -1,7 +1,19 @@
 {{ define "title" }}
-{{ site.Title }} | Docs | {{ .Title }}
+{{ site.Title }} | {{ .CurrentSection.Title }} | {{ .Title }}
 {{ end }}
 
 {{ define "main" }}
-{{ partial "docs/dashboard.html" . }}
+{{ $type := .CurrentSection.Params.display }}
+{{ if not $type }}
+<main class="main">
+  {{ partial "components/navbar.html" . }}
+  {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
+  {{ partial "components/content.html" .Content }}
+</main>
+{{ partial "footer.html" . }}
+{{ else if eq $type "dashboard" }}
+{{ partial "section/dashboard.html" . }}
+{{ else }}
+{{ errorf "section display type '%s' not recognized" $type }}
+{{ end }}
 {{ end }}

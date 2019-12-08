@@ -1,3 +1,5 @@
+{{ $display  := .CurrentSection.Params.display }}
+{{ $fixedNav := ne $display "dashboard" }}
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
   <head>
@@ -9,13 +11,9 @@
     </title>
     {{ partial "css.html" . }}
   </head>
-  <body class="page has-navbar-fixed-top">
-    <main class="main">
-      {{ block "main" . }}
-      {{ end }}
-    </main>
-
-    {{ partial "footer.html" . }}
+  <body class="page{{ if $fixedNav }} has-navbar-fixed-top{{ end }}">
+    {{ block "main" . }}
+    {{ end }}
 
     {{ partial "javascript.html" . }}
   </body>

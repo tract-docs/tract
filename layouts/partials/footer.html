@@ -1,8 +1,9 @@
-{{ $title  := site.Title }}
-{{ $desc   := site.Params.description }}
-{{ $social := site.Params.social }}
-<footer class="footer">
-  <section class="hero">
+{{ $title   := site.Title }}
+{{ $desc    := site.Params.description }}
+{{ $social  := site.Params.social }}
+{{ $bgColor := site.Params.footer.bg_color | default site.Data.defaults.footer_bg_color }}
+<footer class="footer has-background-{{ $bgColor }}">
+  <section class="hero is-{{ $bgColor }}">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered">
@@ -10,7 +11,7 @@
             {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 2) }}
 
             {{ with $social }}
-            {{ partial "components/social-buttons.html" (dict "buttons" .) }}
+            {{ partial "components/social-buttons.html" (dict "buttons" . "inverted" true) }}
             {{ end }}
           </div>
         </div>

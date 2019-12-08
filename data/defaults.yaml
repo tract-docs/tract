@@ -1,4 +1,7 @@
 sans_serif_font: Open Sans
 monospace_font: Roboto Mono
+primary_color: '#2962ff'
+secondary_color: '#c51162'
 font_awesome_version: '5.11.2'
 icon_set: ionicons
+footer_bg_color: white
