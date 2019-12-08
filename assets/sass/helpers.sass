@@ -1,3 +1,10 @@
+// Red border for dev/debugging purposes
+=x
+  border: 2px solid $red
+
+=flex-size($w)
+  flex: 0 0 $w
+  
 .page
   +column
   height: 100vh
@@ -5,6 +12,3 @@
   .main
     +fill
 
-.is-fixed-top-dashboard
-  position: fixed
-  width: 100%

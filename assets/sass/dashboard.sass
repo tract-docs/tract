@@ -4,9 +4,32 @@
   overflow-y: hidden
 
   &-sidebar
-    flex: 0 0 25rem
-    background-color: $white-bis
+    +desktop
+      +flex-size(25rem)
+    +tablet-only
+      +flex-size(20rem)
+
+    background-color: $grey-light
     border-right: 1px solid $light
+    +column
+
+    &-container
+      +x
+      +column
+      margin: .5rem
+      +fill
+
+      &-header
+        +x
+        +flex-size(5rem)
+        
+      &-body
+        +x
+        +fill
+
+      &-footer
+        +x
+        +flex-size(2.5rem)
 
   &-main
     flex: 1
