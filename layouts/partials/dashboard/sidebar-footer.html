@@ -1,0 +1,18 @@
+{{ $repo := site.Params.social.github.repo }}
+{{ $path := cond site.IsMultiLingual (printf "%s/%s" .Lang .File.Path) .File.Path }}
+<footer class="dashboard-sidebar-container-footer">
+  {{ with $repo }}
+  {{ $url  := printf "https://github.com/%s" . }}
+  {{ $edit := printf "%s/edit/master/content/%s" $url $path }}
+  <div class="buttons">
+    <a class="button is-black" href="{{ $edit }}" target="_blank">
+      <span class="icon">
+        <ion-icon name="logo-github"></ion-icon>
+      </span>
+      <span>
+        Edit
+      </span>
+    </a>
+  </div>
+  {{ end }}
+</footer>

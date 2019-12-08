@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $type := .CurrentSection.Params.display }}
+{{ $type := .FirstSection.Params.display }}
 {{ if not $type }}
 <main class="main">
   {{ partial "components/navbar.html" (dict "color" "primary") }}
@@ -12,7 +12,7 @@
 </main>
 {{ partial "footer.html" . }}
 {{ else if eq $type "dashboard" }}
-{{ partial "section/dashboard.html" . }}
+{{ partial "dashboard/dashboard.html" . }}
 {{ else }}
 {{ errorf "section display type '%s' not recognized" $type }}
 {{ end }}

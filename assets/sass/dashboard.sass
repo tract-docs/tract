@@ -3,32 +3,31 @@
   height: 100vh
   overflow-y: hidden
 
+  .is-scrollable
+    overflow-y: auto
+
   &-sidebar
+    +column
+    border-right: 1.5px solid $light
+    background-color: $white-bis
+
     +desktop
       +flex-size(25rem)
     +tablet-only
-      +flex-size(20rem)
-
-    background-color: $grey-light
-    border-right: 1px solid $light
-    +column
+      +flex-size(20rem)    
 
     &-container
-      +x
       +column
-      margin: .5rem
+      margin: 2rem 1.5rem
       +fill
 
       &-header
-        +x
-        +flex-size(5rem)
         
       &-body
-        +x
         +fill
+        margin-top: 2rem
 
       &-footer
-        +x
         +flex-size(2.5rem)
 
   &-main

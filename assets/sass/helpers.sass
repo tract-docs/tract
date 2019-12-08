@@ -4,7 +4,11 @@
 
 =flex-size($w)
   flex: 0 0 $w
-  
+
+.is-narrow-desktop
+  +desktop
+    width: $content-desktop-width
+
 .page
   +column
   height: 100vh

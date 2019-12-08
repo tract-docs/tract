@@ -1,0 +1,37 @@
+{{ $section := .FirstSection }}
+{{ $here    := .RelPermalink }}
+
+{{ define "section" }}
+{{ $here := .here }}
+{{ $isHere := eq $here .section.RelPermalink }}
+<div class="nav-section">
+  <a class="nav-section-title{{ if $isHere }} is-active{{ end }}" href="{{ .section.RelPermalink }}">
+    {{ .section.Title }}
+  </a>
+
+  {{ with .section.RegularPages }}
+  <ul class="nav-section-pages">
+    {{ range . }}
+    {{ $isHere := eq $here .RelPermalink }}
+    <li class="nav-section-pages-link">
+      <a{{ if $isHere }} class="is-active"{{ end }} href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ with .section.Sections }}
+  {{ range . }}
+  {{ template "section" (dict "section" . "here" $here) }}
+  {{ end }}
+  {{ end }}
+</div>
+{{ end }}
+
+{{ with .FirstSection }}
+<nav class="nav">
+  {{ template "section" (dict "section" . "here" $here) }}
+</nav>
+{{ end }}

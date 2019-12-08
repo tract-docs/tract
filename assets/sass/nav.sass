@@ -1,1 +1,24 @@
 .nav
+  *
+    line-height: 130%
+
+  .is-active
+    font-weight: 700
+    color: $secondary
+
+  &-section
+    &-title
+      margin-bottom: .75rem
+      font-size: 1.75rem
+
+    &-pages
+      margin: .75rem 0 .75rem 1rem
+
+      &-link
+        font-size: 1.25rem
+
+        & + &
+          margin-top: .25rem
+
+    .nav-section > .nav-section
+      margin-left: 1rem

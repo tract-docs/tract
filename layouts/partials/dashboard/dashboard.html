@@ -1,0 +1,16 @@
+<div class="dashboard">
+  <div class="dashboard-sidebar is-hidden-mobile">
+    <div class="dashboard-sidebar-container">
+      {{ partial "dashboard/sidebar-header.html" . }}
+      {{ partial "dashboard/sidebar-body.html" . }}
+      {{ partial "dashboard/sidebar-footer.html" . }}
+    </div>
+  </div>
+
+  <div class="dashboard-main">
+    <article class="article">
+      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white")}}
+      {{ partial "components/content.html" .Content }}
+    </article>
+  </div>
+</div>
