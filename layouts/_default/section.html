@@ -6,7 +6,7 @@
 {{ $type := .CurrentSection.Params.display }}
 {{ if not $type }}
 <main class="main">
-  {{ partial "components/navbar.html" . }}
+  {{ partial "components/navbar.html" (dict "color" "primary") }}
   {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
   {{ partial "components/content.html" .Content }}
 </main>

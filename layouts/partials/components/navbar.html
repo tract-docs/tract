@@ -3,7 +3,8 @@
 {{ $menu   := site.Menus.main }}
 {{ $social := site.Params.social }}
 {{ $i18n   := site.IsMultiLingual }}
-<nav class="navbar is-primary is-fixed-top" role="navigation" aria-label="dropdown-navigation">
+{{ $color  := .color | default "primary" }}
+<nav class="navbar is-{{ $color }} is-fixed-top" role="navigation" aria-label="dropdown-navigation">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item is-size-5 is-size-6-mobile has-text-weight-bold" href="{{ $home }}">
