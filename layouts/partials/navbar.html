@@ -28,7 +28,7 @@
 
         {{ with $social }}
         <div class="navbar-item">
-          {{ partial "social-buttons.html" . }}
+          {{ partial "components/social-buttons.html" (dict "buttons" .) }}
         </div>
         {{ end }}
       </div>

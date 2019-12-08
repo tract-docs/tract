@@ -1,0 +1,14 @@
+{{ $scale  := .scale | default 1 }}
+{{ $scale1 := add $scale 1 }}
+{{ $scale2 := add $scale 2 }}
+{{ $scale3 := add $scale 3 }}
+
+<p class="title is-size-{{ $scale }} is-size-{{ $scale1 }}-mobile has-text-weight-bold{{ if .description }} is-spaced{{ end }}">
+  {{ .title | markdownify }}
+</p>
+
+{{ with .description }}
+<p class="subtitle is-size-{{ $scale2 }} is-size-{{ $scale3 }}-mobile has-text-weight-light">
+  {{ . | markdownify }}
+</p>
+{{ end }}

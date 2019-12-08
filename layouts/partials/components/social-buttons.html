@@ -1,0 +1,34 @@
+{{ $buttons := .buttons }}
+{{ $size    := .size | default "normal" }}
+
+<div class="buttons">
+  {{ with $buttons.twitter }}
+  {{ $url := printf "https://twitter.com/%s" .handle }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-twitter" "color" "twitter-blue") }}
+  {{ end }}
+  
+  {{ with $buttons.github }}
+  {{ $url   := printf "https://github.com/%s" .repo }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-github" "color" "black") }}
+  {{ end }}
+  
+  {{ with $buttons.slack }}
+  {{ $url := printf "https://%s.slack.com" .channel }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-slack" "color" "slack-aubergine") }}
+  {{ end }}
+  
+  {{ with $buttons.youtube }}
+  {{ $url := printf "https://youtube.com/%s" .channel }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-youtube" "color" "youtube-red") }}
+  {{ end }}
+  
+  {{ with $buttons.linkedin }}
+  {{ $url := printf "https://linkedin.in/in/%s" .id }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-linkedin" "color" "linkedin-blue") }}
+  {{ end }}
+  
+  {{ with $buttons.facebook }}
+  {{ $url := printf "https://facebook.com/%s" .username }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-facebook" "color" "facebook-blue") }}
+  {{ end }}
+</div>

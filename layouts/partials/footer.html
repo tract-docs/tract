@@ -1,13 +1,17 @@
-{{ $title := site.Title }}
+{{ $title  := site.Title }}
+{{ $desc   := site.Params.description }}
+{{ $social := site.Params.social }}
 <footer class="footer">
-  <section class="hero is-black">
+  <section class="hero">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered">
           <div class="column">
-            <p class="title">
-              {{ $title }}
-            </p>
+            {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 2) }}
+
+            {{ with $social }}
+            {{ partial "components/social-buttons.html" (dict "buttons" .) }}
+            {{ end }}
           </div>
         </div>
       </div>

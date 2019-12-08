@@ -2,40 +2,17 @@
 {{ range .menu }}
 {{ $isHere := eq $here (.URL | relURL) }}
 {{ if .HasChildren }}
-<div class="navbar-item">
-  <div class="dropdown is-right is-hoverable">
-    <div class="dropdown-trigger">
-      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span>
-          {{ .Name }}
-        </span>
-  
-        <span class="icon">
-          <ion-icon size="medium" name="arrow-dropdown"></ion-icon>
-        </span>
-      </button>
-    </div>
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link"{{ with .URL }} href="{{ . }}"{{ end }}>
+    {{ .Name }}
+  </a>
 
-    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-      <div class="dropdown-content">
-        {{ range .Children }}
-        {{ $isExternal := hasPrefix .URL "http" }}
-        <a class="dropdown-item" href="{{ .URL }}"{{ if $isExternal }} target="_blank"{{ end }}>
-          <span>
-            {{ .Name }}
-          </span>
-          {{ if $isExternal }}
-          &nbsp;
-          <small>
-            <span class="icon is-small">
-              <ion-icon name="open"></ion-icon>
-            </span>
-          </small>
-          {{ end }}
-        </a>
-        {{ end }}
-      </div>
-    </div>
+  <div class="navbar-dropdown">
+    {{ range .Children }}
+    <a class="navbar-item"{{ with .URL }} href="{{ . }}"{{ end }}>
+      {{ .Name }}
+    </a>
+    {{ end }}
   </div>
 </div>
 {{ else }}

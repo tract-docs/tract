@@ -1,19 +1,11 @@
-{{ $size := .size | default "normal" }}
-{{ $desc := .description }}
+{{ $title := .title }}
+{{ $size  := .size | default "normal" }}
+{{ $desc  := .description }}
+{{ $scale := .scale | default 1}}
 <section class="hero is-{{ $size }}">
   <div class="hero-body">
     <div class="container">
-      {{ with .title }}
-      <p class="title is-size-1 is-size-2-mobile has-text-weight-bold{{ if $desc }} is-spaced{{ end }}">
-        {{ . }}
-      </p>
-      {{ end }}
-
-      {{ with $desc }}
-      <p class="subtitle is-size-3 is-size-4-mobile has-text-weight-light">
-        {{ . }}
-      </p>
-      {{ end }}
+      {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale) }}
     </div>
   </div>
 </section>
