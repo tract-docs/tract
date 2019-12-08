@@ -3,13 +3,6 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="page">
-  <main class="main">
-    {{ partial "navbar.html" . }}
-    {{ partial "hero.html" . }}
-    {{ partial "content.html" . }}
-  </main>
-</div>
-
-{{ partial "footer.html" . }}
+{{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
+{{ partial "components/content.html" .Content }}
 {{ end }}

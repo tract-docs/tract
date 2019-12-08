@@ -14,10 +14,6 @@
 @charset "utf-8"
 @import url({{ $fontsUrl }})
 
-// Site-specific variables
-$tract-magenta: {{ $primary }}
-$tract-orange: {{ $secondary }}
-
 // General-use variables
 $twitter-blue: rgb(29, 161, 242)
 $slack-aubergine: rgb(74, 21, 75)
@@ -29,73 +25,21 @@ $facebook-blue: rgb(59, 89, 152)
 @import "bulma/sass/utilities/functions"
 
 // Bulma variable overrides
-$radius: 0
-$primary: $tract-magenta
-$secondary: $tract-orange
+$primary: {{ $primary }}
+$secondary: {{ $secondary }}
 $link: $primary
 $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $family-monospace: "{{ $monospaceFont }}", monospace
-$box-padding: 1rem
-$modal-card-head-radius: 0
-$modal-card-foot-radius: 0
-$modal-background-background-color: $white
-//$section-padding: 2rem 1.5rem
-$section-padding-medium: 4.5rem 1.5rem
-$navbar-dropdown-radius: 0
-$box-padding: 1.5rem
-//$dropdown-content-radius: 0
-
-$nav-background-color: $primary
+$footer-background-color: $black
 
 @import "bulma/sass/utilities/derived-variables"
 
-$colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "secondary": ($secondary, $white), "magenta": ($tract-magenta, $white), "slack-aubergine": ($slack-aubergine, $white), "youtube-red": ($youtube-red, $white), "linkedin-blue": ($linkedin-blue, $white), "facebook-blue": ($facebook-blue, $white)))
-$sidebar-border: 1.5px solid $grey-lighter
-$footer-background-color: $black
-
-.article
-  padding-bottom: 5rem
-
-.toc
-  border-left: $sidebar-border
-  
-  &-container
-    font-size: 1rem
-
-hr
-  &.extra-margin
-    margin: 4rem 0
-
-.modal
-  padding-top: 2rem
+$colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "secondary": ($secondary, $white), "slack-aubergine": ($slack-aubergine, $white), "youtube-red": ($youtube-red, $white), "linkedin-blue": ($linkedin-blue, $white), "facebook-blue": ($facebook-blue, $white)))
 
 @import "bulma/bulma"
 
-.section
-  &.has-no-y-padding
-    padding: 0 1.5rem
-
-=flex
-  display: flex
-
-=column
-  +flex
-  flex-direction: column
-
-=row
-  +flex
-  flex-direction: row
-
-=fill
-  flex: 1
-
-.page
-  +column
-  height: 100vh
-
-  .main
-    +fill
-
+@import "functions"
+@import "helpers"
 @import "admonition"
 @import "dashboard"
 @import "nav"

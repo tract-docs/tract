@@ -1,7 +1,4 @@
 {{ $lang   := site.LanguageCode }}
-{{ $isHome := .IsHome }}
-{{ $isDoc  := eq .Section "docs" }}
-{{ $fixed  := not (or $isHome $isDoc) }}
 <!DOCTYPE html>
 <html lang="{{ $lang }}">
   <head>
@@ -12,13 +9,16 @@
       {{ end }}
     </title>
     {{ partial "css.html" . }}
-
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
   </head>
-  <body{{ if $fixed }} class="has-navbar-fixed-top"{{ end }}>
-    {{ block "main" . }}
-    {{ end }}
+  <body class="page has-navbar-fixed-top">
+    <main class="main">
+      {{ partial "navbar.html" . }}
+
+      {{ block "main" . }}
+      {{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
 
     {{ partial "javascript.html" . }}
   </body>

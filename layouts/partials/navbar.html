@@ -1,17 +1,17 @@
 {{ $home   := site.BaseURL }}
 {{ $title  := site.Title }}
-{{ $social := site.Params.social }}
 {{ $menu   := site.Menus.main }}
+{{ $social := site.Params.social }}
 {{ $here   := .RelPermalink }}
-<nav class="navbar is-primary is-fixed-top">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown-navigation">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item has-text-weight-bold" href="{{ $home }}">
         {{ $title }}
       </a>
 
-      {{ if or $social }}
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      {{ if $menu }}
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -19,22 +19,20 @@
       {{ end }}
     </div>
 
+    {{ if or $menu $social }}
     <div class="navbar-menu" id="navbar-menu">
       <div class="navbar-end">
         {{ with $menu }}
         {{ partial "navbar-menu.html" (dict "menu" . "here" $here) }}
         {{ end }}
 
-        {{ if $social }}
+        {{ with $social }}
         <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              {{ partial "social-buttons.html" (dict "social" $social) }}
-            </p>
-          </div>
+          {{ partial "social-buttons.html" . }}
         </div>
         {{ end }}
       </div>
     </div>
+    {{ end }}
   </div>
 </nav>

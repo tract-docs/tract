@@ -5,13 +5,13 @@
 <div class="navbar-item">
   <div class="dropdown is-right is-hoverable">
     <div class="dropdown-trigger">
-      <button class="button is-primary is-outlined is-inverted" aria-haspopup="true" aria-controls="dropdown-menu">
+      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
         <span>
           {{ .Name }}
         </span>
   
         <span class="icon">
-          <ion-icon name="arrow-dropdown"></ion-icon>
+          <ion-icon size="medium" name="arrow-dropdown"></ion-icon>
         </span>
       </button>
     </div>
@@ -27,7 +27,7 @@
           {{ if $isExternal }}
           &nbsp;
           <small>
-            <span class="icon is-small has-text-primary">
+            <span class="icon is-small">
               <ion-icon name="open"></ion-icon>
             </span>
           </small>

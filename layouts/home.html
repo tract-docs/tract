@@ -1,12 +1,8 @@
-{{ define "main" }}
-<div class="page">
-  <main class="main">
-    {{ partial "home/hero.html" . }}
-    {{ partial "home/under-navbar.html" . }}
-    {{ partial "home/under-hero.html" . }}
-    {{ partial "home/content.html" . }}      
-  </main>
+{{ define "title" }}
+{{ site.Title }} | Home
+{{ end }}
 
-  {{ partial "footer.html" . }}
-</div>
+{{ define "main" }}
+{{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "large") }}
+{{ partial "components/content.html" .Content }}
 {{ end }}

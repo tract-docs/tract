@@ -1,3 +1,0 @@
-{{ $repo := site.Params.social.github.repo }}
-{{ $url  := printf "https://github.com/%s/edit/master/content/%s" $repo .File.Path }}
-{{ partial "button.html" (dict "url" $url "color" "black" "icon" "logo-github" "text" "Edit this page") }}

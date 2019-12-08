@@ -1,0 +1,19 @@
+{{ $size := .size | default "normal" }}
+{{ $desc := .description }}
+<section class="hero is-{{ $size }}">
+  <div class="hero-body">
+    <div class="container">
+      {{ with .title }}
+      <p class="title is-size-1 is-size-2-mobile has-text-weight-bold{{ if $desc }} is-spaced{{ end }}">
+        {{ . }}
+      </p>
+      {{ end }}
+
+      {{ with $desc }}
+      <p class="subtitle is-size-3 is-size-4-mobile has-text-weight-light">
+        {{ . }}
+      </p>
+      {{ end }}
+    </div>
+  </div>
+</section>
