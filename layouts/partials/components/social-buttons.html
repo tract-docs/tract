@@ -4,7 +4,7 @@
 <div class="buttons">
   {{ with $buttons.twitter }}
   {{ $url := printf "https://twitter.com/%s" .handle }}
-  {{ partial "components/button.html" (dict "url" $url "icon" "logo-twitter" "color" "twitter-blue") }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-twitter" "color" "twitter-blue" "inverted" $inv) }}
   {{ end }}
   
   {{ with $buttons.github }}
@@ -14,21 +14,21 @@
   
   {{ with $buttons.slack }}
   {{ $url := printf "https://%s.slack.com" .channel }}
-  {{ partial "components/button.html" (dict "url" $url "icon" "logo-slack" "color" "slack-aubergine") }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-slack" "color" "slack-aubergine" "inverted" $inv) }}
   {{ end }}
   
   {{ with $buttons.youtube }}
   {{ $url := printf "https://youtube.com/%s" .channel }}
-  {{ partial "components/button.html" (dict "url" $url "icon" "logo-youtube" "color" "youtube-red") }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-youtube" "color" "youtube-red" "inverted" $inv) }}
   {{ end }}
   
   {{ with $buttons.linkedin }}
   {{ $url := printf "https://linkedin.in/in/%s" .id }}
-  {{ partial "components/button.html" (dict "url" $url "icon" "logo-linkedin" "color" "linkedin-blue") }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-linkedin" "color" "linkedin-blue" "inverted" $inv) }}
   {{ end }}
   
   {{ with $buttons.facebook }}
   {{ $url := printf "https://facebook.com/%s" .username }}
-  {{ partial "components/button.html" (dict "url" $url "icon" "logo-facebook" "color" "facebook-blue") }}
+  {{ partial "components/button.html" (dict "url" $url "icon" "logo-facebook" "color" "facebook-blue" "inverted" $inv) }}
   {{ end }}
 </div>

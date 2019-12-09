@@ -10,7 +10,7 @@
             {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 2) }}
 
             {{ with $social }}
-            {{ partial "components/social-buttons.html" (dict "buttons" . "inverted" true) }}
+            {{ partial "components/social-buttons.html" (dict "buttons" .) }}
             {{ end }}
           </div>
         </div>
