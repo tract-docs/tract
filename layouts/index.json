@@ -2,6 +2,7 @@
 {{ $pages := site.Pages }}
 {{ $index.Add "index" slice }}
 {{ range $pages }}
-{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary "tags" .Params.tags) }}
+{{ $tags := cond (isset .Params "tags") .Params.tags (slice) }}
+{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary "tags" $tags) }}
 {{ end }}
 {{ $index.Get "index" | jsonify }}
