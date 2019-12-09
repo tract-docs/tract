@@ -1,6 +1,7 @@
 {{ $home     := site.Home.RelPermalink }}
 {{ $title    := site.Title }}
 {{ $searchOn := .FirstSection.Params.search }}
+
 <nav class="navbar is-primary is-dashboard-fixed">
   <div class="container">
     <div class="navbar-brand">
@@ -13,13 +14,23 @@
       <div class="navbar-end">
         {{ if $searchOn }}
         <div class="navbar-item">
-          <div class="field">
-            <p class="control has-icons-left has-icons-right" id="search-bar">
-              <input class="input" type="text" placeholder="Search">
-              <span class="icon is-small is-left">
-                <ion-icon name="search"></ion-icon>
-              </span>
-            </p>
+          <div class="dropdown" id="search-dropdown">
+            <div class="dropdown-trigger">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input is-radiusless" placeholder="Search" id="search-bar">
+                  <span class="icon is-left">
+                    <ion-icon name="search"></ion-icon>
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div class="dropdown-menu" id="search-menu">
+              <div class="dropdown-content" id="search-content">
+                <!-- dropdown search items generated here -->
+              </div>
+            </div>
           </div>
         </div>
         {{ end }}

@@ -1,7 +1,6 @@
 {{ $server := site.IsServer }}
 {{ $app    := resources.Get "js/app.js" | resources.ExecuteAsTemplate "js/app.js" . }}
 {{ $icons  := site.Params.icon_set | default site.Data.defaults.icon_set }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 {{ if $server }}
 <script src="{{ $app.RelPermalink }}"></script>
 {{ else }}

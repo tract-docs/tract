@@ -1,0 +1,70 @@
+{{ $indexUrl := printf "%s/index.json" .Lang | relURL }}
+<script>
+  $(() => {
+    var fuse;
+
+    const searchBar = $('#search-bar'),
+      searchMenu = $('#search-menu'),
+      searchContent = $('#search-content');
+
+      const options = {
+        shouldSort: true,
+        threshold: 0.6,
+        maxPatternLength: 32,
+        minMatchCharLength: 1,
+        keys: [
+          {
+            name: 'title',
+            weight: 0.7
+          },
+          {
+            name: 'summary',
+            weight: 0.5,
+          },
+          {
+            name: 'body',
+            weight: 0.3
+          }
+        ]
+      }
+
+      fetch('{{ $indexUrl }}')
+        .then((res) => {
+          return res.json();
+        })
+        .then((idx) => {
+          fuse = new Fuse(idx, options);
+
+          searchBar.on('focusin', () => {
+            searchBar.on('keyup', () => {
+              const term = searchBar.val().toLowerCase();
+              
+              if (term) {
+                const results = fuse.search(term);
+                const numResults = results.length;
+                console.log(`Number of results: ${numResults}`);
+
+                if (numResults > 0) {
+                  searchMenu.show();
+                  searchContent.empty();
+
+                  var numAdded = 0;
+
+                  results.forEach((res) => {
+                    const item = `<a class="dropdown-item" href="${res.url}">
+                      ${res.title}
+                    </a>`;
+
+                    searchContent.append(item);
+
+                    searchContent.show();
+                  });
+                }
+              } else {
+                searchMenu.hide();
+              }
+            });
+          });
+        });
+  });
+</script>
