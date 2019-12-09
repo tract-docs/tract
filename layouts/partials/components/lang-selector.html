@@ -1,5 +1,5 @@
-{{ $lang  := .Language.LanguageName }}
-{{ $langs := where site.Home.AllTranslations ".Language.LanguageName" "ne" $lang }}
+{{ $lang  := site.Language.LanguageName }}
+{{ $langs := site.Home.Translations }}
 <div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link is-arrowless">
     <span class="icon">
@@ -11,7 +11,7 @@
   </a>
 
   <div class="navbar-dropdown">
-    {{ range $langs }}
+    {{ range site.Home.Translations }}
     <a class="navbar-item" href="{{ .RelPermalink }}">
       {{ .Language.LanguageName }}
     </a>

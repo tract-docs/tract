@@ -3,10 +3,17 @@
 {{ $desc  := .description }}
 {{ $scale := .scale | default 1 }}
 {{ $color := .color | default "primary" }}
+{{ $btns  := .buttons }}
 <section class="hero is-{{ $color }} is-{{ $size }}">
   <div class="hero-body">
     <div class="container">
       {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale) }}
+
+      {{ with $btns }}
+      <hr />
+
+      {{ partial "components/buttons.html" . }}
+      {{ end }}
     </div>
   </div>
 </section>

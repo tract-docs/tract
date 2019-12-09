@@ -9,7 +9,7 @@
 
   <div class="dashboard-main">
     <article class="article">
-      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white")}}
+      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white" "buttons" .Params.buttons)}}
       {{ partial "components/content.html" .Content }}
     </article>
   </div>

@@ -7,7 +7,7 @@
 <div class="page">
   <main class="main">
     {{ partial "components/navbar.html" (dict "color" $color) }}
-    {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "large" "scale" 1 "color" $color) }}
+    {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "large" "scale" 1 "color" $color "buttons" .Params.buttons) }}
     {{ partial "components/content.html" .Content }}
   </main>
 
