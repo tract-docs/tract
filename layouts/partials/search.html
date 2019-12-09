@@ -1,4 +1,6 @@
+{{ $enabled  := .FirstSection.Params.search }}
 {{ $indexUrl := printf "%s/index.json" .Lang | relURL }}
+{{ if $enabled }}
 <script>
   $(() => {
     var fuse;
@@ -50,6 +52,12 @@
 
                   var numAdded = 0;
 
+                  const numTerm = (numResults == 1) ? "result" : "results";
+                  const numItems = `<div class="dropdown-item has-text-weight-bold">${numResults} ${numTerm} found</div>
+                    <span class="dropdown-divider"></span>`;
+
+                  searchContent.append(numItems);
+
                   results.forEach((res) => {
                     const item = `<a class="dropdown-item" href="${res.url}">
                       ${res.title}
@@ -68,3 +76,4 @@
         });
   });
 </script>
+{{ end }}
