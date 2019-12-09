@@ -1,3 +1,4 @@
+{{ $indexUrl := printf "%s/index.json" .Lang | relURL }}
 const navbarMenu = () => {
   const burger = $(".navbar-burger"),
         menu = $(".navbar-menu");
@@ -7,33 +8,9 @@ const navbarMenu = () => {
   });
 }
 
-const docsDrawer = () => {
-  $('#drawer-toggle').click(() => {
-    $('#nav-modal').addClass('is-active');
-  });
-
-  $('#nav-modal-close').click(() => {
-    $('#nav-modal').removeClass('is-active');
-  });
-}
-
-const homeNavbar = () => {
-  const elem = $('#home-navbar'),
-    threshold = $('#home-hero').height(),
-    brand = $('#home-navbar-brand');
-
-  $(window).scroll(() => {
-    if ($(window).scrollTop() > threshold) {
-      elem.addClass('is-fixed-top');
-      brand.removeClass('is-hidden');
-    } else {
-      elem.removeClass('is-fixed-top');
-      brand.addClass('is-hidden');
-    }
-  });
-}
-
 const search = () => {
+  const searchBar = $('#search-bar');
+
   const options = {
     shouldSort: true,
     threshold: 0.6,
@@ -55,32 +32,28 @@ const search = () => {
     ]
   }
 
-  fetch('/index.json')
-    .then((res) => {
-      return res.json();
-    })
-    .then((docs) => {
-      console.log(docs.length);
-
-      const fuse = new Fuse(docs, options);
-
-      const res = fuse.search('Tract');
-
-      res.forEach((item) => {
-        console.log(item);
-      });
-    });
-}
-
-const docFocus = () => {
-  if ($('.dashboard-panel.main')) {
-    $('.dashboard-panel.main').focus();
+  const jsonify = (res) => {
+    return res.json();
   }
+
+  const showSearchDrawer = () => {
+    searchBar.hide();
+  }
+
+  const searchBarFocus = () => {
+    showSearchDrawer();
+  }
+
+  const handleIndex = (idx) => {
+    searchBar.on('focus', searchBarFocus);
+  }
+
+  fetch('{{ $indexUrl }}')
+    .then(jsonify)
+    .then(handleIndex);
 }
 
 $(function() {
   navbarMenu();
-  docsDrawer();
-  homeNavbar();
   search();
 });

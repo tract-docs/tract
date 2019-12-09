@@ -8,6 +8,8 @@
   </div>
 
   <div class="dashboard-main">
+    {{ partial "dashboard/navbar.html" . }}
+
     <article class="article">
       {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white" "buttons" .Params.buttons)}}
       {{ partial "components/content.html" .Content }}

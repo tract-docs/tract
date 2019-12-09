@@ -1,0 +1,29 @@
+{{ $home     := site.Home.RelPermalink }}
+{{ $title    := site.Title }}
+{{ $searchOn := .FirstSection.Params.search }}
+<nav class="navbar is-primary is-dashboard-fixed">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item is-hidden-desktop has-text-weight-bold" href="{{ $home }}">
+        {{ $title }}
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        {{ if $searchOn }}
+        <div class="navbar-item">
+          <div class="field">
+            <p class="control has-icons-left has-icons-right" id="search-bar">
+              <input class="input" type="text" placeholder="Search">
+              <span class="icon is-small is-left">
+                <ion-icon name="search"></ion-icon>
+              </span>
+            </p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</nav>
