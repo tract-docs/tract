@@ -1,6 +1,7 @@
-{{ $enabled  := .FirstSection.Params.search }}
 {{ $indexUrl := printf "%s/index.json" .Lang | relURL }}
-{{ if $enabled }}
+{{ $result   := T "result" }}
+{{ $results  := T "results" }}
+{{ $found    := T "found" }}
 <script>
   $(() => {
     const searchBar = $('#search-bar'),
@@ -32,7 +33,7 @@
         ]
       }
 
-      fetch('{{ $indexUrl }}')
+      fetch({{ $indexUrl }})
         .then((res) => {
           return res.json();
         })
@@ -57,8 +58,9 @@
 
                   var numAdded = 0;
 
-                  const numTerm = (numResults == 1) ? "result" : "results";
-                  const numItems = `<div class="dropdown-item has-text-weight-bold">${numResults} ${numTerm} found</div>
+                  const numTerm = (numResults == 1) ? '{{ $result }}' : '{{ $results }}';
+
+                  const numItems = `<div class="dropdown-item has-text-weight-bold">${numResults} ${numTerm} ${'{{ $found }}'}</div>
                     <span class="dropdown-divider"></span>`;
 
                   searchContent.append(numItems);
@@ -81,4 +83,3 @@
         });
   });
 </script>
-{{ end }}

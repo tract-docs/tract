@@ -22,6 +22,10 @@
 
     {{ if or $menu $i18n $social }}
     <div class="navbar-menu" id="navbar-menu">
+      <div class="navbar-start">
+        {{ partial "components/search-dropdown.html" . }}
+      </div>
+
       <div class="navbar-end">
         {{ with $menu }}
         {{ partial "components/navbar-menu.html" . }}

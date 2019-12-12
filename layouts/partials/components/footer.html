@@ -9,6 +9,8 @@
           <div class="column">
             {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 2) }}
 
+            <br />
+
             {{ with $social }}
             {{ partial "components/social-buttons.html" (dict "buttons" .) }}
             {{ end }}

@@ -1,15 +1,15 @@
 <div class="admonition is-{{ .type }}">
-  <div class="columns is-vcentered">
+  <div class="columns">
     <div class="column is-1">
-      <span class="icon is-large">
-        <ion-icon size="large" name="{{ .icon }}"></ion-icon>
+      <span class="icon">
+        <ion-icon name="{{ .icon }}"></ion-icon>
       </span>
     </div>
 
     <div class="column">
       <div class="content">
         {{ with .title }}
-        <p class="title">
+        <p class="title is-size-4 is-size-5-mobile">
           {{ . | markdownify }}
         </p>
         {{ end }}
