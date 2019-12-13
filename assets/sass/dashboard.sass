@@ -1,14 +1,13 @@
+$margin: 2rem
+
 .dashboard
   +row
   height: 100vh
   overflow-y: hidden
 
-  .is-scrollable
-    overflow-y: auto
-
   &-sidebar
     +column
-    background-color: $white-bis
+    background-color: $light
 
     +desktop
       +flex-size(25rem)
@@ -17,16 +16,18 @@
 
     &-container
       +column
-      margin: 1.5rem
       +fill
 
       &-header
+        margin: $margin
         
       &-body
+        margin: 0 $margin
         +fill
-        margin-top: 2rem
 
       &-footer
+        margin: $margin
+
         +flex-size(2.5rem)
 
   &-main

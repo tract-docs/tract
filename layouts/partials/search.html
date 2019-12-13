@@ -38,10 +38,6 @@
           return res.json();
         })
         .then((idx) => {
-          idx.forEach((item) => {
-            console.log(item.tags);
-          });
-
           const fuse = new Fuse(idx, options);
 
           searchBar.on('focusin', () => {

@@ -1,37 +1,31 @@
-{{ $section := .FirstSection }}
-{{ $here    := .RelPermalink }}
+{{ with .FirstSection }}
+<nav class="nav" role="navigation" aria-label="docs navigation">
+  {{ template "section" . }}
+</nav>
+{{ end }}
 
 {{ define "section" }}
-{{ $here := .here }}
-{{ $isHere := eq $here .section.RelPermalink }}
 <div class="nav-section">
-  <a class="nav-section-title{{ if $isHere }} is-active{{ end }}" href="{{ .section.RelPermalink }}">
-    {{ .section.Title }}
+  <a class="nav-section-title" href="{{ .RelPermalink }}">
+    {{ .Title }}
   </a>
 
-  {{ with .section.RegularPages }}
-  <ul class="nav-section-pages">
+  {{ with .RegularPages }}
+  <ul class="nav-section-links">
     {{ range . }}
-    {{ $isHere := eq $here .RelPermalink }}
-    <li class="nav-section-pages-link">
-      <a{{ if $isHere }} class="is-active"{{ end }} href="{{ .RelPermalink }}">
+    <li>
+      <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
     </li>
     {{ end }}
   </ul>
   {{ end }}
-
-  {{ with .section.Sections }}
-  {{ range . }}
-  {{ template "section" (dict "section" . "here" $here) }}
-  {{ end }}
-  {{ end }}
 </div>
-{{ end }}
 
-{{ with .FirstSection }}
-<nav class="nav">
-  {{ template "section" (dict "section" . "here" $here) }}
-</nav>
+{{ with .Sections }}
+{{ range . }}
+{{ template "section" . }}
+{{ end }}
+{{ end }}
 {{ end }}

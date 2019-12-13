@@ -7,12 +7,18 @@
     </div>
   </div>
 
-  <div class="dashboard-main">
-    {{ partial "dashboard/navbar.html" . }}
+  <div class="dashboard-main page">
+    <main class="main">
+      {{ partial "dashboard/navbar.html" . }}
 
-    <article class="article">
-      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white" "buttons" .Params.buttons) }}
-      {{ partial "components/content.html" .Content }}
-    </article>
+      <article class="article">
+        {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white" "buttons" .Params.buttons) }}
+        {{ partial "components/content.html" .Content }}
+      </article>
+    </main>
+
+    {{ partial "components/pagination.html" . }}
+    {{ partial "components/git-info.html" . }}
+    {{ partial "components/footer.html" . }}
   </div>
 </div>

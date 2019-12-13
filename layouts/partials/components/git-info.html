@@ -1,0 +1,21 @@
+{{ with .GitInfo }}
+{{ $author    := .AuthorName }}
+{{ $authorUrl := printf "https://github.com/%s" $author }}
+{{ $img       := printf "%s.png" $authorUrl }}
+{{ $updated   := dateFormat "January 2, 2006 at 15:04 MST" .AuthorDate }}
+<section class="section">
+  <div class="container">
+    <hr />
+
+    <figure class="image is-64x64">
+      <img class="is-rounded" src="{{ $img }}">
+    </figure>
+
+    <br />
+
+    <p>
+      Last updated by <a href="{{ $authorUrl }}" target="_blank">{{ $author }}</a> on {{ $updated }}
+    </p>
+  </div>
+</section>
+{{ end }}

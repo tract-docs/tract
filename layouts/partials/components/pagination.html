@@ -1,27 +1,31 @@
-{{ if or .Next .Prev }}
-<div class="pagination is-narrow-desktop">
-  <!-- Actually previous (bug in Hugo) -->
-  {{ with .Next }}
-  <a class="button is-primary" href="{{ .RelPermalink }}">
-    <span class="icon">
-      <ion-icon name="arrow-back"></ion-icon>
-    </span>
-    <span>
-      {{ .Title }}
-    </span>
-  </a>
-  {{ end }}
-
-  <!-- Actually next (bug in Hugo) -->
-  {{ with .Prev }}
-  <a class="button is-primary" href="{{ .RelPermalink }}">
-    <span>
-      {{ .Title }}
-    </span>
-    <span class="icon">
-      <ion-icon name="arrow-forward"></ion-icon>
-    </span>
-  </a>
-  {{ end }}
-</div>
+{{ if or .NextInSection .PrevInSection }}
+<section class="section">
+  <div class="container">
+    <div class="pagination is-narrow-desktop">
+      <!-- Actually previous (bug in Hugo) -->
+      {{ with .NextInSection }}
+      <a class="button is-primary" href="{{ .RelPermalink }}">
+        <span class="icon">
+          <ion-icon name="arrow-back"></ion-icon>
+        </span>
+        <span>
+          {{ .Title }}
+        </span>
+      </a>
+      {{ end }}
+    
+      <!-- Actually next (bug in Hugo) -->
+      {{ with .PrevInSection }}
+      <a class="button is-primary" href="{{ .RelPermalink }}">
+        <span>
+          {{ .Title }}
+        </span>
+        <span class="icon">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
 {{ end }}
