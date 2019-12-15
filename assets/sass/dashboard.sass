@@ -1,4 +1,4 @@
-$margin: 2rem
+$margin: 1.5rem
 
 .dashboard
   +row
@@ -6,8 +6,8 @@ $margin: 2rem
   overflow-y: hidden
 
   &-sidebar
+    height: 100%
     +column
-    background-color: $light
 
     +desktop
       +flex-size(25rem)
@@ -22,7 +22,7 @@ $margin: 2rem
         margin: $margin
         
       &-body
-        margin: 0 $margin
+        margin: $margin
         +fill
 
       &-footer

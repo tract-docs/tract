@@ -1,0 +1,16 @@
+$collapse-transition-speed: .2s !default
+$collapse-transition-style: ease !default
+$message-body-padding: 1.25em 1.5em !default
+
+.is-collapsible
+  overflow-y: hidden
+  transition: height $collapse-transition-speed $collapse-transition-style
+	
+  &.is-active
+    transition: height $collapse-transition-speed $collapse-transition-style
+
+  &.message-body
+    padding: 0 !important
+	  
+    .message-body-content
+	    padding: $message-body-padding

@@ -10,6 +10,7 @@
       {{ end }}
     </title>
     {{ partial "css.html" . }}
+    {{ partial "head-js.html" . }}
   </head>
   <body class="page{{ if $fixedNav }} has-navbar-fixed-top{{ end }}">
     {{ block "main" . }}

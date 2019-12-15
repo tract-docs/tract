@@ -1,3 +1,5 @@
+{{ $this := .CurrentSection }}
+
 {{ with .FirstSection }}
 <nav class="nav" role="navigation" aria-label="docs navigation">
   {{ template "section" . }}
@@ -5,21 +7,36 @@
 {{ end }}
 
 {{ define "section" }}
-<div class="nav-section">
-  <a class="nav-section-title" href="{{ .RelPermalink }}">
-    {{ .Title }}
-  </a>
-
-  {{ with .RegularPages }}
-  <ul class="nav-section-links">
-    {{ range . }}
-    <li>
+{{ $id := .Title | urlize }}
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title is-size-5">
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
-    </li>
+    </p>
+    {{ if .RegularPages }}
+    <a href="#{{ $id }}-el" data-action="collapse" class="trigger card-header-icon">
+      <span class="icon">
+        <ion-icon size="medium" name="arrow-dropdown"></ion-icon>
+      </span>
+    </a>
     {{ end }}
-  </ul>
+  </header>
+  {{ with .RegularPages }}
+  <div id="{{ $id }}-el" class="is-collapsible is-active">
+    <div class="card-content">
+      <ul class="nav-links">
+        {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
   {{ end }}
 </div>
 
@@ -29,3 +46,19 @@
 {{ end }}
 {{ end }}
 {{ end }}
+
+<script>
+  const triggers = $('.trigger');
+
+  triggers.click(() => {
+    $(this).hide();
+  });
+
+  triggers.each((idx, el) => {
+    var href = el.attributes.getNamedItem('href').nodeValue;
+    href = href.slice(1);
+    const collapsible = document.getElementById(href);
+    new bulmaCollapsible(collapsible);
+    collapsible.bulmaCollapsible('collapse');
+  });
+</script>

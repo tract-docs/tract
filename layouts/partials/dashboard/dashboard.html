@@ -1,7 +1,9 @@
+{{ partial "dashboard/navbar.html" . }}
+
 <div class="dashboard">
-  <div class="dashboard-sidebar is-hidden-mobile">
+  <div class="dashboard-sidebar has-right-border is-hidden-mobile">
     <div class="dashboard-sidebar-container">
-      {{ partial "dashboard/sidebar-header.html" . }}
+      <!-- {{ partial "dashboard/sidebar-header.html" . }} -->
       {{ partial "dashboard/sidebar-body.html" . }}
       {{ partial "dashboard/sidebar-footer.html" . }}
     </div>
@@ -9,8 +11,6 @@
 
   <div class="dashboard-main page">
     <main class="main">
-      {{ partial "dashboard/navbar.html" . }}
-
       <article class="article">
         {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white" "buttons" .Params.buttons) }}
         {{ partial "components/content.html" .Content }}
