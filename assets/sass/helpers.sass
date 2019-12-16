@@ -5,6 +5,17 @@
 =flex-size($w)
   flex: 0 0 $w
 
+=sticky
+  position: sticky
+  position: -webkit-sticky
+
+=panel
+  +sticky
+  top: 0
+
+=scrollable
+  overflow-y: auto
+
 $border-right-color: $dark
 
 .has-right-border

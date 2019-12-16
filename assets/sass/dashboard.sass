@@ -1,38 +1,17 @@
-$margin: 1.5rem
-
 .dashboard
   +row
-  height: 100vh
-  overflow-y: hidden
+  overflow: auto
+  min-height: 100vh
 
   &-sidebar
-    height: 100%
-    +column
-
-    +desktop
-      +flex-size(25rem)
-    +tablet-only
-      +flex-size(20rem)    
-
-    &-container
-      +column
-      +fill
-
-      &-header
-        margin: $margin
-        
-      &-body
-        margin: $margin
-        +fill
-
-      &-footer
-        margin: $margin
-
-        +flex-size(2.5rem)
-
-  &-main
-    flex: 1
+    +panel
+    padding: 1rem
+    flex: 0 0 25rem
     overflow-y: auto
 
-    .hero
-      padding-top: $navbar-height
+  &-main
+    +fill
+
+  &-toc
+    +panel
+    flex: 0 0 10rem

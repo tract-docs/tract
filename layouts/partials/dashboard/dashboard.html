@@ -1,24 +1,17 @@
 {{ partial "dashboard/navbar.html" . }}
-
 <div class="dashboard">
-  <div class="dashboard-sidebar has-right-border is-hidden-mobile">
-    <div class="dashboard-sidebar-container">
-      <!-- {{ partial "dashboard/sidebar-header.html" . }} -->
-      {{ partial "dashboard/sidebar-body.html" . }}
-      {{ partial "dashboard/sidebar-footer.html" . }}
-    </div>
+  <div class="dashboard-sidebar">
+    {{ partial "components/nav.html" . }}
   </div>
 
-  <div class="dashboard-main page">
-    <main class="main">
-      <article class="article">
-        {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "color" "white" "buttons" .Params.buttons) }}
-        {{ partial "components/content.html" .Content }}
-      </article>
-    </main>
+  <div class="dashboard-article">
+    {{ partial "components/hero.html" (dict "title" .Title "color" "white") }}
+    {{ partial "components/content.html" .Content }}
+  </div>
 
-    {{ partial "components/pagination.html" . }}
-    {{ partial "components/git-info.html" . }}
-    {{ partial "components/footer.html" . }}
+  <div class="dashboard-toc">
+    {{ .TableOfContents }}
   </div>
 </div>
+
+{{ partial "components/footer.html" . }}

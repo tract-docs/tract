@@ -1,11 +1,10 @@
 {{ $home     := site.Home.RelPermalink }}
 {{ $title    := site.Title }}
 {{ $searchOn := .FirstSection.Params.search }}
-
-<nav class="navbar is-black is-dashboard-fixed">
-  <div class="container">
+<nav class="navbar">
+  <div class="container is-fluid">
     <div class="navbar-brand">
-      <a class="navbar-item is-hidden-desktop has-text-weight-bold" href="{{ $home }}">
+      <a class="navbar-item has-text-weight-bold" href="{{ $home }}">
         {{ $title }}
       </a>
     </div>
