@@ -10,10 +10,12 @@
 {{ end }}
 
 {{ define "links" }}
+{{ $here := .here }}
 <ul class="nav-section-links">
   {{ range .links }}
+  {{ $isHere := eq $here .RelPermalink }}
   <li>
-    <a href="{{ .RelPermalink }}">
+    <a{{ if $isHere }} class="is-active"{{ end }} href="{{ .RelPermalink }}">
       {{ .Title }}
     </a>
   </li>
@@ -27,7 +29,7 @@
     {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
     {{ with .RegularPages }}
-    {{ template "links" (dict "links" .) }}
+    {{ template "links" (dict "links" . "here" $here) }}
     {{ end }}
   </div>
 
@@ -37,7 +39,7 @@
     {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
     {{ with .RegularPages }}
-    {{ template "links" (dict "links" .) }}
+    {{ template "links" (dict "links" . "here" $here) }}
     {{ end }}
   </div>
   {{ end }}
