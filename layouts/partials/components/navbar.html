@@ -6,7 +6,8 @@
 {{ $color  := .color | default "primary" }}
 {{ $wide   := .wide | default false }}
 {{ $shadow := .shadow | default false }}
-<nav class="navbar is-expanded is-{{ $color }} is-fixed-top is-boxed{{ if $shadow }} has-shadow{{ end }}" role="navigation" aria-label="dropdown-navigation">
+{{ $fixed  := .fixed | default true }}
+<nav class="navbar is-expanded is-{{ $color }}{{ if $fixed }} is-fixed-top{{ end }}{{ if $shadow }} has-shadow{{ end }}" role="navigation" aria-label="dropdown-navigation">
   {{ if not $wide }}<div class="container">{{ end }}
     <div class="navbar-brand">
       <a class="navbar-item is-size-5 is-size-6-mobile has-text-weight-bold" href="{{ $home }}">

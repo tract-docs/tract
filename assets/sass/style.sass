@@ -30,7 +30,6 @@ $secondary: {{ $secondary }}
 $link: $primary
 $family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $family-monospace: "{{ $monospaceFont }}", monospace
-$navbar-dropdown-radius: 0
 $navbar-dropdown-border-top: none
 $navbar-padding-vertical: 0.25rem
 $card-shadow: none
@@ -42,7 +41,7 @@ $footer-background-color: $white
 // Site-specific variables (no direct usage by Bulma)
 $admonition-border-radius: .5rem
 $admonition-padding: 1.5rem
-$content-desktop-width: 100%
+$content-desktop-width: 70%
 
 @import "bulma/sass/utilities/derived-variables"
 
@@ -51,15 +50,11 @@ $input-icon-color: $dark
 $dropdown-menu-min-width: 16rem
 $dropdown-content-offset: .5rem
 $content-bottom-padding: 8rem
-
-.has-bottom-padding
-  padding-bottom: $content-bottom-padding
-
-//.dropdown-content
-//  margin-left: 1rem
+$tiny-font-size: 0.75rem
+$nav-padding: 2rem
+$border: 2px solid $light
 
 @import "bulma"
-@import "bulma-collapsible"
 
 // Utitlies (must be imported first)
 @import "functions"
@@ -68,3 +63,4 @@ $content-bottom-padding: 8rem
 // Component-specific files
 @import "admonition"
 @import "dashboard"
+@import "nav"

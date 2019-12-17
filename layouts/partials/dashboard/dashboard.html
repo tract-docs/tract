@@ -2,3 +2,22 @@
 {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal") }}
 {{ partial "components/content.html" .Content }}
 -->
+{{ partial "components/navbar.html" (dict "color" "white" "shadow" true "wide" true "fixed" true) }}
+<div class="dashboard-main">
+  <div class="dashboard-main-sidebar dashboard-panel has-background-primary is-hidden-mobile is-scrollable">
+    {{ partial "components/nav.html" . }}
+  </div>
+
+  <div class="dashboard-main-article dashboard-panel is-scrollable is-relative">
+    <div class="page">
+      <main class="main">
+        {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
+        {{ partial "components/content.html" .Content }}
+      </main>
+
+      {{ partial "components/pagination.html" . }}
+      {{ partial "components/git-info.html" . }}
+      {{ partial "components/footer.html" . }}
+    </div>
+  </div>
+</div>

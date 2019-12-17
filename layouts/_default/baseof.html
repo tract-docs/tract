@@ -12,13 +12,9 @@
     {{ partial "css.html" . }}
     {{ partial "head-js.html" . }}
   </head>
-  <body class="{{ if $dashboard }} dashboard{{ else }} page{{ end }} has-navbar-fixed-top">
-    <main class="main">
-      {{ partial "components/navbar.html" (dict "color" "white" "shadow" true "wide" $dashboard) }}
-
-      {{ block "main" . }}
-      {{ end }}
-    </main>
+  <body class="{{ if $dashboard }} dashboard is-fullheight{{ else }} page{{ end }} has-navbar-fixed-top">
+    {{ block "main" . }}
+    {{ end }}
 
     {{ if not $dashboard }}
     {{ partial "components/footer.html" . }}

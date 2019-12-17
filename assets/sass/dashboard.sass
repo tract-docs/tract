@@ -1,1 +1,31 @@
+.dashboard
+  +column
 
+  &.is-fullheight
+    height: 100vh
+
+  &-panel
+    +column
+    height: 100%
+
+    &.is-scrollable
+      overflow-y: auto
+
+  &-main
+    +row
+    overflow-y: hidden
+
+    &-sidebar
+      padding: $nav-padding
+
+      +fill
+
+      +desktop
+        +flex-size(25rem)
+      +tablet-only
+        +flex-size(20rem)
+
+    &-article
+      +fill
+      +tablet
+        padding: 0 2rem
