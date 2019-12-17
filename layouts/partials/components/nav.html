@@ -8,15 +8,15 @@
 
 {{ define "section" }}
 {{ $id := .Title | urlize }}
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title is-size-5">
+<div class="nav-section">
+  <header class="nav-section-header">
+    <p class="nav-section-header-title">
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
     </p>
     {{ if .RegularPages }}
-    <a href="#{{ $id }}-el" data-action="collapse" class="trigger card-header-icon">
+    <a href="#{{ $id }}-el" data-action="collapse" class="trigger nav-section-header-icon">
       <span class="icon">
         <ion-icon size="medium" name="arrow-dropdown"></ion-icon>
       </span>
@@ -25,8 +25,8 @@
   </header>
   {{ with .RegularPages }}
   <div id="{{ $id }}-el" class="is-collapsible is-active">
-    <div class="card-content">
-      <ul class="nav-links">
+    <div class="nav-section-content">
+      <ul class="nav-section-links">
         {{ range . }}
         <li>
           <a href="{{ .RelPermalink }}">

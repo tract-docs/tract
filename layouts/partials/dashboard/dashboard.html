@@ -1,6 +1,6 @@
 {{ partial "dashboard/navbar.html" . }}
 <div class="dashboard">
-  <div class="dashboard-sidebar">
+  <div class="dashboard-sidebar is-hidden-mobile">
     {{ partial "components/nav.html" . }}
   </div>
 
@@ -9,9 +9,11 @@
     {{ partial "components/content.html" .Content }}
   </div>
 
-  <div class="dashboard-toc">
+  {{ if .TableOfContents }}
+  <div class="dashboard-toc is-hidden-mobile">
     {{ .TableOfContents }}
   </div>
+  {{ end }}
 </div>
 
 {{ partial "components/footer.html" . }}
