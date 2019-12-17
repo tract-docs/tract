@@ -3,11 +3,10 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $color := site.Params.home.hero.color | default site.Data.defaults.home_hero_color }}
 <div class="page">
   <main class="main">
-    {{ partial "components/navbar.html" (dict "color" $color) }}
-    {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "medium" "scale" 1 "color" $color "buttons" .Params.buttons) }}
+    {{ partial "components/navbar.html" (dict "color" "white" "shadow" true) }}
+    {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "medium" "scale" 1 "color" "primary" "buttons" .Params.buttons) }}
 
     {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium" "color" "white" "scale" 2) }}
     {{ partial "components/content.html" .Content }}
