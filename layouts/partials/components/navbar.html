@@ -7,14 +7,18 @@
 {{ $wide   := .wide | default false }}
 {{ $shadow := .shadow | default false }}
 <nav class="navbar is-expanded is-{{ $color }} is-fixed-top is-boxed{{ if $shadow }} has-shadow{{ end }}" role="navigation" aria-label="dropdown-navigation">
-  <div class="container">
+  {{ if not $wide }}<div class="container">{{ end }}
     <div class="navbar-brand">
       <a class="navbar-item is-size-5 is-size-6-mobile has-text-weight-bold" href="{{ $home }}">
         {{ $title }}
       </a>
 
+      {{ partial "components/search-dropdown.html" . }}
+
+
       {{ if $menu }}
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -24,10 +28,6 @@
 
     {{ if or $menu $i18n $social }}
     <div class="navbar-menu" id="navbar-menu">
-      <div class="navbar-start">
-        {{ partial "components/search-dropdown.html" . }}
-      </div>
-
       <div class="navbar-end">
         {{ with $menu }}
         {{ partial "components/navbar-menu.html" . }}
@@ -45,5 +45,5 @@
       </div>
     </div>
     {{ end }}
-  </div>
+  {{ if not $wide }}</div>{{ end }}
 </nav>

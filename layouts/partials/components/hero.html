@@ -2,17 +2,20 @@
 {{ $size  := .size | default "normal" }}
 {{ $desc  := .description }}
 {{ $scale := .scale | default 1 }}
-{{ $color := .color | default "primary" }}
+{{ $color := .color | default "white" }}
 {{ $btns  := .buttons }}
-<section class="hero is-{{ $color }} is-{{ $size }}">
+{{ $bold  := .bold | default false }}
+<section class="hero is-{{ $color }} is-{{ $size }}{{ if $bold }} is-bold{{ end }}">
   <div class="hero-body">
     <div class="container">
       {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale) }}
 
       {{ with $btns }}
-      <br />
-
-      {{ partial "components/buttons.html" . }}
+      <div class="buttons hero-buttons are-left">
+        {{ range . }}
+        {{ partial "components/button.html" . }}
+        {{ end }}
+      </div>
       {{ end }}
     </div>
   </div>

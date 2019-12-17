@@ -1,5 +1,5 @@
-{{ $display  := .FirstSection.Params.display }}
-{{ $fixedNav := ne $display "dashboard" }}
+{{ $display   := .FirstSection.Params.display }}
+{{ $dashboard := eq $display "dashboard" }}
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
   <head>
@@ -12,8 +12,16 @@
     {{ partial "css.html" . }}
     {{ partial "head-js.html" . }}
   </head>
-  <body class="page{{ if $fixedNav }} has-navbar-fixed-top{{ end }}">
-    {{ block "main" . }}
+  <body class="{{ if $dashboard }} dashboard{{ else }} page{{ end }} has-navbar-fixed-top">
+    <main class="main">
+      {{ partial "components/navbar.html" (dict "color" "white" "shadow" true "wide" $dashboard) }}
+
+      {{ block "main" . }}
+      {{ end }}
+    </main>
+
+    {{ if not $dashboard }}
+    {{ partial "components/footer.html" . }}
     {{ end }}
 
     {{ partial "javascript.html" . }}

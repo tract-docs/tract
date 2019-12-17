@@ -3,6 +3,24 @@
 {{ $results  := T "results" }}
 {{ $found    := T "found" }}
 <script>
+  const numFound = (num, results, found) => {
+    return `<div class="dropdown-item has-text-weight-bold">
+      ${num} ${results} ${found}
+    </div>
+    <span class="dropdown-divider"></span>`;
+  }
+
+  const result = (url, title, section) => {
+    return `<a class="dropdown-item" href="${url}">
+      <p class="has-text-grey is-tiny">
+        ${section}
+      </p>
+      <p>
+        ${title}
+      </p>
+    </a>`;
+  }
+
   $(() => {
     const searchBar = $('#search-bar'),
       searchMenu = $('#search-menu'),
@@ -33,7 +51,7 @@
         ]
       }
 
-      fetch({{ $indexUrl }})
+      fetch('{{ $indexUrl }}')
         .then((res) => {
           return res.json();
         })
@@ -56,15 +74,14 @@
 
                   const numTerm = (numResults == 1) ? '{{ $result }}' : '{{ $results }}';
 
-                  const numItems = `<div class="dropdown-item has-text-weight-bold">${numResults} ${numTerm} ${'{{ $found }}'}</div>
-                    <span class="dropdown-divider"></span>`;
+                  const numItems = numFound(numResults, numTerm, '{{ $found }}');
 
                   searchContent.append(numItems);
 
                   results.forEach((res) => {
-                    const item = `<a class="dropdown-item" href="${res.url}">
-                      ${res.title}
-                    </a>`;
+                    console.log(res.url);
+
+                    const item = result(res.url, res.title, res.section);
 
                     searchContent.append(item);
 

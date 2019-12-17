@@ -3,6 +3,6 @@
 {{ $index.Add "index" slice }}
 {{ range $pages }}
 {{ $tags := cond (isset .Params "tags") .Params.tags (slice) }}
-{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary "tags" $tags) }}
+{{ $index.Add "index" (dict "title" .Title "url" .RelPermalink "body" (.Content | plainify | jsonify) "summary" .Summary "tags" $tags "section" .CurrentSection.Title) }}
 {{ end }}
 {{ $index.Get "index" | jsonify }}

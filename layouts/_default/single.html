@@ -6,11 +6,10 @@
 {{ $type := .FirstSection.Params.display }}
 {{ if not $type }}
 <main class="main">  
-  {{ partial "components/navbar.html" (dict "color" "primary") }}
+  {{ partial "components/navbar.html" (dict "color" "white") }}
   {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
   {{ partial "components/content.html" .Content }}
 </main>
-{{ partial "components/footer.html" . }}
 {{ else if eq $type "dashboard" }}
 {{ partial "dashboard/dashboard.html" . }}
 {{ else }}

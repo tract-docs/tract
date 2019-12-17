@@ -13,13 +13,14 @@
   +sticky
   top: 0
 
+.is-panel
+  +panel
+
 =scrollable
   overflow-y: auto
 
-$border-right-color: $dark
-
-.has-right-border
-  border-right: 1px solid $border-right-color
+.has-top-border
+  border: 2px solid $light
 
 .is-narrow-desktop
   +desktop
@@ -44,7 +45,9 @@ $border-right-color: $dark
   .main
     +fill
 
-#search-bar
-  &:focus
-    //width: 25rem
+.menu-label
+  a.is-active
+    font-weight: 700
 
+.is-tiny
+  font-size: .75rem

@@ -10,7 +10,6 @@
   {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
   {{ partial "components/content.html" .Content }}
 </main>
-{{ partial "components/footer.html" . }}
 {{ else if eq $type "dashboard" }}
 {{ partial "dashboard/dashboard.html" . }}
 {{ else }}

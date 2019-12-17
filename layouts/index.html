@@ -5,13 +5,10 @@
 {{ define "main" }}
 <div class="page">
   <main class="main">
-    {{ partial "components/navbar.html" (dict "color" "white" "shadow" true) }}
-    {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "medium" "scale" 1 "color" "primary" "buttons" .Params.buttons) }}
+    {{ partial "components/hero.html" (dict "title" site.Title "description" site.Params.description "size" "medium" "scale" 1 "color" "primary" "buttons" .Params.buttons "bold" true) }}
 
-    {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium" "color" "white" "scale" 2) }}
+    {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "scale" 2) }}
     {{ partial "components/content.html" .Content }}
   </main>
-
-  {{ partial "components/footer.html" . }}
 </div>
 {{ end }}

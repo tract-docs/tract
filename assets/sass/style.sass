@@ -36,25 +36,20 @@ $navbar-padding-vertical: 0.25rem
 $card-shadow: none
 $card-header-shadow: none
 $card-content-padding: .5rem 2rem
+$input-color: $black
+$footer-background-color: $white
 
 // Site-specific variables (no direct usage by Bulma)
 $admonition-border-radius: .5rem
 $admonition-padding: 1.5rem
-$content-desktop-width: 60%
+$content-desktop-width: 100%
 
 @import "bulma/sass/utilities/derived-variables"
 
 $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "secondary": ($secondary, $white), "slack-aubergine": ($slack-aubergine, $white), "youtube-red": ($youtube-red, $white), "linkedin-blue": ($linkedin-blue, $white), "facebook-blue": ($facebook-blue, $white)))
-$dropdown-content-offset: .5rem
-
-$input-color: $black
-$input-radius: 1.5rem
-$input-focus-border-color: $grey
-$input-background-color: $light
-$input-focus-box-shadow-color: $white-bis
-$input-border-color: $white
+$input-icon-color: $dark
 $dropdown-menu-min-width: 16rem
-
+$dropdown-content-offset: .5rem
 $content-bottom-padding: 8rem
 
 .has-bottom-padding
@@ -72,3 +67,4 @@ $content-bottom-padding: 8rem
 
 // Component-specific files
 @import "admonition"
+@import "dashboard"
