@@ -11,7 +11,7 @@
       <div class="page">
         <main class="main">
           <section class="section">
-            {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal") }}
+            {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" .) }}
             {{ partial "components/content.html" .Content }}
             {{ partial "components/pagination.html" . }}
             {{ partial "components/git-info.html" . }}
@@ -22,7 +22,7 @@
       </div>
     </article>
 
-    <section class="toc has-border-left">
+    <section class="toc has-border-left is-hidden-mobile">
       <p class="title is-size-5">
         <span class="icon">
           <ion-icon name="list"></ion-icon>

@@ -5,7 +5,16 @@
 {{ $color := .color | default "white" }}
 {{ $btns  := .buttons }}
 {{ $bold  := .bold | default false }}
+{{ $bread := .breadcrumb }}
 <section class="hero is-{{ $color }} is-{{ $size }}{{ if $bold }} is-bold{{ end }}">
+  {{ with $bread }}
+  <div class="hero-head" style="padding-left: 1.5rem;">
+    <div class="container">
+      {{ partial "components/breadcrumb.html" . }}
+    </div>
+  </div>
+  {{ end }}
+
   <div class="hero-body">
     <div class="container">
       {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale) }}
