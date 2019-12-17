@@ -20,12 +20,25 @@
 
       +fill
 
-      +desktop
-        +flex-size(25rem)
+      +flex-size(20rem)
+
       +tablet-only
-        +flex-size(20rem)
+        +flex-size(12rem)
 
     &-article
-      +fill
-      +tablet
-        padding: 0 2rem
+      +row
+      width: 100%
+
+      .article
+        flex-grow: 1
+
+      .toc
+        +flex-size(20rem)
+        position: sticky
+        top: 0
+        padding: $nav-padding
+
+        #TableOfContents
+          
+
+

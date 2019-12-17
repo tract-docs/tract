@@ -1,7 +1,9 @@
+{{ $here := .RelPermalink }}
+
 {{ define "header" }}
-{{ $isHere := eq .here .RelPermalink }}
+{{ $isHere := eq .here .url }}
 <header class="nav-section-header">
-  <a href="{{ .url }}">
+  <a{{ if $isHere }} class="is-active"{{ end }} href="{{ .url }}">
     {{ .title }}
   </a>
 </header>
@@ -20,11 +22,9 @@
 {{ end }}
 
 {{ with .FirstSection }}
-{{ $here := .RelPermalink }}
-{{ $isHere := eq $here .RelPermalink }}
 <nav class="nav">
   <div class="nav-section">
-    {{ template "header" (dict "title" .Title "url" .RelPermalink) }}
+    {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
     {{ with .RegularPages }}
     {{ template "links" (dict "links" .) }}
@@ -34,7 +34,7 @@
   {{ with .Sections }}
   {{ range . }}
   <div class="nav-section">
-    {{ template "header" (dict "title" .Title "url" .RelPermalink) }}
+    {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
     {{ with .RegularPages }}
     {{ template "links" (dict "links" .) }}
