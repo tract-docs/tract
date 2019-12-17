@@ -1,44 +1,43 @@
+{{ define "header" }}
+{{ $isHere := eq .here .RelPermalink }}
+<header class="nav-section-header">
+  <a href="{{ .url }}">
+    {{ .title }}
+  </a>
+</header>
+{{ end }}
+
+{{ define "links" }}
+<ul class="nav-section-links">
+  {{ range .links }}
+  <li>
+    <a href="{{ .RelPermalink }}">
+      {{ .Title }}
+    </a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+
 {{ with .FirstSection }}
+{{ $here := .RelPermalink }}
+{{ $isHere := eq $here .RelPermalink }}
 <nav class="nav">
   <div class="nav-section">
-    <header class="nav-section-header">
-      <a href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
-    </header>
+    {{ template "header" (dict "title" .Title "url" .RelPermalink) }}
 
     {{ with .RegularPages }}
-    <ul class="nav-section-links">
-      {{ range . }}
-      <li>
-        <a href="{{ .RelPermalink }}">
-          {{ .Title }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
+    {{ template "links" (dict "links" .) }}
     {{ end }}
   </div>
 
   {{ with .Sections }}
   {{ range . }}
   <div class="nav-section">
-    <header class="nav-section-header">
-      <a href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
-    </header>
+    {{ template "header" (dict "title" .Title "url" .RelPermalink) }}
 
     {{ with .RegularPages }}
-    <ul class="nav-section-links">
-      {{ range . }}
-      <li>
-        <a href="{{ .RelPermalink }}">
-          {{ .Title }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
+    {{ template "links" (dict "links" .) }}
     {{ end }}
   </div>
   {{ end }}

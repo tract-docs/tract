@@ -1,6 +1,13 @@
 .nav
   a
-    color: $light
+    color: $white-bis
+
+    &:hover
+      color: $grey-lighter
+
+    &.is-active
+      +bold
+      +underlined
 
   &-section
     &-header
