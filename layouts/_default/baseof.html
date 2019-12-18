@@ -12,12 +12,8 @@
     {{ partial "css.html" . }}
     {{ partial "head-js.html" . }}
   </head>
-  <body class="{{ if $dashboard }} dashboard is-fullheight{{ else }} page{{ end }} has-navbar-fixed-top">
+  <body class="{{ if $dashboard }} dashboard is-fullheight{{ end }} has-navbar-fixed-top">
     {{ block "main" . }}
-    {{ end }}
-
-    {{ if not $dashboard }}
-    {{ partial "components/footer.html" . }}
     {{ end }}
 
     {{ partial "javascript.html" . }}

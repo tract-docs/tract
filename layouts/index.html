@@ -12,5 +12,7 @@
     {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "scale" 2) }}
     {{ partial "components/content.html" .Content }}
   </main>
+
+  {{ partial "components/footer.html" . }}
 </div>
 {{ end }}
