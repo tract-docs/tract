@@ -3,6 +3,7 @@ theme = "tract"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
+description = "Supercharging something or other since 2019"
 icon_set = "ionicons"
 
 [params.colors]
