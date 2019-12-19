@@ -1,0 +1,32 @@
+title = "My Docs Project"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+icon_set = "ionicons"
+
+[params.colors]
+primary = "#880e4f"
+secondary = "#1e88e5"
+
+[markup.highlight]
+style = "fruity"
+
+[outputs]
+home = ["HTML", "JSON"]
+
+[[params.fonts]]
+name = "Alata"
+sizes = [400]
+type = "sans_serif"
+
+[[params.fonts]]
+name = "Roboto Mono"
+sizes = [400]
+type = "monospace"
+
+[params.social.twitter]
+handle = "lucperkins"
+
+[params.social.github]
+repo = "tract-docs/tract"
+
