@@ -9,7 +9,7 @@
           <ion-icon name="arrow-back"></ion-icon>
         </span>
         <span>
-          {{ .Title }}
+          <strong>Previous</strong>&nbsp;|&nbsp;{{ .Title }}
         </span>
       </a>
       {{ end }}
@@ -18,7 +18,7 @@
       {{ with .Prev }}
       <a class="button is-primary" href="{{ .RelPermalink }}">
         <span>
-          {{ .Title }}
+          <strong>Next</strong>&nbsp;|&nbsp;{{ .Title }}
         </span>
         <span class="icon">
           <ion-icon name="arrow-forward"></ion-icon>
