@@ -1,0 +1,92 @@
+{{ $hasToc := gt (len .TableOfContents) 32 }}
+
+<div class="page">
+  <main class="main">
+    {{ partial "components/navbar.html" (dict "fixed" true) }}
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-variable is-8">
+          <div class="column is-2 is-hidden-mobile">
+            {{ partial "components/nav.html" . }}
+          </div>
+
+          <div class="column">
+            <div class="box">
+              {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2) }}
+              {{ partial "components/content.html" .Content }}
+              {{ partial "components/pagination.html" . }}
+              {{ partial "components/git-info.html" . }}
+            </div>
+          </div>
+
+          <div class="column is-2">
+            {{ if $hasToc }}
+            <div class="toc-container is-sticky">
+              <nav class="level is-size-5">
+                <div class="level-left">
+                  <div class="level-item">
+                    <span class="icon">
+                      <ion-icon name="list"></ion-icon>
+                    </span>
+                  </div>
+
+                  <div class="level-item">
+                    <p class="has-text-weight-bold">
+                      Content
+                    </p>
+                  </div>
+                </div>
+              </nav>
+              
+              <div class="toc"></div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{ partial "components/footer.html" . }}
+</div>
+
+
+<!--
+{{ partial "components/navbar.html" (dict "color" "white" "shadow" true "wide" true "fixed" true) }}
+<div class="dashboard-main">
+  <div class="dashboard-main-sidebar dashboard-panel is-hidden-mobile is-scrollable has-border-right">
+    {{ partial "components/nav.html" . }}
+  </div>
+
+  <div class="dashboard-main-article dashboard-panel is-scrollable">
+    <article class="article">
+      <div class="page">
+        <main class="main">
+          <section class="section">
+            {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" .) }}
+            {{ partial "components/content.html" .Content }}
+            {{ partial "components/pagination.html" . }}
+            {{ partial "components/git-info.html" . }}
+          </section>
+        </main>
+  
+        {{ partial "components/footer.html" . }}
+      </div>
+    </article>
+
+    <section class="toc has-border-left is-hidden-mobile">
+      <p class="title is-size-5">
+        <span class="icon">
+          <ion-icon name="list"></ion-icon>
+        </span>
+        <span>
+          Content
+        </span>
+      </p>
+
+      {{ .TableOfContents }}
+    </section>
+  </div>
+</div>
+-->

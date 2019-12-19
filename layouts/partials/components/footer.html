@@ -7,12 +7,12 @@
       <div class="container">
         <div class="columns is-vcentered">
           <div class="column">
-            {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 2) }}
+            {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 3) }}
 
             <br />
 
             {{ with $social }}
-            {{ partial "components/social-buttons.html" (dict "buttons" .) }}
+            {{ partial "components/social-buttons.html" (dict "buttons" . "size" "small") }}
             {{ end }}
           </div>
         </div>

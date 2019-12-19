@@ -1,13 +1,13 @@
 {{ $scale  := .scale | default 1 }}
 {{ $scale1 := add $scale 1 }}
-{{ $scale2 := add $scale 2 }}
+{{ $scale2 := add $scale1 1 }}
 
 <p class="title is-size-{{ $scale }} is-size-{{ $scale1 }}-mobile has-text-weight-light{{ if .description }} is-spaced{{ end }}">
   {{ .title | markdownify }}
 </p>
 
 {{ with .description }}
-<p class="is-tagline">
+<p class="subtitle is-size-{{ $scale1 }} is-size-{{ $scale2 }}-mobile">
   {{ . | markdownify }}
 </p>
 {{ end }}

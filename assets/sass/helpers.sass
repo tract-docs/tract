@@ -5,12 +5,13 @@
 =flex-size($w)
   flex: 0 0 $w
 
-=sticky
+.is-sticky
   position: sticky
   position: -webkit-sticky
+  top: $navbar-height + $sticky-top-margin  
 
-=bold
-  font-weight: 700
+=semi-bold
+  font-weight: 600
 
 .has-border-top
   border-top: $border

@@ -1,3 +1,4 @@
+{{ $hasToc := gt (len .TableOfContents) 32 }}
 {{ $inServerMode := site.IsServer }}
 {{ $includePaths := (slice "node_modules") }}
 {{ $sass         := "sass/style.sass" }}
@@ -17,3 +18,6 @@
 <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 {{ end }}
 
+{{ if $hasToc }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.css" integrity="sha256-XUbSD3m+xLW27W/mp9kMn+fI9AU2MoBkiMMSVVYWI+o=" crossorigin="anonymous" />
+{{ end }}

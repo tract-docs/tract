@@ -1,3 +1,4 @@
+{{ $hasToc := gt (len .TableOfContents) 32 }}
 {{ $server := site.IsServer }}
 {{ $app    := resources.Get "js/app.js" | resources.ExecuteAsTemplate "js/app.js" . }}
 {{ $icons  := site.Params.icon_set | default site.Data.defaults.icon_set }}
@@ -12,4 +13,19 @@
 {{ if eq $icons "ionicons" }}
 <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+{{ end }}
+
+{{ if $hasToc }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.js" integrity="sha256-4IG15rBugCIlZRpH7sSFc2AqT1+RAWLzMiv2rn2HMbM=" crossorigin="anonymous"></script>
+
+<script>
+  tocbot.init({
+  tocSelector: '.toc',
+  contentSelector: '.content',
+  headingSelector: 'h1, h2, h3',
+  hasInnerContainers: true,
+  extraLinkClasses: 'toc-page-link',
+  listItemClass: 'toc-page-item'
+});
+</script>
 {{ end }}

@@ -1,5 +1,3 @@
-{{ $display   := .FirstSection.Params.display }}
-{{ $dashboard := eq $display "dashboard" }}
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
   <head>
@@ -12,7 +10,7 @@
     {{ partial "css.html" . }}
     {{ partial "head-js.html" . }}
   </head>
-  <body class="{{ if $dashboard }} dashboard is-fullheight{{ end }} has-navbar-fixed-top">
+  <body class="has-navbar-fixed-top">
     {{ block "main" . }}
     {{ end }}
 

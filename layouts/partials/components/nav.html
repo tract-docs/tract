@@ -24,7 +24,7 @@
 {{ end }}
 
 {{ with .FirstSection }}
-<nav class="nav">
+<nav class="nav is-sticky">
   <div class="nav-section">
     {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 

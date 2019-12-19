@@ -36,10 +36,6 @@ $input-color: $black
 $footer-background-color: $white
 $code: $primary
 
-// Site-specific variables (no direct usage by Bulma)
-$admonition-border-radius: .5rem
-$admonition-padding: 1.5rem
-$content-desktop-width: 70%
 
 @import "bulma/sass/utilities/derived-variables"
 
@@ -48,11 +44,22 @@ $colors: mergeColorMaps($colors, ("twitter-blue": ($twitter-blue, $white), "seco
 $input-icon-color: $dark
 $dropdown-menu-min-width: 16rem
 $dropdown-content-offset: .5rem
-$content-bottom-padding: 8rem
-$tiny-font-size: 0.75rem
-$nav-padding: 2rem
 $border: 2px solid $light
 $body-size: 1.1rem
+$box-padding: 2rem 1rem
+
+// Site-specific variables (no direct usage by Bulma)
+$admonition-border-radius: 5px
+$admonition-padding: 1rem 0
+$admonition-y-margin: 2rem
+$content-desktop-width: 70%
+$nav-link-color: $grey-dark
+$nav-link-hover-color: $black
+$content-bottom-padding: 8rem
+$tiny-font-size: 0.75rem
+$nav-padding: 1.75rem
+$sticky-top-margin: 2rem
+$toc-scroll-margin: 2rem
 
 @import "bulma"
 
@@ -62,5 +69,5 @@ $body-size: 1.1rem
 
 // Component-specific files
 @import "admonition"
-@import "dashboard"
 @import "nav"
+@import "toc"

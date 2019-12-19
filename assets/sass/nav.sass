@@ -1,17 +1,26 @@
 .nav
   a
-    color: $dark
+    color: $nav-link-color
 
     &:hover
-      color: $grey
+      color: $nav-link-hover-color
 
     &.is-active
-      +bold
+      +semi-bold
       color: $primary
 
+      &:hover
+        color: $nav-link-hover-color
+
   &-section
+    & + &
+      margin-top: .5rem
+
     &-header
-      font-size: 1.5rem
+      font-size: 1.2rem
 
     &-links
-      margin: 0.5rem 0 0.5rem 1rem
+      margin: 0.25rem 0 0.5rem 1rem
+
+      li
+        a
