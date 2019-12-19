@@ -13,7 +13,7 @@
 
           <div class="column">
             <div class="box">
-              {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2) }}
+              {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark") }}
               {{ partial "components/content.html" .Content }}
               {{ partial "components/pagination.html" . }}
               {{ partial "components/git-info.html" . }}
@@ -22,25 +22,7 @@
 
           <div class="column is-2">
             {{ if $hasToc }}
-            <div class="toc-container is-sticky">
-              <nav class="level is-size-5">
-                <div class="level-left">
-                  <div class="level-item">
-                    <span class="icon">
-                      <ion-icon name="list"></ion-icon>
-                    </span>
-                  </div>
-
-                  <div class="level-item">
-                    <p class="has-text-weight-bold">
-                      Content
-                    </p>
-                  </div>
-                </div>
-              </nav>
-              
-              <div class="toc"></div>
-            </div>
+            {{ partial "components/toc.html" . }}
             {{ end }}
           </div>
         </div>
