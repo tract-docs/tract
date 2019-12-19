@@ -25,6 +25,22 @@
 
 {{ with .FirstSection }}
 <nav class="nav is-sticky">
+  <nav class="level is-size-5">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="icon has-text-primary">
+          <ion-icon name="apps"></ion-icon>
+        </span>
+      </div>
+
+      <div class="level-item">
+        <p class="has-text-weight-bold">
+          Docs
+        </p>
+      </div>
+    </div>
+  </nav>
+
   <div class="nav-section">
     {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
