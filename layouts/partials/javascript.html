@@ -29,3 +29,15 @@
 });
 </script>
 {{ end }}
+
+{{ if .Content }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha256-E4RlfxwyJVmkkk0szw7LYJxuPlp6evtPSBDlWHsYYL8=" crossorigin="anonymous"></script>
+
+<script>
+  anchors.options = {
+    icon: '#'
+  }
+
+  anchors.add('.content h1, .content h2, .content h3, .content h4, .content h5, .content h6')
+</script>
+{{ end }}

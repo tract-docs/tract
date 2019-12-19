@@ -11,7 +11,7 @@
   {{ partial "components/content.html" .Content }}
 </main>
 {{ else if eq $display "article" }}
-{{ partial "components/article.html" . }}
+{{ partial "display/article.html" . }}
 {{ else }}
 {{ errorf "section display type '%s' not recognized" $display }}
 {{ end }}
