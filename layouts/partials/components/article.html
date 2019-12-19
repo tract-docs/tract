@@ -11,7 +11,7 @@
             {{ partial "components/nav.html" . }}
           </div>
 
-          <div class="column">
+          <div class="column is-8">
             <article class="article">
               {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark") }}
               {{ partial "components/content.html" .Content }}
@@ -20,7 +20,7 @@
             </article>
           </div>
 
-          <div class="column is-2">
+          <div class="column is-2 is-hidden-mobile">
             {{ if $hasToc }}
             {{ partial "components/toc.html" . }}
             {{ end }}

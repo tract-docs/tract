@@ -1,20 +1,27 @@
 $top-margin: $navbar-height + $toc-scroll-margin
 
-.toc
-  padding-left: 0.25rem
+.toc-container
+  .toc
+    padding-left: 0.25rem
 
-  &-link
-    font-size: 1rem
+    &-link
+      font-size: 1rem
 
-  &-page-item
-    padding-left: 0.8rem
+    &-page-item
+      line-height: 120%
+      padding-left: 0.8rem
 
-  &-page-link
-    &.is-active-link
-      color: $dark
+      & + .toc-page-item
+        margin-top: 0.5rem
 
-      &::before
-        background-color: $primary
+    &-page-link
+      
+
+      &.is-active-link
+        color: $dark
+
+        &::before
+          background-color: $primary
 
 .content
   h1::before, h2::before, h3::before, h4::before, h5::before, h6::before

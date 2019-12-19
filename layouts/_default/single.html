@@ -3,16 +3,16 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $type := .FirstSection.Params.display }}
-{{ if not $type }}
-<main class="main">  
+{{ $display := .FirstSection.Params.display | default "article" }}
+{{ if not $display }}
+<main class="main">
   {{ partial "components/navbar.html" (dict "color" "white") }}
   {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
   {{ partial "components/content.html" .Content }}
 </main>
-{{ else if eq $type "dashboard" }}
-{{ partial "components/dashboard.html" . }}
+{{ else if eq $display "article" }}
+{{ partial "components/article.html" . }}
 {{ else }}
-{{ errorf "section display type '%s' not recognized" $type }}
+{{ errorf "section display type '%s' not recognized" $display }}
 {{ end }}
 {{ end }}
