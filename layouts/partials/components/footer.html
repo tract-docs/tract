@@ -2,20 +2,20 @@
 {{ $desc    := site.Params.description }}
 {{ $social  := site.Params.social }}
 {{ $year    := now.Year }}
-<footer class="footer has-border-top">
+<footer class="footer">
   <section class="hero is-bold">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered">
           <div class="column">
-            {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 3) }}
+            {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 3 "title_color" "white-bis" "desc_color" "light") }}
 
             {{ with $social }}
             {{ partial "components/social-buttons.html" (dict "buttons" . "size" "small" "hero" true) }}
             {{ end }}
 
             {{ with site.Copyright }}
-            <p class="has-text-weight-light">
+            <p class="has-text-weight-light has-text-grey-light">
               &copy; {{ $year }} {{ . }}
             </p>
             {{ end }}
