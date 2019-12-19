@@ -6,3 +6,9 @@ other = "results"
 
 [found]
 other = "found"
+
+[last_updated_by]
+other = "Last updated by"
+
+[on]
+other = "on"
