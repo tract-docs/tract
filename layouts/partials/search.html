@@ -1,4 +1,4 @@
-{{ $indexUrl := printf "%s/index.json" .Lang | relURL }}
+{{ $indexUrl := cond .IsTranslated (printf "%s/index.json" .Lang) "index.json" | relURL }}
 {{ $result   := T "result" }}
 {{ $results  := T "results" }}
 {{ $found    := T "found" }}
