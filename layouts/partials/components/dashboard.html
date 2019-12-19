@@ -2,7 +2,7 @@
 
 <div class="page">
   <main class="main">
-    {{ partial "components/navbar.html" (dict "fixed" true) }}
+    {{ partial "components/navbar.html" (dict "fixed" true "shadow" true) }}
 
     <section class="section">
       <div class="container">
@@ -12,12 +12,12 @@
           </div>
 
           <div class="column">
-            <div class="box">
+            <article class="article">
               {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark") }}
               {{ partial "components/content.html" .Content }}
               {{ partial "components/pagination.html" . }}
               {{ partial "components/git-info.html" . }}
-            </div>
+            </article>
           </div>
 
           <div class="column is-2">
