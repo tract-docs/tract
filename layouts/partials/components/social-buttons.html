@@ -1,7 +1,8 @@
 {{ $buttons := .buttons }}
 {{ $size    := .size | default "normal" }}
 {{ $inv     := .inverted | default false }}
-<div class="buttons">
+{{ $hero    := .is_hero | default false }}
+<div class="buttons{{ if $hero }} hero-buttons{{ end }}">
   {{ with $buttons.twitter }}
   {{ $url := printf "https://twitter.com/%s" .handle }}
   {{ partial "components/button.html" (dict "url" $url "icon" "logo-twitter" "color" "twitter-blue" "inverted" $inv "size" $size) }}

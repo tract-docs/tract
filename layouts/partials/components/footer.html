@@ -1,6 +1,7 @@
 {{ $title   := site.Title }}
 {{ $desc    := site.Params.description }}
 {{ $social  := site.Params.social }}
+{{ $year    := now.Year }}
 <footer class="footer has-border-top">
   <section class="hero is-bold">
     <div class="hero-body">
@@ -9,10 +10,14 @@
           <div class="column">
             {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 3) }}
 
-            <br />
-
             {{ with $social }}
-            {{ partial "components/social-buttons.html" (dict "buttons" . "size" "small") }}
+            {{ partial "components/social-buttons.html" (dict "buttons" . "size" "small" "hero" true) }}
+            {{ end }}
+
+            {{ with site.Copyright }}
+            <p class="has-text-weight-light">
+              &copy; {{ $year }} {{ . }}
+            </p>
             {{ end }}
           </div>
         </div>

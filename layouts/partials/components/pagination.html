@@ -1,9 +1,9 @@
-{{ if or .NextInSection .PrevInSection }}
+{{ if or .Next .Prev }}
 <section class="section">
   <div class="container">
     <div class="pagination is-narrow-desktop">
       <!-- Actually previous (bug in Hugo) -->
-      {{ with .NextInSection }}
+      {{ with .Next }}
       <a class="button is-primary" href="{{ .RelPermalink }}">
         <span class="icon">
           <ion-icon name="arrow-back"></ion-icon>
@@ -15,7 +15,7 @@
       {{ end }}
     
       <!-- Actually next (bug in Hugo) -->
-      {{ with .PrevInSection }}
+      {{ with .Prev }}
       <a class="button is-primary" href="{{ .RelPermalink }}">
         <span>
           {{ .Title }}
