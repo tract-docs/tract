@@ -3,9 +3,11 @@
 {{ $scale2 := add $scale1 1 }}
 {{ $titleC := .title_color | default "black" }}
 {{ $descC  := .desc_color | default "black" }}
+{{ $draft  := .draft }}
+{{ $new    := .new }}
 
 <p class="title is-size-{{ $scale }} is-size-{{ $scale1 }}-mobile has-text-{{ $titleC }} has-text-weight-light{{ if .description }} is-spaced{{ end }}">
-  {{ .title | markdownify }}
+  {{ .title | markdownify }}{{ if $draft }}{{ partial "components/tag.html" (dict "color" "warning" "text" "Draft") }}{{ end }}{{ if $new }}{{ partial "components/tag.html" (dict "color" "success" "text" "New") }}{{ end }}
 </p>
 
 {{ with .description }}

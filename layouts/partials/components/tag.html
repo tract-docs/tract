@@ -1,0 +1,6 @@
+{{ $color := .color | default "link" }}
+{{ $size  := .size  | default "normal" }}
+{{ $text  := .text }}
+<sup>
+  <span class="tag is-{{ $color }} is-{{ $size }}">{{ .text }}</span>
+</sup>

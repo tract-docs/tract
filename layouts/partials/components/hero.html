@@ -17,7 +17,7 @@
 
   <div class="hero-body">
     <div class="container">
-      {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale "title_color" .title_color "desc_color" .desc_color) }}
+      {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" $scale "title_color" .title_color "desc_color" .desc_color "draft" .draft "new" .new) }}
 
       {{ with $btns }}
       <div class="buttons hero-buttons are-left">
