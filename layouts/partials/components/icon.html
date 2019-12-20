@@ -1,0 +1,2 @@
+{{ $src := printf "img/icons/%s.svg" .icon | relURL }}
+<ion-icon{{ with .size }} size="{{ . }}"{{ end }} src="{{ $src }}"></ion-icon>

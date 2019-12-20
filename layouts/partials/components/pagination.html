@@ -6,7 +6,7 @@
       {{ with .Next }}
       <a class="button is-primary" href="{{ .RelPermalink }}">
         <span class="icon">
-          <ion-icon name="arrow-back"></ion-icon>
+          {{ partial "components/icon.html" (dict "icon" "arrow-back") }}
         </span>
         <span>
           <strong>Previous</strong>&nbsp;|&nbsp;{{ .Title }}
@@ -21,7 +21,7 @@
           <strong>Next</strong>&nbsp;|&nbsp;{{ .Title }}
         </span>
         <span class="icon">
-          <ion-icon name="arrow-forward"></ion-icon>
+          {{ partial "components/icon.html" (dict "icon" "arrow-forward") }}
         </span>
       </a>
       {{ end }}

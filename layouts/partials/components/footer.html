@@ -11,7 +11,7 @@
             {{ partial "components/title.html" (dict "title" $title "description" $desc "scale" 3 "title_color" "white-bis" "desc_color" "light") }}
 
             {{ with $social }}
-            {{ partial "components/social-buttons.html" (dict "buttons" . "size" "small" "hero" true) }}
+            {{ partial "components/social-buttons.html" (dict "buttons" . "size" "small" "hero" true "inverted" true) }}
             {{ end }}
 
             {{ with site.Copyright }}

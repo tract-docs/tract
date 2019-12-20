@@ -7,7 +7,7 @@
   </span>
   {{ if $isExternal }}
   <span class="icon has-text-primary">
-    <ion-icon name="open"></ion-icon>
+    {{ partial "components/icon.html" (dict "icon" "open") }}
   </span>
   {{ end }}
 </a>
@@ -22,7 +22,7 @@
       {{ .Name }}
     </span>
     <span class="icon has-text-primary">
-      <ion-icon size="medium" name="arrow-dropdown"></ion-icon>
+      {{ partial "components/icon.html" (dict "icon" "arrow-dropdown") }}
     </span>
   </a>
 
