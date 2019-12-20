@@ -1,11 +1,7 @@
 $border: 2px solid $primary
   
 .nav
-  padding: 0 1rem
-  border-right: $border
-
-  +desktop
-    margin-left: -5rem
+  margin-left: -5rem
 
   a
     color: $nav-link-color
@@ -19,6 +15,9 @@ $border: 2px solid $primary
 
       &:hover
         color: $nav-link-hover-color
+
+  &-container
+    margin-top: 1.25rem
 
   &-section
     & + &

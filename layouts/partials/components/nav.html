@@ -25,40 +25,43 @@
 
 {{ with .FirstSection }}
 <nav class="nav is-sticky">
-  <nav class="level is-size-5">
-    <div class="level-left">
-      <div class="level-item">
-        <span class="icon has-text-primary">
-          {{ partial "components/icon.html" (dict "icon" "apps") }}
-        </span>
+  <header class="nav-header">
+    <nav class="level is-size-5">
+      <div class="level-left">
+        <div class="level-item">
+          <p class="nav-header-title has-text-weight-bold">
+            Docs
+          </p>
+        </div>
+        <div class="level-item">
+          <span class="icon has-text-primary">
+            {{ partial "components/icon.html" (dict "icon" "apps") }}
+          </span>
+        </div>
       </div>
+    </nav>
+  </header>
 
-      <div class="level-item">
-        <p class="has-text-weight-bold">
-          Docs
-        </p>
-      </div>
+  <div class="nav-container is-scrollable">
+    <div class="nav-section">
+      {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
+
+      {{ with .RegularPages }}
+      {{ template "links" (dict "links" . "here" $here) }}
+      {{ end }}
     </div>
-  </nav>
 
-  <div class="nav-section">
-    {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
+    {{ with .Sections }}
+    {{ range . }}
+    <div class="nav-section">
+      {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
-    {{ with .RegularPages }}
-    {{ template "links" (dict "links" . "here" $here) }}
+      {{ with .RegularPages }}
+      {{ template "links" (dict "links" . "here" $here) }}
+      {{ end }}
+    </div>
+    {{ end }}
     {{ end }}
   </div>
-
-  {{ with .Sections }}
-  {{ range . }}
-  <div class="nav-section">
-    {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
-
-    {{ with .RegularPages }}
-    {{ template "links" (dict "links" . "here" $here) }}
-    {{ end }}
-  </div>
-  {{ end }}
-  {{ end }}
 </nav>
 {{ end }}
