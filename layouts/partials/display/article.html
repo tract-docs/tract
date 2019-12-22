@@ -1,34 +1,26 @@
 {{ $hasToc := gt (len .TableOfContents) 32 }}
 
 <div class="page">
-  <main class="main">
-    {{ partial "components/navbar.html" (dict "fixed" true "shadow" true) }}
+  {{ partial "components/navbar.html" (dict "wide" true "fixed" true "shadow" true) }}
+  <div class="dashboard">
+    <div class="dashboard-sidebar has-border-right is-hidden-touch">
+      {{ partial "components/nav.html" . }}
+    </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="columns is-variable is-8">
-          <div class="column is-2 is-hidden-mobile">
-            {{ partial "components/nav.html" . }}
-          </div>
+    <div class="dashboard-main">
+      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark" "draft" .Draft "new" .Params.new) }}
+      {{ partial "components/content.html" .Content }}
+      {{ partial "components/pagination.html" . }}
+      {{ partial "components/git-info.html" . }}  
+    </div>
 
-          <div class="column is-8">
-            <article class="article">
-              {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark" "draft" .Draft "new" .Params.new) }}
-              {{ partial "components/content.html" .Content }}
-              {{ partial "components/pagination.html" . }}
-              {{ partial "components/git-info.html" . }}
-            </article>
-          </div>
-
-          <div class="column is-2 is-hidden-mobile">
-            {{ if $hasToc }}
-            {{ partial "components/toc.html" . }}
-            {{ end }}
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <div class="dashboard-toc has-border-left is-hidden-touch">
+      {{ if $hasToc }}
+      {{ partial "components/toc.html" . }}
+      {{ end }}
+    </div>
+  </div>
 
   {{ partial "components/footer.html" . }}
 </div>
+

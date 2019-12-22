@@ -1,0 +1,27 @@
+$sidebar-width: 20rem
+$panel-padding: 1.75rem
+
+=panel
+  +desktop
+    +flex-size(18%)
+  +tablet-only
+    +flex-size(18%)
+
+.dashboard
+  +row
+
+  &-sidebar
+    padding: $panel-padding
+    +panel
+
+  &-main
+    overflow: auto
+    flex: 1
+    padding-top: $panel-padding
+
+    +desktop
+      padding-left: 2rem
+
+  &-toc
+    padding: $panel-padding
+    +panel
