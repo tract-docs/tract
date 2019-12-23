@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{ $plural := .Data.Plural }}
+{{ $tax    := index site.Taxonomies $plural }}
+
+{{ partial "components/navbar.html" (dict "title" site.Title "shadow" true) }}
+
+<section class="hero is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        Currently available <span class="has-text-primary">{{ $plural }}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      {{ range $key, $value := .Data.Terms }}
+      {{ $url   := printf "%s/%s" $plural $key | relLangURL }}
+      {{ $pages := $value.Pages }}
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <p class="title">
+              <a href="{{ $url }}">
+                {{ $key }}
+              </a>
+            </p>
+
+            {{ with $pages }}
+            <ul>
+              {{ range . }}
+              <li>
+                <a href="{{ .RelPermalink }}">
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ $singular := .Data.Singular }}
+{{ $term     := .Data.Term }}
+
+<div class="page">
+  <main class="main">
+    {{ partial "components/navbar.html" (dict "title" site.Title "shadow" true) }}
+
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <div class="container">
+          <p class="title">
+            Pages with the {{ $singular }} <span class="has-text-primary">{{ $term }}</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          {{ range .Pages }}
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-content">
+                <a class="is-size-5" href="{{ .RelPermalink }}">
+                  {{ .Title }}
+                </a>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{ partial "components/footer.html" . }}
+</div>
+{{ end }}

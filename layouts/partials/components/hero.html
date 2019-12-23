@@ -6,6 +6,7 @@
 {{ $btns  := .buttons }}
 {{ $bold  := .bold | default false }}
 {{ $bread := .breadcrumb }}
+{{ $tags  := .tags }}
 <section class="hero is-{{ $color }} is-{{ $size }}{{ if $bold }} is-bold{{ end }}">
   {{ with $bread }}
   <div class="hero-head" style="padding-left: 1.5rem;">
@@ -23,6 +24,18 @@
       <div class="buttons hero-buttons are-left">
         {{ range . }}
         {{ partial "components/button.html" . }}
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with $tags }}
+      <div class="tags">
+        {{ range . }}
+        {{ $tag := printf "#%s" . }}
+        {{ $url := printf "/tags/%s" . | relLangURL }}
+        <a class="button is-primary is-small" href="{{ $url }}">
+          {{ $tag }}
+        </a>
         {{ end }}
       </div>
       {{ end }}

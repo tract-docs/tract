@@ -8,7 +8,7 @@
     </div>
 
     <div class="dashboard-main">
-      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark" "draft" .Draft "new" .Params.new) }}
+      {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "normal" "breadcrumb" . "scale" 2 "title_color" "dark" "desc_color" "grey-dark" "draft" .Draft "new" .Params.new "tags" .Params.tags) }}
       {{ partial "components/content.html" .Content }}
       {{ partial "components/pagination.html" . }}
       {{ partial "components/git-info.html" . }}  
