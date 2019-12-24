@@ -8,7 +8,7 @@
 <a class="button is-{{ $size }} is-{{ $color }}{{ if not $radius }} is-radiusless{{ end }}{{ if .inverted }} is-inverted{{ end }}{{ if .outlined }} is-outlined{{ end }}" href="{{ $url }}"{{ if $isExternal }} target="_blank"{{ end }}>
   {{ with .icon }}
   <span class="icon">
-    <ion-icon size="{{ $size }}" name="{{ . }}"></ion-icon>
+    {{ partial "components/icon.html" (dict "icon" .) }}
   </span>
   {{ end }}
   {{ with .text }}
@@ -21,7 +21,7 @@
 <span class="button is-{{ $size }} is-{{ $color }}{{ if not $radius }} is-radiusless{{ end }}{{ if .inverted }} is-inverted{{ end }}{{ if .outlined }} is-outlined{{ end }}">
   {{ with .icon }}
   <span class="icon">
-    <ion-icon name="{{ . }}"></ion-icon>
+    {{ partial "components/icon.html" (dict "icon" .) }}
   </span>
   {{ end }}
 </span>
