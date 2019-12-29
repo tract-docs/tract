@@ -1,7 +1,7 @@
 {{ if or .Next .Prev }}
 <section class="section">
   <div class="container">
-    <div class="pagination is-narrow-desktop">
+    <div class="pagination has-restricted-width">
       <!-- Actually previous (bug in Hugo) -->
       {{ with .Next }}
       <a class="button is-primary" href="{{ .RelPermalink }}">
