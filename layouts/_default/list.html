@@ -1,0 +1,18 @@
+{{ define "title" }}
+{{ site.Title }} | {{ .CurrentSection.Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ $display := .FirstSection.Params.display | default "article" }}
+{{ if not $display }}
+<main class="main">
+  {{ partial "components/navbar.html" (dict "color" "white") }}
+  {{ partial "components/hero.html" (dict "title" .Title "description" .Params.description "size" "medium") }}
+  {{ partial "components/content.html" .Content }}
+</main>
+{{ else if eq $display "article" }}
+{{ partial "display/article.html" . }}
+{{ else }}
+{{ errorf "section display type '%s' not recognized" $display }}
+{{ end }}
+{{ end }}
