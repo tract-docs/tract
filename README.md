@@ -1,4 +1,3 @@
 # Tract
 
-Tract is currently in a pre-alpha state, though you can follow along with its progress at https://tract-docs.dev. I'll flesh out this README as the release approaches.
-
+Tract is a [Hugo](https://gohugo.io) theme for technical documentation, currently at version **0.1.0-alpha**. You can read the docs for it at https://tract-docs.dev.
