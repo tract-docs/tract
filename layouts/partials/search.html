@@ -1,4 +1,4 @@
-{{ $isI18n   := gt (len site.Languages) 0 }}
+{{ $isI18n   := gt (len site.Languages) 1 }}
 {{ $indexUrl := cond $isI18n (printf "%s/index.json" .Lang) "index.json" | relURL }}
 {{ $result   := T "result" }}
 {{ $results  := T "results" }}
