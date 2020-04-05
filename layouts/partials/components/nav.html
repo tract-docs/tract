@@ -46,7 +46,7 @@
     <div class="nav-section">
       {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
-      {{ with .RegularPages }}
+      {{ with .RegularPages.ByParam "weight" }}
       {{ template "links" (dict "links" . "here" $here) }}
       {{ end }}
     </div>
@@ -56,7 +56,7 @@
     <div class="nav-section">
       {{ template "header" (dict "title" .Title "url" .RelPermalink "here" $here) }}
 
-      {{ with .RegularPages }}
+      {{ with .RegularPages.ByParam "weight" }}
       {{ template "links" (dict "links" . "here" $here) }}
       {{ end }}
     </div>
