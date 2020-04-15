@@ -41,3 +41,11 @@
   anchors.add('.content h1, .content h2, .content h3, .content h4, .content h5, .content h6')
 </script>
 {{ end }}
+
+{{ if .Params.asciinema }}
+<script src="{{ .Site.BaseURL }}js/asciinema-player.js"></script>
+{{ end }}
+
+{{ if site.Params.githubButton }}
+<script async defer src="//buttons.github.io/buttons.js"></script>
+{{ end }}
