@@ -1,31 +1,12 @@
-{{- $theme := default "" (.Get "theme")  -}}
-{{- $type := default "star" (.Get "type") -}}
+{{- $theme := .Get "theme" | default "" -}}
+{{- type := .Get "type" | default "star" -}}
 {{- $defaultCount := "true" -}}
-{{- $extraPath := "" -}}
-
-{{- if (eq $type "fork") -}}
-  {{- $extraPath = "/fork" -}}
-{{- else if (eq $type "issues") -}}
-  {{- $extraPath = "/issues" -}}
-{{- end -}}
-
-{{- if (eq $theme "dark") -}}
-  {{- $theme = "no-preference: dark; light: dark; dark: dark;\"" -}}
-{{- else if (eq $theme "light") -}}
-  {{- $theme = "no-preference: light; light: light; dark: light;" -}}
-{{- end -}}
-
-{{- $showCount := default  $defaultCount  (.Get "count") -}}
-{{- $btnSize := default  "large" (.Get "size") -}}
+{{- $extraPath := cond (eq $type "fort") "/fork" "/issues" -}}
+{{- $theme := cond (eq $theme "dark") "no-preference: dark; light: dark; dark: dark;" "no-preference: light; light: light; dark: light;" -}}
+{{- $showCount := .Get "count" | default $defaultCount -}}
+{{- $btnSize := .Get "size" default  "large" -}}
 {{- $repo := .Get "repo" -}}
-{{- $btnLabel := default $type (.Get "label") -}}
-<a
-        class="github-button"
-        href="https://github.com/{{ $repo }}{{ $extraPath }}"
-        data-size="{{ $btnSize }}"
-        {{- if $theme }}
-          data-color-scheme="{{ $theme }}"
-        {{- end }}
-        data-show-count="{{ $showCount }}"
-        aria-label="{{ $type | title }} {{ $repo }} on GitHub"
->{{ $btnLabel | title }}</a>
+{{- $btnLabel := .Get "label" | default $type  -}}
+{{- $url := printf "https://github.com/%s/%s" $repo $extraPath -}}
+{{- $label := printf "%s %s on GitHub" ($type | title) $repo -}}
+<a class="github-button" href="{{ $url }}" data-size="{{ $btnSize }}"{{ if $theme }} data-color-scheme="{{ $theme }}"{{ end }} data-show-count="{{ $showCount }}" aria-label="{{ $label }}">{{ $btnLabel | title }}</a>
