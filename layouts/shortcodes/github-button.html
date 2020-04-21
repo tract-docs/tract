@@ -1,5 +1,5 @@
 {{- $theme := .Get "theme" | default "" -}}
-{{- type := .Get "type" | default "star" -}}
+{{- $type := .Get "type" | default "star" -}}
 {{- $defaultCount := "true" -}}
 {{- $extraPath := cond (eq $type "fort") "/fork" "/issues" -}}
 {{- $theme := cond (eq $theme "dark") "no-preference: dark; light: dark; dark: dark;" "no-preference: light; light: light; dark: light;" -}}
