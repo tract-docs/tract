@@ -2,8 +2,8 @@
 {{ $color    := .color | default "white" }}
 
 {{ if .url }}
-{{ $url := .url | relLangURL }}
 {{ $isExternal := hasPrefix .url "http" }}
+{{ $url := cond $isExternal .url (.url | relLangURL) }}
 {{ $radius := .radius | default true }}
 <a class="button is-{{ $size }} is-{{ $color }}{{ if not $radius }} is-radiusless{{ end }}{{ if .inverted }} is-inverted{{ end }}{{ if .outlined }} is-outlined{{ end }}" href="{{ $url }}"{{ if $isExternal }} target="_blank"{{ end }}>
   {{ with .icon }}
