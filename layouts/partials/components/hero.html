@@ -32,7 +32,7 @@
       <div class="tags">
         {{ range . }}
         {{ $tag := printf "#%s" . }}
-        {{ $url := printf "/tags/%s" . | relLangURL }}
+        {{ $url := printf "/tags/%s" . | urlize | relLangURL }}
         <a class="tag is-primary is-small" href="{{ $url }}">
           {{ $tag }}
         </a>
