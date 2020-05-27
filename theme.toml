@@ -5,7 +5,7 @@ description = "A Hugo theme for ambitious open source projects"
 homepage = "https://tract-docs.dev"
 tags = ["docs"]
 features = []
-min_version = 0.60
+min_version = "0.60"
 
 [author]
 name = "Luc Perkins"
