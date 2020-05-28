@@ -1,5 +1,6 @@
 title = "My Docs Project"
 theme = "tract"
+baseURL = "https://example.com"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 
@@ -50,3 +51,4 @@ title = "Tract"
 
 [languages.en.params]
 description = "A Hugo theme for ambitious documentation projects"
+
