@@ -32,6 +32,8 @@
             packages = with pkgs; [
               htmltest
               hugo
+              nodejs-slim
+              nodePackages_latest.pnpm
               (script "build" [ hugo ] "hugo --minify")
               (script "dev" [ hugo ] "hugo server -p 3000 --disableFastRender")
             ];

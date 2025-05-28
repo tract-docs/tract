@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      bulma:
+        specifier: ^0.8.0
+        version: 0.8.2
+
+packages:
+
+  bulma@0.8.2:
+    resolution: {integrity: sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA==}
+
+snapshots:
+
+  bulma@0.8.2: {}
